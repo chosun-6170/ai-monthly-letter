@@ -507,16 +507,6 @@
       padding: 24px;
     }
 
-    .footer-card h3 {
-      margin: 0;
-      letter-spacing: -0.03em;
-    }
-
-    .footer-card p {
-      margin: 8px 0 0;
-      color: var(--muted);
-    }
-
     .small {
       color: var(--muted);
       font-size: 13px;
@@ -628,7 +618,553 @@
         margin-bottom: 4px;
       }
     }
-  </style>
+  
+
+    /* ===== 하단 상세 콘텐츠 테마: ai_monthly_letter(3).html 기반 ===== */
+    html {
+      scroll-padding-top: 82px;
+    }
+
+    section[id] {
+      scroll-margin-top: 82px;
+    }
+
+    .detail-section {
+      padding: 52px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .detail-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      padding: 34px;
+      box-shadow: 0 14px 34px rgba(16, 24, 40, 0.06);
+      overflow: hidden;
+    }
+
+    :root[data-theme="dark"] .detail-card {
+      box-shadow: var(--shadow);
+    }
+
+    .detail-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 8px;
+      font-size: clamp(26px, 4vw, 42px);
+      line-height: 1.2;
+      letter-spacing: -0.05em;
+    }
+
+    .detail-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: var(--primary);
+      color: #ffffff;
+      font-weight: 1000;
+      font-size: 18px;
+      flex: 0 0 auto;
+    }
+
+    .detail-lead {
+      color: var(--muted);
+      font-size: 17px;
+      margin: 0 0 20px;
+    }
+
+    .badges {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 18px 0;
+    }
+
+    .level-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: #eef4ff;
+      color: #1d4ed8;
+      font-weight: 800;
+      font-size: 13px;
+      border: 1px solid transparent;
+    }
+
+    .level-badge.green {
+      background: #ecfdf3;
+      color: #027a48;
+    }
+
+    .level-badge.orange {
+      background: #fff4e5;
+      color: #b54708;
+    }
+
+    :root[data-theme="dark"] .level-badge {
+      background: rgba(96, 165, 250, 0.14);
+      color: var(--primary-2);
+      border-color: rgba(147, 197, 253, 0.16);
+    }
+
+    :root[data-theme="dark"] .level-badge.green {
+      background: rgba(16, 185, 129, 0.12);
+      color: #86efac;
+      border-color: rgba(134, 239, 172, 0.14);
+    }
+
+    :root[data-theme="dark"] .level-badge.orange {
+      background: rgba(245, 158, 11, 0.12);
+      color: #fbbf24;
+      border-color: rgba(251, 191, 36, 0.16);
+    }
+
+    .detail-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .info-box,
+    .skill-card,
+    .model-card-compact,
+    .caution-box,
+    .example-box,
+    .model-guide {
+      background: var(--surface-2);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 22px;
+    }
+
+    .info-box h3,
+    .skill-card h3,
+    .model-card-compact h3,
+    .caution-box h3,
+    .example-box h3,
+    .model-guide h3 {
+      margin: 0 0 10px;
+      letter-spacing: -0.03em;
+    }
+
+    .info-box ul,
+    .info-box ol,
+    .caution-box ul,
+    .model-guide ul {
+      margin: 0;
+      padding-left: 21px;
+    }
+
+    .info-box li,
+    .caution-box li,
+    .model-guide li {
+      margin: 6px 0;
+    }
+
+    .letter-prompt {
+      position: relative;
+      margin-top: 14px;
+      background: #111827;
+      color: #e5e7eb;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .letter-prompt-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      background: #1f2937;
+      color: #cbd5e1;
+      font-weight: 700;
+    }
+
+    .letter-prompt-actions {
+      display: inline-flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .letter-copy,
+    .collapse-toggle {
+      border: 0;
+      border-radius: 999px;
+      color: #ffffff;
+      padding: 8px 12px;
+      cursor: pointer;
+      font-weight: 900;
+      min-height: 38px;
+    }
+
+    .letter-copy {
+      background: #3b82f6;
+    }
+
+    .letter-copy:hover {
+      background: #2563eb;
+    }
+
+    .collapse-toggle {
+      background: #374151;
+    }
+
+    .collapse-toggle:hover {
+      background: #4b5563;
+    }
+
+    .letter-prompt pre {
+      white-space: pre-wrap;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+      margin: 0;
+      padding: 18px;
+      padding-right: 18px;
+      font-family: "SFMono-Regular", Consolas, 'D2Coding', monospace;
+      font-size: 14px;
+      line-height: 1.7;
+      color: #e5e7eb;
+    }
+
+    .letter-prompt.collapsed pre {
+      max-height: 92px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .letter-prompt.collapsed pre::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 44px;
+      background: linear-gradient(transparent, #111827);
+    }
+
+    .example-box {
+      margin-top: 18px;
+      background: #f0f9ff;
+      border-color: #bae6fd;
+    }
+
+    .example-box h3 {
+      color: #075985;
+    }
+
+    :root[data-theme="dark"] .example-box {
+      background: rgba(14, 165, 233, 0.1);
+      border-color: rgba(125, 211, 252, 0.18);
+    }
+
+    :root[data-theme="dark"] .example-box h3 {
+      color: #7dd3fc;
+    }
+
+    .skill-grid,
+    .model-grid-compact {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .skill-card,
+    .model-card-compact {
+      background: var(--surface);
+    }
+
+    .skill-num {
+      font-weight: 900;
+      color: var(--primary);
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    .caution-box {
+      margin-top: 22px;
+      background: #fff7ed;
+      border-color: #fed7aa;
+      color: #7c2d12;
+    }
+
+    .caution-box h3 {
+      color: #9a3412;
+    }
+
+    :root[data-theme="dark"] .caution-box {
+      background: rgba(245, 158, 11, 0.10);
+      border-color: rgba(251, 191, 36, 0.18);
+      color: #fed7aa;
+    }
+
+    :root[data-theme="dark"] .caution-box h3 {
+      color: #fbbf24;
+    }
+
+    .model-card-compact .new {
+      display: inline-block;
+      background: #fef3c7;
+      color: #b45309;
+      border-radius: 999px;
+      padding: 5px 9px;
+      font-weight: 900;
+      font-size: 12px;
+      margin-bottom: 9px;
+    }
+
+    :root[data-theme="dark"] .model-card-compact .new {
+      background: rgba(251, 191, 36, 0.13);
+      color: #fcd34d;
+    }
+
+    .model-table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 18px;
+      background: var(--surface);
+      margin-top: 20px;
+      box-shadow: none;
+    }
+
+    .model-table th,
+    .model-table td {
+      border: 1px solid var(--line);
+      padding: 13px;
+      text-align: left;
+      vertical-align: top;
+      font-size: 14px;
+    }
+
+    .model-table th {
+      background: var(--surface-2);
+      color: var(--text);
+    }
+
+    .model-guide {
+      margin-top: 22px;
+    }
+
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .next-row {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 24px;
+    }
+
+    .next-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      background: #111827;
+      color: #ffffff;
+      border-radius: 999px;
+      padding: 12px 18px;
+      font-weight: 900;
+      box-shadow: 0 12px 24px rgba(16, 24, 40, 0.15);
+      min-height: 44px;
+      transition: 0.18s ease;
+    }
+
+    .next-btn:hover {
+      background: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .level-footer {
+      padding: 46px 0 58px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .level-footer p {
+      margin: 0;
+    }
+
+    .feedback {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .feedback a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 11px 16px;
+      font-weight: 900;
+      min-height: 44px;
+    }
+
+    .feedback .primary {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .feedback .secondary {
+      background: var(--surface-2);
+      color: var(--primary-2);
+      border: 1px solid var(--line);
+    }
+
+    .top-btn {
+      position: fixed;
+      right: calc(18px + env(safe-area-inset-right));
+      bottom: calc(20px + env(safe-area-inset-bottom));
+      width: 46px;
+      height: 46px;
+      border-radius: 999px;
+      background: var(--primary);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-weight: 1000;
+      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.35);
+      z-index: 49;
+    }
+
+    .top-btn:hover {
+      background: var(--primary-2);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 1080px) {
+      .skill-grid,
+      .model-grid-compact {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 760px) {
+      html {
+        scroll-padding-top: 78px;
+      }
+
+      section[id] {
+        scroll-margin-top: 78px;
+      }
+
+      .detail-section {
+        padding: 34px 0;
+      }
+
+      .detail-card {
+        border-radius: 24px;
+        padding: 22px;
+      }
+
+      .detail-title {
+        align-items: flex-start;
+        font-size: 26px;
+      }
+
+      .detail-num {
+        min-width: 38px;
+        height: 38px;
+        border-radius: 12px;
+      }
+
+      .detail-lead {
+        font-size: 16px;
+      }
+
+      .detail-cols,
+      .skill-grid,
+      .model-grid-compact,
+      .quick-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .info-box,
+      .skill-card,
+      .model-card-compact,
+      .caution-box,
+      .example-box,
+      .model-guide {
+        padding: 18px;
+        border-radius: 18px;
+      }
+
+      .letter-prompt-head {
+        align-items: center;
+      }
+
+      .letter-copy,
+      .collapse-toggle {
+        padding: 8px 12px;
+        font-size: 13px;
+      }
+
+      .letter-prompt pre {
+        font-size: 13px;
+        line-height: 1.65;
+        padding: 16px;
+      }
+
+      .next-row {
+        justify-content: stretch;
+      }
+
+      .next-btn {
+        width: 100%;
+      }
+
+      .top-btn {
+        width: 50px;
+        height: 50px;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .detail-card {
+        padding: 18px;
+      }
+
+      .detail-title {
+        font-size: 24px;
+      }
+
+      .detail-num {
+        min-width: 34px;
+        height: 34px;
+        font-size: 16px;
+      }
+
+      .letter-prompt-head {
+        flex-wrap: wrap;
+      }
+
+      .letter-prompt-actions {
+        width: 100%;
+      }
+
+      .letter-copy,
+      .collapse-toggle {
+        flex: 1;
+      }
+    }
+</style>
 </head>
 
 <body>
@@ -658,17 +1194,17 @@
 
         <div class="thumb-grid">
           <a class="hero-thumb" href="#thumbnail">
-            <img src="assets/level-01.png" alt="LEVEL 1 썸네일 제작 대표 이미지" />
+            <img src="assets/thumb-01.png" alt="레벨 1 대표 이미지" />
             <div class="thumb-arrow">↘</div>
             <div class="thumb-content">
               <div class="thumb-label">LEVEL 1</div>
-              <h2>클릭 유발하는<br><span class="point">썸네일</span> 제작</h2>
+              <h2>클릭 유발하는<br><span class="point"> 썸네일</span> 제작</h2>
               <p>고퀄리티 이미지 생성 프롬프트</p>
             </div>
           </a>
 
           <a class="hero-thumb" href="#handwriting">
-            <img src="assets/level-02.png" alt="LEVEL 2 손필기 변환 대표 이미지" />
+            <img src="assets/thumb-02.png" alt="레벨 2 대표 이미지" />
             <div class="thumb-arrow">↘</div>
             <div class="thumb-content">
               <div class="thumb-label">LEVEL 2</div>
@@ -678,7 +1214,7 @@
           </a>
 
           <a class="hero-thumb" href="#llm-skill">
-            <img src="assets/level-03.png" alt="LEVEL 3 LLM 스킬 대표 이미지" />
+            <img src="assets/thumb-03.png" alt="레벨 3 대표 이미지" />
             <div class="thumb-arrow">↘</div>
             <div class="thumb-content">
               <div class="thumb-label">LEVEL 3</div>
@@ -688,10 +1224,10 @@
           </a>
 
           <a class="hero-thumb" href="#models">
-            <img src="assets/level-04.png" alt="LEVEL 4 신규 LLM 모델 대표 이미지" />
+            <img src="assets/thumb-04.png" alt="보너스 레벨 대표 이미지" />
             <div class="thumb-arrow">↘</div>
             <div class="thumb-content">
-              <div class="thumb-label">LEVEL 4</div>
+              <div class="thumb-label">BONUS LEVEL</div>
               <h2>이번 달<br><span class="point">신규 LLM 모델</span></h2>
               <p>업데이트 요약과 추천 용도</p>
             </div>
@@ -702,44 +1238,49 @@
       </div>
     </section>
 
-    <section class="section" id="thumbnail">
+
+    <section id="thumbnail" class="detail-section">
       <div class="container">
-        <div class="section-head">
-          <h2>LEVEL 1. 클릭 유발하는 썸네일 제작</h2>
-          <div class="section-desc">고퀄리티 이미지 생성 프롬프트로 홍보 이미지, 카드뉴스, 교육 안내 배너를 더 눈에 띄게 제작하는 방법입니다.</div>
-        </div>
+        <div class="detail-card">
+          <h2 class="detail-title"><span class="detail-num">1</span><span>LEVEL 1. 클릭 유발하는 썸네일 제작</span></h2>
+          <p class="detail-lead">홍보 이미지, 카드뉴스, 교육 안내 배너 제작 시 바로 복사해서 사용할 수 있는 이미지 생성 프롬프트입니다.</p>
 
-        <div class="grid-2">
-          <article class="card">
-            <div class="badge-row">
-              <span class="badge">LEVEL 1</span>
-              <span class="badge">이미지 생성</span>
-              <span class="badge">초급 활용</span>
-            </div>
+          <div class="badges">
+            <span class="level-badge">이미지 생성</span>
+            <span class="level-badge orange">난이도: 초급</span>
+            <span class="level-badge green">활용도 높음</span>
+          </div>
 
-            <div class="highlight">
-              <strong>이런 상황에 추천</strong>
-              <ul class="check-list">
+          <div class="detail-cols">
+            <div class="info-box">
+              <h3>이런 상황에 추천</h3>
+              <ul>
                 <li>홍보용 이미지가 밋밋해서 클릭률을 높이고 싶을 때</li>
                 <li>행사·특강·모집 안내를 한 장 이미지로 빠르게 만들어야 할 때</li>
                 <li>디자인 시간을 줄이면서도 시각적 임팩트를 확보하고 싶을 때</li>
               </ul>
             </div>
+            <div class="info-box">
+              <h3>클릭을 부르는 구성 원리</h3>
+              <ul>
+                <li>핵심 메시지는 1개만 잡고 크게 강조하기</li>
+                <li>대비가 큰 색상 조합으로 시선 집중 유도하기</li>
+                <li>텍스트는 후편집을 전제로 두고 이미지에는 여백 확보하기</li>
+                <li>대상에 따라 분위기를 명확히 지정하기</li>
+              </ul>
+            </div>
+          </div>
 
-            <h3 style="margin-top:18px;">클릭을 부르는 구성 원리</h3>
-            <ul class="plain-list">
-              <li>핵심 메시지는 1개만 잡고 크게 강조하기</li>
-              <li>대비가 큰 색상 조합으로 시선 집중 유도하기</li>
-              <li>텍스트는 후편집을 전제로 두고 이미지에는 여백 확보하기</li>
-              <li>대상에 따라 분위기를 명확히 지정하기</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <h3>이미지 생성 프롬프트</h3>
-            <div class="prompt-box" style="margin-top:14px;">
-              <button class="copy-btn" data-copy-target="prompt-thumb">복사</button>
-              <pre id="prompt-thumb">다음 조건에 맞는 홍보용 썸네일 이미지를 제작하기 위한 프롬프트를 작성해 주세요.
+          <h3 style="margin-top:24px;">바로 쓰는 프롬프트</h3>
+          <div class="letter-prompt collapsed">
+            <div class="letter-prompt-head">
+              <span>LEVEL 1 프롬프트</span>
+              <div class="letter-prompt-actions">
+                <button class="letter-copy" type="button">복사</button>
+                <button class="collapse-toggle" type="button">펼치기</button>
+              </div>
+            </div>
+            <pre>다음 조건에 맞는 홍보용 썸네일 이미지를 제작하기 위한 프롬프트를 작성해 주세요.
 
 [목적] 대학 내 프로그램/행사 홍보
 [대상] 학생 및 교원
@@ -754,45 +1295,50 @@
 1. 이미지 생성용 최종 프롬프트
 2. 짧은 버전 프롬프트
 3. 더 자극적으로 보이게 개선한 버전</pre>
-            </div>
-          </article>
+          </div>
+
+          <div class="example-box">
+            <h3>사용 예시</h3>
+            <p>“AI 특강 신청 안내”처럼 주제만 바꾸면, 배경·오브젝트·여백까지 갖춘 썸네일 생성 프롬프트로 바로 응용할 수 있습니다.</p>
+          </div>
+
+          <div class="next-row"><a class="next-btn" href="#handwriting">다음 코너 보기 →</a></div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="handwriting">
+    <section id="handwriting" class="detail-section">
       <div class="container">
-        <div class="section-head">
-          <h2>LEVEL 2. 손필기 → PPT/문서 변환</h2>
-          <div class="section-desc">메모를 구조화된 초안으로 전환해 회의 메모, 보드판 필기, 러프한 아이디어를 문서 또는 발표자료로 정리하는 방법입니다.</div>
-        </div>
+        <div class="detail-card">
+          <h2 class="detail-title"><span class="detail-num">2</span><span>LEVEL 2. 손필기 → PPT/문서 변환</span></h2>
+          <p class="detail-lead">회의 메모, 보드판 필기, 러프한 초안을 구조화해서 문서 또는 발표자료 초안으로 바꾸는 템플릿입니다.</p>
 
-        <div class="card">
-          <div class="tabs" role="tablist">
-            <button class="tab-btn active" data-tab="doc">문서용</button>
-            <button class="tab-btn" data-tab="ppt">PPT용</button>
-            <button class="tab-btn" data-tab="minutes">회의록용</button>
+          <div class="badges">
+            <span class="level-badge">문서용</span>
+            <span class="level-badge">PPT용</span>
+            <span class="level-badge">회의록용</span>
           </div>
 
-          <div class="tab-panel active" data-panel="doc">
-            <div class="grid-2">
-              <div>
-                <div class="highlight">
-                  <strong>활용 흐름</strong>
-                  <ol class="plain-list">
-                    <li>손필기 또는 보드판을 선명하게 촬영</li>
-                    <li>누락 없이 텍스트를 읽게 한 뒤</li>
-                    <li>문서 목적에 맞는 구조로 재정리 요청</li>
-                    <li>최종 초안 검토 후 제목·표현 보정</li>
-                  </ol>
-                </div>
-              </div>
+          <div class="info-box">
+            <h3>활용 흐름</h3>
+            <ol>
+              <li>손필기 또는 보드판을 선명하게 촬영</li>
+              <li>누락 없이 텍스트를 읽게 한 뒤</li>
+              <li>문서 목적에 맞는 구조로 재정리 요청</li>
+              <li>최종 초안 검토 후 제목·표현 보정</li>
+            </ol>
+          </div>
 
-              <div>
-                <h3>문서용 프롬프트</h3>
-                <div class="prompt-box" style="margin-top:14px;">
-                  <button class="copy-btn" data-copy-target="prompt-doc">복사</button>
-                  <pre id="prompt-doc">내가 업로드한 손필기/메모 이미지를 읽고, 내용을 누락 없이 정리해 주세요.
+          <h3 style="margin-top:24px;">문서용 프롬프트</h3>
+          <div class="letter-prompt collapsed">
+            <div class="letter-prompt-head">
+              <span>LEVEL 2 프롬프트</span>
+              <div class="letter-prompt-actions">
+                <button class="letter-copy" type="button">복사</button>
+                <button class="collapse-toggle" type="button">펼치기</button>
+              </div>
+            </div>
+            <pre>내가 업로드한 손필기/메모 이미지를 읽고, 내용을 누락 없이 정리해 주세요.
 
 조건:
 - 의미가 불명확한 부분은 임의로 확정하지 말고 [확인 필요]로 표시
@@ -807,280 +1353,234 @@
 5. 바로 문서에 붙여넣을 수 있는 정리본
 
 문장은 너무 장황하지 않게, 행정 실무자가 바로 수정 가능한 수준으로 작성해 주세요.</pre>
-                </div>
-              </div>
+          </div>
+
+          <div class="detail-cols" style="margin-top:22px;">
+            <div class="info-box">
+              <h3>PPT용 전환 포인트</h3>
+              <ul>
+                <li>문장보다 목차·키워드 중심으로 재구성</li>
+                <li>슬라이드 1장당 메시지 1개 원칙 적용</li>
+                <li>서론-핵심-결론 구조로 묶어 활용성 높이기</li>
+              </ul>
+            </div>
+            <div class="info-box">
+              <h3>회의록화 핵심</h3>
+              <ul>
+                <li>참고 메모를 의사결정, 논의사항, 후속조치로 분리</li>
+                <li>날짜·담당·기한 등 빠진 정보는 확인 필요 표시</li>
+                <li>실행 항목 중심으로 정리하면 바로 활용 가능</li>
+              </ul>
             </div>
           </div>
 
-          <div class="tab-panel" data-panel="ppt">
-            <div class="grid-2">
-              <div>
-                <div class="highlight">
-                  <strong>PPT용 전환 포인트</strong>
-                  <ul class="check-list">
-                    <li>문장보다 목차·키워드 중심으로 재구성</li>
-                    <li>슬라이드 1장당 메시지 1개 원칙 적용</li>
-                    <li>서론-핵심-결론 구조로 묶어 활용성 높이기</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div>
-                <h3>PPT용 프롬프트</h3>
-                <div class="prompt-box" style="margin-top:14px;">
-                  <button class="copy-btn" data-copy-target="prompt-ppt">복사</button>
-                  <pre id="prompt-ppt">내가 업로드한 손필기/메모 이미지를 읽고 PPT 초안용으로 재구성해 주세요.
-
-조건:
-- 누락 없이 핵심 내용을 정리
-- 의미가 불명확한 부분은 [확인 필요] 표시
-- 슬라이드 목차 구조로 변환
-- 각 슬라이드는 제목 + 핵심 bullet 3~5개 이내로 작성
-- 마지막에는 전체 발표 흐름 요약 추가
-
-출력 형식:
-1. 전체 발표 제목 제안 3개
-2. 슬라이드 목차
-3. 슬라이드별 핵심 bullet
-4. 발표 시 보완이 필요한 부분</pre>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tab-panel" data-panel="minutes">
-            <div class="grid-2">
-              <div>
-                <div class="highlight">
-                  <strong>회의록화 핵심</strong>
-                  <ul class="check-list">
-                    <li>참고 메모를 의사결정, 논의사항, 후속조치로 분리</li>
-                    <li>날짜·담당·기한 등 빠진 정보는 확인 필요 표시</li>
-                    <li>실행 항목 중심으로 정리하면 바로 활용 가능</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div>
-                <h3>회의록용 프롬프트</h3>
-                <div class="prompt-box" style="margin-top:14px;">
-                  <button class="copy-btn" data-copy-target="prompt-minutes">복사</button>
-                  <pre id="prompt-minutes">첨부한 손필기 메모를 읽고 회의록 형태로 정리해 주세요.
-
-조건:
-- 확실한 정보만 작성하고 불명확한 내용은 [확인 필요] 표시
-- 아래 구조로 출력
-
-1. 회의 주제
-2. 주요 논의사항
-3. 결정사항
-4. 후속 조치 항목(담당/기한 포함, 없으면 빈칸 표시)
-5. 원문 메모 기준 누락 가능 지점
-
-출력은 간결하고 실무적인 문장으로 작성해 주세요.</pre>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div class="next-row"><a class="next-btn" href="#llm-skill">다음 코너 보기 →</a></div>
         </div>
       </div>
     </section>
-    <section class="section" id="llm-skill">
+
+    <section id="llm-skill" class="detail-section">
       <div class="container">
-        <div class="section-head">
-          <h2>LEVEL 3. 답변 품질 UP LLM 스킬</h2>
-          <div class="section-desc">근거·형식·품질 제어 프롬프트를 활용해 더 정확하고 안정적인 답변을 얻는 방법입니다.</div>
-        </div>
+        <div class="detail-card">
+          <h2 class="detail-title"><span class="detail-num">3</span><span>LEVEL 3. 답변 품질 UP LLM 스킬</span></h2>
+          <p class="detail-lead">환각을 줄이고, 답변 범위를 제한하고, 출력 형식을 고정하는 것만으로 결과 품질과 비용 효율이 함께 좋아집니다.</p>
 
-        <div class="grid-3">
-          <article class="card">
-            <div class="badge-row">
-              <span class="badge">LEVEL 3</span>
-              <span class="badge">Skill 01</span>
+          <div class="skill-grid">
+            <div class="skill-card">
+              <div class="skill-num">Skill 01</div>
+              <h3>환각 줄이기</h3>
+              <p>모르면 모른다고 답하게 하고, 불확실한 내용은 분리 표시하게 만드는 방식입니다.</p>
             </div>
-            <h3>환각 줄이기</h3>
-            <p>모르면 모른다고 답하게 하고, 불확실한 내용은 분리 표시하게 만드는 방식입니다.</p>
-            <div class="prompt-box" style="margin-top:14px;">
-              <button class="copy-btn" data-copy-target="prompt-hallucination">복사</button>
-              <pre id="prompt-hallucination">확실한 정보만 답변하고, 불확실한 내용은 추정하지 마세요.
+            <div class="skill-card">
+              <div class="skill-num">Skill 02</div>
+              <h3>근거 범위 설정</h3>
+              <p>엉뚱한 일반론을 줄이려면 자료 범위와 출처 범위를 먼저 고정해야 합니다.</p>
+            </div>
+            <div class="skill-card">
+              <div class="skill-num">Skill 03</div>
+              <h3>답변 형식 고정</h3>
+              <p>불필요한 장문을 줄이고, 필요한 결과만 빠르게 받아보는 데 효과적입니다.</p>
+            </div>
+          </div>
+
+          <div class="letter-prompt collapsed">
+            <div class="letter-prompt-head">
+              <span>LEVEL 3 품질 제어 프롬프트</span>
+              <div class="letter-prompt-actions">
+                <button class="letter-copy" type="button">복사</button>
+                <button class="collapse-toggle" type="button">펼치기</button>
+              </div>
+            </div>
+            <pre>확실한 정보만 답변하고, 불확실한 내용은 추정하지 마세요.
 근거가 부족한 경우에는 [확인 필요]라고 표시하세요.
-답변은 사실 / 추정 / 추가 확인 필요 항목으로 구분해 주세요.</pre>
-            </div>
-          </article>
+답변은 사실 / 추정 / 추가 확인 필요 항목으로 구분해 주세요.
 
-          <article class="card">
-            <div class="badge-row">
-              <span class="badge">LEVEL 3</span>
-              <span class="badge">Skill 02</span>
-            </div>
-            <h3>근거 범위 설정</h3>
-            <p>엉뚱한 일반론을 줄이려면 자료 범위와 출처 범위를 먼저 고정해야 합니다.</p>
-            <div class="prompt-box" style="margin-top:14px;">
-              <button class="copy-btn" data-copy-target="prompt-scope">복사</button>
-              <pre id="prompt-scope">답변 범위는 내가 제공한 자료와 공식 기준으로 한정해 주세요.
+답변 범위는 내가 제공한 자료와 공식 기준으로 한정해 주세요.
 범위를 벗어나는 일반론은 최소화해 주세요.
-필요하면 어떤 자료가 더 있어야 정확도가 올라가는지도 함께 알려주세요.</pre>
-            </div>
-          </article>
+필요하면 어떤 자료가 더 있어야 정확도가 올라가는지도 함께 알려주세요.
 
-          <article class="card">
-            <div class="badge-row">
-              <span class="badge">LEVEL 3</span>
-              <span class="badge">Skill 03</span>
-            </div>
-            <h3>답변 형식 고정</h3>
-            <p>불필요한 장문을 줄이고, 필요한 결과만 빠르게 받아보는 데 효과적입니다.</p>
-            <div class="prompt-box" style="margin-top:14px;">
-              <button class="copy-btn" data-copy-target="prompt-format">복사</button>
-              <pre id="prompt-format">답변은 아래 형식으로만 작성해 주세요.
+답변은 아래 형식으로만 작성해 주세요.
 1. 핵심 결론 3줄
 2. 실행 항목 5개
-3. 주의사항 2개
-불필요한 설명은 제외해 주세요.</pre>
-            </div>
-          </article>
+3. 주의사항 2개</pre>
+          </div>
+
+          <div class="caution-box">
+            <h3>AI 활용 주의사항</h3>
+            <ul>
+              <li>개인정보, 학번, 연락처, 성적 등 민감정보는 입력하지 마세요.</li>
+              <li>정책·규정·예산·계약 관련 답변은 반드시 원문 자료와 대조하세요.</li>
+              <li>AI가 만든 문구와 이미지는 저작권·초상권·상표권 이슈를 검토한 뒤 활용하세요.</li>
+            </ul>
+          </div>
+
+          <div class="next-row"><a class="next-btn" href="#models">다음 코너 보기 →</a></div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="models">
+    <section id="models" class="detail-section">
       <div class="container">
-        <div class="section-head">
-          <h2>LEVEL 4. 이번 달 신규 LLM 모델</h2>
-          <div class="section-desc">업데이트 요약과 추천 용도를 확인하고, 작업 성격에 맞는 모델을 선택하는 방법입니다.</div>
+        <div class="detail-card">
+          <h2 class="detail-title"><span class="detail-num">4</span><span>BONUS LEVEL. 이번 달 신규 LLM 모델</span></h2>
+          <p class="detail-lead">실제 운영 시 해당 월의 플랫폼 업데이트 내역으로 교체하면 됩니다. 모델별 특징과 추천 용도를 함께 안내합니다.</p>
+
+          <div class="model-grid-compact">
+            <div class="model-card-compact">
+              <span class="new">NEW 빠른 응답형</span>
+              <h3>Model A</h3>
+              <p>짧고 빠른 응답에 강하며, 일상적인 질의응답과 초안 생성에 적합한 경량 모델입니다.</p>
+              <p><strong>추천 용도</strong>: 간단한 요약, 초안 작성, 빠른 질의응답</p>
+            </div>
+            <div class="model-card-compact">
+              <span class="new">NEW 긴 문서형</span>
+              <h3>Model B</h3>
+              <p>긴 문서 요약과 구조화에 강점을 보이며, 보고서·회의자료 정리에 적합한 모델입니다.</p>
+              <p><strong>추천 용도</strong>: 장문 요약, 회의록 정리, 문서 초안 재구성</p>
+            </div>
+            <div class="model-card-compact">
+              <span class="new">NEW 창의형</span>
+              <h3>Model C</h3>
+              <p>광고 문구, 홍보 카피, 아이디어 확장처럼 창의적 초안 생성에 유리한 모델입니다.</p>
+              <p><strong>추천 용도</strong>: 홍보 문구, 행사 제목, 시안 초안, 브레인스토밍</p>
+            </div>
+          </div>
+
+          <table class="model-table">
+            <thead>
+              <tr>
+                <th>모델명</th>
+                <th>핵심 특징</th>
+                <th>추천 사용 사례</th>
+                <th>주의사항</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="모델명">Model A</td>
+                <td data-label="핵심 특징">빠른 응답, 가벼운 작업에 적합</td>
+                <td data-label="추천 사용 사례">짧은 요약, 간단한 안내문 초안, 빠른 질의응답</td>
+                <td data-label="주의사항">복잡한 분석 작업에는 한계 가능</td>
+              </tr>
+              <tr>
+                <td data-label="모델명">Model B</td>
+                <td data-label="핵심 특징">긴 문서 구조화와 요약에 강점</td>
+                <td data-label="추천 사용 사례">회의록, 기획안 초안, 보고서 정리</td>
+                <td data-label="주의사항">자료 범위와 출력 형식을 함께 지정하면 더 안정적</td>
+              </tr>
+              <tr>
+                <td data-label="모델명">Model C</td>
+                <td data-label="핵심 특징">창의적 표현과 아이디어 확장에 유리</td>
+                <td data-label="추천 사용 사례">홍보 문구, 썸네일 카피, 행사명 제안</td>
+                <td data-label="주의사항">사실 확인이 필요한 업무에는 검증 필요</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="model-guide">
+            <h3>모델 선택 빠른 가이드</h3>
+            <ul>
+              <li><strong>빨리 초안만 필요할 때</strong>: Model A</li>
+              <li><strong>긴 문서나 회의록을 정리할 때</strong>: Model B</li>
+              <li><strong>홍보 문구와 아이디어가 필요할 때</strong>: Model C</li>
+              <li><strong>정확성이 중요한 업무</strong>: 모델보다 자료 범위·출처·검토 절차를 먼저 지정</li>
+            </ul>
+          </div>
+
+          <div class="next-row"><a class="next-btn" href="#home">처음으로 돌아가기 ↑</a></div>
         </div>
-
-        <div class="model-grid">
-          <article class="card">
-            <div class="badge-row">
-              <span class="badge">LEVEL 4</span>
-              <span class="badge">빠른 응답형</span>
-            </div>
-            <h3>Model A</h3>
-            <p>짧고 빠른 응답에 강하며, 일상적인 질의응답과 간단한 초안 생성에 적합한 모델입니다.</p>
-            <p class="small"><strong>추천 용도</strong>: 짧은 요약, 안내문 초안, 빠른 질의응답</p>
-          </article>
-
-          <article class="card">
-            <div class="badge-row">
-              <span class="badge">LEVEL 4</span>
-              <span class="badge">문서 정리형</span>
-            </div>
-            <h3>Model B</h3>
-            <p>긴 문서 요약과 구조화에 강점을 보이며, 회의자료·보고서·기획안 정리에 적합한 모델입니다.</p>
-            <p class="small"><strong>추천 용도</strong>: 장문 요약, 회의록 정리, 문서 초안 재구성</p>
-          </article>
-
-          <article class="card">
-            <div class="badge-row">
-              <span class="badge">LEVEL 4</span>
-              <span class="badge">아이디어 확장형</span>
-            </div>
-            <h3>Model C</h3>
-            <p>홍보 문구, 제목 제안, 아이디어 확장처럼 창의적 초안 생성에 활용하기 좋은 모델입니다.</p>
-            <p class="small"><strong>추천 용도</strong>: 홍보 카피, 행사명 제안, 시안 초안, 브레인스토밍</p>
-          </article>
-        </div>
-
-        <table>
-          <thead>
-            <tr>
-              <th>모델명</th>
-              <th>핵심 특징</th>
-              <th>추천 사용 사례</th>
-              <th>활용 팁</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td data-label="모델명">Model A</td>
-              <td data-label="핵심 특징">빠른 응답, 가벼운 작업에 적합</td>
-              <td data-label="추천 사용 사례">짧은 요약, 간단한 안내문 초안, 빠른 질의응답</td>
-              <td data-label="활용 팁">복잡한 분석보다 빠른 초안 확인용으로 활용</td>
-            </tr>
-            <tr>
-              <td data-label="모델명">Model B</td>
-              <td data-label="핵심 특징">긴 문서 구조화와 요약에 강점</td>
-              <td data-label="추천 사용 사례">회의록, 기획안 초안, 보고서 정리</td>
-              <td data-label="활용 팁">자료 범위와 출력 형식을 함께 지정하면 안정적</td>
-            </tr>
-            <tr>
-              <td data-label="모델명">Model C</td>
-              <td data-label="핵심 특징">창의적 표현과 아이디어 확장에 유리</td>
-              <td data-label="추천 사용 사례">홍보 문구, 썸네일 카피, 행사명 제안</td>
-              <td data-label="활용 팁">사실 확인이 필요한 업무에는 최종 검토 필요</td>
-            </tr>
-          </tbody>
-        </table>
       </div>
     </section>
 
-    <section class="section" id="prompts">
+    <section class="detail-section" id="quick-prompts">
       <div class="container">
-        <div class="section-head">
-          <h2>빠른 복사용 프롬프트 모음</h2>
-          <div class="section-desc">각 레벨에서 소개한 핵심 프롬프트만 모아, 필요한 순간 바로 복사해 사용할 수 있도록 정리했습니다.</div>
-        </div>
+        <div class="detail-card">
+          <h2 class="detail-title"><span class="detail-num">+</span><span>빠른 복사용 프롬프트 모음</span></h2>
+          <p class="detail-lead">긴 설명을 읽지 않아도 바로 복사해서 쓸 수 있도록 핵심 프롬프트만 모았습니다.</p>
 
-        <div class="grid-2">
-          <article class="card">
-            <div class="badge-row">
-              <span class="badge">LEVEL 1</span>
+          <div class="quick-grid">
+            <div class="letter-prompt collapsed">
+              <div class="letter-prompt-head">
+                <span>썸네일 프롬프트</span>
+                <div class="letter-prompt-actions">
+                  <button class="letter-copy" type="button">복사</button>
+                  <button class="collapse-toggle" type="button">펼치기</button>
+                </div>
+              </div>
+              <pre>대학 프로그램 홍보용 썸네일 이미지를 만들고 싶습니다. 학생 대상, 밝고 세련된 분위기, 핵심 메시지가 한눈에 들어오게 구성해 주세요. 제목 삽입을 위한 여백을 확보하고, 복잡한 배경은 피해주세요.</pre>
             </div>
-            <h3>썸네일 제작 프롬프트</h3>
-            <div class="prompt-box" style="margin-top:14px;">
-              <button class="copy-btn" data-copy-target="quick-1">복사</button>
-              <pre id="quick-1">대학 프로그램 홍보용 썸네일 이미지를 만들고 싶습니다. 학생 대상, 밝고 세련된 분위기, 핵심 메시지가 한눈에 들어오게 구성해 주세요. 제목 삽입을 위한 여백을 확보하고, 복잡한 배경은 피해주세요.</pre>
-            </div>
-          </article>
 
-          <article class="card">
-            <div class="badge-row">
-              <span class="badge">LEVEL 2</span>
+            <div class="letter-prompt collapsed">
+              <div class="letter-prompt-head">
+                <span>손필기 문서화 프롬프트</span>
+                <div class="letter-prompt-actions">
+                  <button class="letter-copy" type="button">복사</button>
+                  <button class="collapse-toggle" type="button">펼치기</button>
+                </div>
+              </div>
+              <pre>첨부한 손필기 내용을 누락 없이 읽고 실무 문서 초안으로 정리해 주세요. 불명확한 부분은 [확인 필요]로 표시하고, 핵심 내용 / 실행 항목 / 추가 확인 사항으로 구분해 주세요.</pre>
             </div>
-            <h3>손필기 문서화 프롬프트</h3>
-            <div class="prompt-box" style="margin-top:14px;">
-              <button class="copy-btn" data-copy-target="quick-2">복사</button>
-              <pre id="quick-2">첨부한 손필기 내용을 누락 없이 읽고 실무 문서 초안으로 정리해 주세요. 불명확한 부분은 [확인 필요]로 표시하고, 핵심 내용 / 실행 항목 / 추가 확인 사항으로 구분해 주세요.</pre>
-            </div>
-          </article>
 
-          <article class="card">
-            <div class="badge-row">
-              <span class="badge">LEVEL 3</span>
+            <div class="letter-prompt collapsed">
+              <div class="letter-prompt-head">
+                <span>환각 감소 프롬프트</span>
+                <div class="letter-prompt-actions">
+                  <button class="letter-copy" type="button">복사</button>
+                  <button class="collapse-toggle" type="button">펼치기</button>
+                </div>
+              </div>
+              <pre>확실한 정보만 답변하고, 불확실한 내용은 추정하지 마세요. 근거가 부족한 부분은 [확인 필요]라고 표시하고, 사실과 추정을 구분해 주세요.</pre>
             </div>
-            <h3>환각 감소 프롬프트</h3>
-            <div class="prompt-box" style="margin-top:14px;">
-              <button class="copy-btn" data-copy-target="quick-3">복사</button>
-              <pre id="quick-3">확실한 정보만 답변하고, 불확실한 내용은 추정하지 마세요. 근거가 부족한 부분은 [확인 필요]라고 표시하고, 사실과 추정을 구분해 주세요.</pre>
-            </div>
-          </article>
 
-          <article class="card">
-            <div class="badge-row">
-              <span class="badge">LEVEL 3</span>
+            <div class="letter-prompt collapsed">
+              <div class="letter-prompt-head">
+                <span>답변 형식 고정 프롬프트</span>
+                <div class="letter-prompt-actions">
+                  <button class="letter-copy" type="button">복사</button>
+                  <button class="collapse-toggle" type="button">펼치기</button>
+                </div>
+              </div>
+              <pre>답변은 아래 형식으로만 작성해 주세요. 1) 핵심 결론 3줄 2) 실행 항목 5개 3) 주의사항 2개. 불필요한 설명은 제외해 주세요.</pre>
             </div>
-            <h3>답변 형식 고정 프롬프트</h3>
-            <div class="prompt-box" style="margin-top:14px;">
-              <button class="copy-btn" data-copy-target="quick-4">복사</button>
-              <pre id="quick-4">답변은 아래 형식으로만 작성해 주세요. 1) 핵심 결론 3줄 2) 실행 항목 5개 3) 주의사항 2개. 불필요한 설명은 제외해 주세요.</pre>
-            </div>
-          </article>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
+  <footer class="level-footer">
     <div class="container">
-      <div class="footer-card">
-        <h3>다음 호에서는 더 실전적인 활용법으로 찾아오겠습니다.</h3>
-        <p>이번 레터는 조선대학교 구성원이 통합 AI 플랫폼을 더 쉽게 이해하고, 실제 업무·수업·학습 장면에서 바로 활용할 수 있도록 구성했습니다.</p>
-        <p class="small">이미지 교체 경로: assets/level-01.png, assets/level-02.png, assets/level-03.png, assets/level-04.png</p>
+      <p><strong>[레벨업] 조선대학교 통합 AI 플랫폼 역량 강화 레터</strong></p>
+      <p>이번 레터는 조선대학교 구성원이 통합 AI 플랫폼을 더 쉽게 이해하고, 업무·수업·학습 장면에서 바로 활용할 수 있도록 구성했습니다.</p>
+      <p class="small">이미지 교체 경로: assets/thumb-01.png, assets/thumb-02.png, assets/thumb-03.png, assets/thumb-04.png</p>
+      <div class="feedback">
+        <a class="primary" href="#home">처음으로</a>
+        <a class="secondary" href="mailto:ai-support@example.edu">의견 보내기</a>
       </div>
     </div>
   </footer>
 
+  <a class="top-btn" href="#home" aria-label="맨 위로 이동">↑</a>
   <div class="toast" id="toast">복사되었습니다.</div>
 
   <script>
@@ -1131,41 +1631,39 @@
     });
 
     function showToast(message) {
+      if (!toast) return;
       toast.textContent = message;
       toast.classList.add('show');
-
       clearTimeout(window.__toastTimer);
       window.__toastTimer = setTimeout(() => {
         toast.classList.remove('show');
       }, 1600);
     }
 
-    document.querySelectorAll('.copy-btn').forEach(btn => {
+    document.querySelectorAll('.letter-copy').forEach(btn => {
       btn.addEventListener('click', async () => {
-        const targetId = btn.dataset.copyTarget;
-        const text = document.getElementById(targetId)?.innerText?.trim() || '';
+        const text = btn.closest('.letter-prompt')?.querySelector('pre')?.innerText?.trim() || '';
 
         try {
           await navigator.clipboard.writeText(text);
           showToast('프롬프트가 복사되었습니다.');
         } catch (e) {
-          showToast('복사에 실패했습니다.');
+          const fallback = document.createElement('textarea');
+          fallback.value = text;
+          document.body.appendChild(fallback);
+          fallback.select();
+          document.execCommand('copy');
+          fallback.remove();
+          showToast('프롬프트가 복사되었습니다.');
         }
       });
     });
 
-    const tabButtons = document.querySelectorAll('.tab-btn');
-    const tabPanels = document.querySelectorAll('.tab-panel');
-
-    tabButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const tab = button.dataset.tab;
-
-        tabButtons.forEach(b => b.classList.remove('active'));
-        tabPanels.forEach(p => p.classList.remove('active'));
-
-        button.classList.add('active');
-        document.querySelector(`.tab-panel[data-panel="${tab}"]`)?.classList.add('active');
+    document.querySelectorAll('.collapse-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const prompt = btn.closest('.letter-prompt');
+        prompt?.classList.toggle('collapsed');
+        btn.textContent = prompt?.classList.contains('collapsed') ? '펼치기' : '접기';
       });
     });
   </script>
