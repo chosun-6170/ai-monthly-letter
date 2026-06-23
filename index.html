@@ -2944,6 +2944,116 @@
       scroll-margin-top: 0;
     }
 
+
+    /* ===== Footer partnership logos ===== */
+    .footer-logo-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin: 22px auto 0;
+      padding: 16px 18px;
+      width: min(100%, 720px);
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.74);
+      backdrop-filter: blur(18px) saturate(140%);
+      -webkit-backdrop-filter: blur(18px) saturate(140%);
+      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.06);
+    }
+
+    .footer-logo-item {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+    }
+
+    .footer-logo-item img {
+      display: block;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    .footer-logo-innovation img {
+      height: 42px;
+    }
+
+    .footer-logo-team img {
+      height: 30px;
+    }
+
+    .footer-logo-divider {
+      width: 1px;
+      height: 34px;
+      background: rgba(148, 163, 184, 0.34);
+    }
+
+    .footer-logo-team .logo-dark {
+      display: none;
+    }
+
+    :root[data-theme="dark"] .footer-logo-strip {
+      background: rgba(15, 23, 42, 0.62);
+      border-color: rgba(148, 163, 184, 0.20);
+      box-shadow: 0 18px 36px rgba(2, 6, 23, 0.34);
+    }
+
+    :root[data-theme="dark"] .footer-logo-divider {
+      background: rgba(148, 163, 184, 0.26);
+    }
+
+    :root[data-theme="dark"] .footer-logo-team .logo-light {
+      display: none;
+    }
+
+    :root[data-theme="dark"] .footer-logo-team .logo-dark {
+      display: block;
+    }
+
+    :root[data-theme="dark"] .footer-logo-innovation {
+      padding: 7px 10px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.92);
+    }
+
+    @media (max-width: 760px) {
+      .footer-logo-strip {
+        gap: 12px;
+        padding: 14px;
+        border-radius: 18px;
+      }
+
+      .footer-logo-divider {
+        display: none;
+      }
+
+      .footer-logo-innovation,
+      .footer-logo-team {
+        width: 100%;
+      }
+
+      .footer-logo-innovation img {
+        height: 34px;
+      }
+
+      .footer-logo-team img {
+        height: 25px;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .footer-logo-innovation img {
+        height: 30px;
+      }
+
+      .footer-logo-team img {
+        height: 22px;
+      }
+    }
+
 </style>
 </head>
 
@@ -3429,6 +3539,16 @@
         본 레터는 2026학년도 조선대학교 대학혁신지원사업의 일환으로 운영되는 <wbr>
         통합 AI 플랫폼의 이용자 활용 역량 강화를 위해 제작되었습니다.
       </p>
+      <div class="footer-logo-strip" aria-label="사업 및 운영부서 로고">
+        <span class="footer-logo-item footer-logo-innovation">
+          <img src="assets/innovation-logo.png" alt="대학혁신지원사업" />
+        </span>
+        <span class="footer-logo-divider" aria-hidden="true"></span>
+        <span class="footer-logo-item footer-logo-team">
+          <img class="logo-light" src="assets/digital-edu-team-logo.png" alt="디지털교육지원팀" />
+          <img class="logo-dark" src="assets/digital-edu-team-logo-white.png" alt="디지털교육지원팀" />
+        </span>
+      </div>
       <div class="feedback">
         <a class="primary" href="#home">상단으로</a>
         <a class="secondary" href="mailto:k04208@chosun.ac.kr">의견 보내기</a>
