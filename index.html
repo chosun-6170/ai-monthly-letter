@@ -1759,11 +1759,30 @@
     }
 
     .topbar .top-logo img {
+      position: absolute;
+      inset: 0;
       display: block;
       width: 100%;
       height: 100%;
       object-fit: contain;
       object-position: left center;
+      transition: opacity 0.24s ease, filter 0.24s ease;
+    }
+
+    .topbar .top-logo .logo-light {
+      opacity: 1;
+    }
+
+    .topbar .top-logo .logo-dark {
+      opacity: 0;
+    }
+
+    :root[data-theme="dark"] .topbar .top-logo .logo-light {
+      opacity: 0;
+    }
+
+    :root[data-theme="dark"] .topbar .top-logo .logo-dark {
+      opacity: 1;
     }
 
     .topbar .brand {
@@ -2932,7 +2951,8 @@
   <div class="topbar">
     <div class="container topbar-inner">
       <a class="top-logo" href="#home" aria-label="조선대학교 로고">
-        <img src="assets/chosun-logo.png" alt="조선대학교 로고" />
+        <img class="logo-light" src="assets/chosun-logo.png" alt="" />
+        <img class="logo-dark" src="assets/chosun-logo-white.png" alt="" aria-hidden="true" />
       </a>
       <a class="brand" href="#home">[레벨업] 조선대학교 통합 AI 플랫폼 역량 강화 레터</a>
 
