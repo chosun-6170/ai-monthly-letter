@@ -3402,6 +3402,66 @@
       background: transparent !important;
     }
 
+
+    /* ===== 신규 LLM 모델 섹션 전용 스타일 ===== */
+    #models .model-card-compact h3 {
+      color: #2b6cff;
+      font-weight: 800;
+    }
+
+    #models .model-card-compact strong,
+    #models .model-guide strong {
+      color: #2b6cff;
+    }
+
+    #models .credit {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      margin: 10px 0 8px;
+      padding: 6px 11px;
+      border-radius: 999px;
+      background: rgba(43, 108, 255, 0.09);
+      color: #2b6cff;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+
+    #models .model-table th {
+      background: #f0f4ff;
+      color: #1f2937;
+    }
+
+    #models .model-table td:first-child {
+      color: #2b6cff;
+      font-weight: 800;
+    }
+
+    :root[data-theme="dark"] #models .model-card-compact h3,
+    :root[data-theme="dark"] #models .model-card-compact strong,
+    :root[data-theme="dark"] #models .model-guide strong,
+    :root[data-theme="dark"] #models .model-table td:first-child {
+      color: #64d2ff;
+    }
+
+    :root[data-theme="dark"] #models .credit {
+      background: rgba(100, 210, 255, 0.13);
+      color: #64d2ff;
+      border: 1px solid rgba(100, 210, 255, 0.18);
+    }
+
+    :root[data-theme="dark"] #models .model-table th {
+      background: #3b3b3d;
+      color: #f5f5f7;
+    }
+
+    @media (max-width: 760px) {
+      #models .credit {
+        margin-top: 12px;
+      }
+    }
+
 </style>
 </head>
 
@@ -3695,52 +3755,7 @@
             <div class="skill-card">
               <div class="skill-num">Skill 02</div>
               <h3>근거 범위 설정</h3>
-              <p>엉뚱한 일반론을 줄이려면 자료 범위와 출처 범위를 먼저 고정해야 합니다.</p>
-            </div>
-            <div class="skill-card">
-              <div class="skill-num">Skill 03</div>
-              <h3>답변 형식 고정</h3>
-              <p>불필요한 장문을 줄이고, 필요한 결과만 빠르게 받아보는 데 효과적입니다.</p>
-            </div>
-          </div>
-
-          <div class="letter-prompt collapsed">
-            <div class="letter-prompt-head">
-              <span>LEVEL 3 품질 제어 프롬프트</span>
-              <div class="letter-prompt-actions">
-                <button class="letter-copy" type="button">복사</button>
-                <button class="collapse-toggle" type="button">펼치기</button>
-              </div>
-            </div>
-            <pre>확실한 정보만 답변하고, 불확실한 내용은 추정하지 마세요.
-근거가 부족한 경우에는 [확인 필요]라고 표시하세요.
-답변은 사실 / 추정 / 추가 확인 필요 항목으로 구분해 주세요.
-
-답변 범위는 내가 제공한 자료와 공식 기준으로 한정해 주세요.
-범위를 벗어나는 일반론은 최소화해 주세요.
-필요하면 어떤 자료가 더 있어야 정확도가 올라가는지도 함께 알려주세요.
-
-답변은 아래 형식으로만 작성해 주세요.
-1. 핵심 결론 3줄
-2. 실행 항목 5개
-3. 주의사항 2개</pre>
-          </div>
-
-          <div class="caution-box">
-            <h3>AI 활용 주의사항</h3>
-            <ul>
-              <li>개인정보, 학번, 연락처, 성적 등 민감정보는 입력하지 마세요.</li>
-              <li>정책·규정·예산·계약 관련 답변은 반드시 원문 자료와 대조하세요.</li>
-              <li>AI가 만든 문구와 이미지는 저작권·초상권·상표권 이슈를 검토한 뒤 활용하세요.</li>
-            </ul>
-          </div>
-
-          <div class="next-row"><a class="next-btn" href="#models">다음 LEVEL 보기 →</a></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="models" class="detail-section">
+           <section id="models" class="detail-section">
       <div class="container">
         <div class="detail-card">
           <div class="level-banner level-banner-bonus">
@@ -3751,7 +3766,7 @@
                   <span>MODEL UPDATE</span>
                 </div>
                 <h2>이번 달 신규 LLM 모델</h2>
-                <p>다양한 작업에 활용할 수 있는 최신 모델이 추가되었습니다. 모델별 강점과 추천 용도를 확인해 업무 목적에 맞게 선택해 보세요.</p>
+                <p>이번 달에는 다양한 작업에 활용할 수 있는 최신 모델이 추가되었습니다. 성능, 정밀도, 영상 생성 목적에 따라 적합한 모델을 선택해 보세요.</p>
               </div>
               <div class="level-banner-index">B</div>
             </div>
@@ -3762,18 +3777,21 @@
               <span class="new">NEW 범용 고성능</span>
               <h3>Claude Fable 5</h3>
               <p>소프트웨어 개발, 지식 업무, 비전 처리, 과학 연구까지 전반적으로 강력한 성능을 제공하며, 길고 복잡한 작업을 안정적으로 수행합니다.</p>
+              <p class="credit">소모 크레딧: 100</p>
               <p><strong>추천 용도</strong>: 코드 생성, 리서치, 복잡한 문서 작성</p>
             </div>
             <div class="model-card-compact">
               <span class="new">NEW 고정밀 작업형</span>
               <h3>Claude Opus 4.8</h3>
               <p>Anthropic의 최신 플래그십 모델로, 정교한 추론과 높은 정확도가 요구되는 작업에 적합합니다.</p>
+              <p class="credit">소모 크레딧: 50</p>
               <p><strong>추천 용도</strong>: 보고서 작성, 데이터 분석, 고난도 질의응답</p>
             </div>
             <div class="model-card-compact">
               <span class="new">NEW 영상 생성형</span>
               <h3>Seedance 2.0</h3>
               <p>영상 생성에 특화된 모델로, 텍스트 기반 아이디어를 다양한 비디오 콘텐츠로 구현할 수 있습니다.</p>
+              <p class="credit">소모 크레딧: 500</p>
               <p><strong>추천 용도</strong>: 영상 콘텐츠 제작, 홍보 영상, 숏폼 제작</p>
             </div>
           </div>
@@ -3791,6 +3809,40 @@
               <tr>
                 <td data-label="모델명">Claude Fable 5</td>
                 <td data-label="핵심 특징">전반적으로 균형 잡힌 고성능, 복잡한 작업 안정 처리</td>
+                <td data-label="추천 사용 사례">코드 생성, 리서치, 문서 작성</td>
+                <td data-label="주의사항">초고정밀 검증 작업은 추가 확인 필요</td>
+              </tr>
+              <tr>
+                <td data-label="모델명">Claude Opus 4.8</td>
+                <td data-label="핵심 특징">최고 수준의 추론 능력과 정확도</td>
+                <td data-label="추천 사용 사례">보고서, 분석, 중요 의사결정 지원</td>
+                <td data-label="주의사항">비용·속도 대비 효율 고려 필요</td>
+              </tr>
+              <tr>
+                <td data-label="모델명">Seedance 2.0</td>
+                <td data-label="핵심 특징">영상 생성 특화</td>
+                <td data-label="추천 사용 사례">홍보 영상, 콘텐츠 제작</td>
+                <td data-label="주의사항">결과물은 후편집 및 검토 권장</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="model-guide">
+            <h3>모델 선택 빠른 가이드</h3>
+            <ul>
+              <li><strong>범용 고성능 작업</strong>Claude Fable 5로 코드·리서치·복잡한 문서 작업을 안정적으로 처리</li>
+              <li><strong>고정밀 분석 작업</strong>Claude Opus 4.8로 보고서, 데이터 분석, 중요 의사결정 지원에 활용</li>
+              <li><strong>영상 콘텐츠 제작</strong>Seedance 2.0으로 홍보 영상, 숏폼, 영상 기반 콘텐츠 제작</li>
+              <li><strong>활용 전 확인</strong>비용·속도·검토 필요성을 함께 고려해 목적에 맞는 모델 선택</li>
+            </ul>
+          </div>
+
+          <div class="next-row"><a class="next-btn" href="#home">상단으로 돌아가기 ↑</a></div>
+        </div>
+      </div>
+    </section>
+
+    abel="핵심 특징">전반적으로 균형 잡힌 고성능, 복잡한 작업 안정 처리</td>
                 <td data-label="추천 사용 사례">코드 생성, 리서치, 문서 작성</td>
                 <td data-label="주의사항">초고정밀 검증 작업은 추가 확인 필요</td>
               </tr>
