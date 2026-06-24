@@ -4762,150 +4762,148 @@
     }
 
 
-    /* ===== Prompt notice below thumbnails: compact-to-readable modern card ===== */
-    .prompt-notice {
+    /* ===== Prompt notice: slim bar to scroll-expanded guide ===== */
+    .prompt-notice-bar {
       position: relative;
-      width: min(100%, 1080px);
-      margin: 28px auto 0;
-      border-radius: 28px;
-      border: 1px solid rgba(255, 255, 255, 0.20);
+      width: 100%;
+      margin: 22px 0 0;
+      border-radius: 22px;
+      border: 1px solid rgba(148, 163, 184, 0.18);
       background:
-        linear-gradient(135deg, rgba(255,255,255,0.78), rgba(255,255,255,0.48) 48%, rgba(226,232,240,0.34)),
-        radial-gradient(circle at 0% 0%, rgba(10, 132, 255, 0.16), transparent 34%),
-        radial-gradient(circle at 100% 10%, rgba(100, 210, 255, 0.18), transparent 30%);
-      box-shadow: 0 20px 56px rgba(15, 23, 42, 0.11);
-      backdrop-filter: blur(22px) saturate(160%);
-      -webkit-backdrop-filter: blur(22px) saturate(160%);
+        linear-gradient(135deg, rgba(255, 255, 255, 0.76), rgba(248, 250, 252, 0.58)),
+        radial-gradient(circle at 8% 0%, rgba(10, 132, 255, 0.10), transparent 34%),
+        radial-gradient(circle at 100% 0%, rgba(100, 210, 255, 0.10), transparent 30%);
+      box-shadow: 0 14px 38px rgba(15, 23, 42, 0.07);
+      backdrop-filter: blur(18px) saturate(145%);
+      -webkit-backdrop-filter: blur(18px) saturate(145%);
       overflow: hidden;
-      transform: translateZ(0);
       transition:
-        width 0.34s ease,
-        max-width 0.34s ease,
-        box-shadow 0.24s ease,
-        border-color 0.24s ease,
-        background 0.24s ease;
+        border-color 0.22s ease,
+        box-shadow 0.22s ease,
+        background 0.22s ease;
     }
 
-    .prompt-notice.compact-first:not([open]):not(.is-readable) {
-      max-width: 760px;
-      box-shadow: 0 16px 42px rgba(15, 23, 42, 0.08);
-    }
-
-    .prompt-notice.is-readable,
-    .prompt-notice[open] {
-      max-width: 1080px;
-    }
-
-    .prompt-notice::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      border-radius: inherit;
-      background:
-        linear-gradient(90deg, rgba(10,132,255,0.22), transparent 32%, rgba(100,210,255,0.18));
-      opacity: 0.45;
-      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-      padding: 1px;
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-    }
-
-    .prompt-notice summary {
+    .prompt-notice-bar summary {
+      display: block;
       position: relative;
       z-index: 1;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 18px;
-      align-items: center;
-      padding: 22px 24px;
+      padding: 0;
       cursor: pointer;
       list-style: none;
     }
 
-    .prompt-notice summary::-webkit-details-marker {
+    .prompt-notice-bar summary::-webkit-details-marker {
       display: none;
     }
 
-    .notice-summary-main {
+    .notice-bar-line {
+      min-height: 58px;
       display: grid;
-      gap: 7px;
-      min-width: 0;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 18px;
     }
 
-    .notice-kicker {
+    .notice-bar-label {
       display: inline-flex;
-      width: fit-content;
       align-items: center;
-      min-height: 26px;
-      padding: 6px 10px;
+      height: 30px;
+      padding: 0 12px;
       border-radius: 999px;
-      background: rgba(10, 132, 255, 0.10);
+      background: rgba(10, 132, 255, 0.09);
       color: var(--primary);
       font-size: 12px;
       font-weight: 1000;
-      letter-spacing: 0.02em;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
     }
 
-    .notice-summary-main strong {
-      display: block;
+    .notice-bar-line strong {
+      min-width: 0;
       color: var(--text);
-      font-size: clamp(18px, 1.8vw, 22px);
-      line-height: 1.34;
-      letter-spacing: -0.045em;
-      word-break: keep-all;
+      font-size: 16px;
+      font-weight: 900;
+      line-height: 1.35;
+      letter-spacing: -0.035em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    .notice-summary-main > span:not(.notice-kicker) {
-      display: block;
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.62;
-      word-break: keep-all;
-    }
-
-    .notice-summary-side {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      gap: 8px;
-      max-width: 310px;
-    }
-
-    .notice-summary-side span {
+    .notice-bar-hint {
       display: inline-flex;
       align-items: center;
       height: 32px;
       padding: 0 12px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.62);
-      border: 1px solid rgba(148, 163, 184, 0.20);
-      color: #334155;
-      font-size: 13px;
-      font-weight: 900;
-      white-space: nowrap;
-    }
-
-    .prompt-notice summary::after {
-      content: "안내 열기";
-      display: inline-flex;
-      justify-self: end;
-      grid-column: 2;
-      margin-top: 6px;
-      padding: 9px 13px;
-      border-radius: 999px;
       background: #111827;
-      color: #ffffff;
+      color: #fff;
       font-size: 12px;
       font-weight: 1000;
-      line-height: 1;
-      transition: background 0.18s ease, color 0.18s ease;
+      white-space: nowrap;
+      transition: background 0.18s ease;
     }
 
-    .prompt-notice[open] summary::after {
-      content: "접기";
+    .prompt-notice-bar[open] .notice-bar-hint {
       background: var(--primary);
+    }
+
+    .prompt-notice-bar[open] .notice-bar-hint::before {
+      content: "접기";
+      font-size: 12px;
+    }
+
+    .prompt-notice-bar[open] .notice-bar-hint {
+      font-size: 0;
+    }
+
+    .notice-preview {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      max-height: 0;
+      opacity: 0;
+      transform: translateY(-6px);
+      padding: 0 18px;
+      overflow: hidden;
+      pointer-events: none;
+      transition:
+        max-height 0.34s ease,
+        opacity 0.28s ease,
+        transform 0.28s ease,
+        padding 0.28s ease;
+    }
+
+    .prompt-notice-bar.is-readable .notice-preview,
+    .prompt-notice-bar[open] .notice-preview {
+      max-height: 220px;
+      opacity: 1;
+      transform: translateY(0);
+      padding: 0 18px 18px;
+      pointer-events: auto;
+    }
+
+    .notice-preview p {
+      margin: 0;
+      min-width: 0;
+      padding: 14px 15px;
+      border-radius: 17px;
+      background: rgba(255, 255, 255, 0.56);
+      border: 1px solid rgba(148, 163, 184, 0.15);
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.62;
+      word-break: keep-all;
+    }
+
+    .notice-preview p strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 1000;
+      letter-spacing: -0.02em;
     }
 
     .notice-detail {
@@ -4913,16 +4911,16 @@
       z-index: 1;
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-      padding: 0 24px 24px;
+      gap: 12px;
+      padding: 0 18px 18px;
     }
 
     .notice-detail-card {
       min-width: 0;
-      padding: 20px;
-      border-radius: 22px;
-      background: rgba(255, 255, 255, 0.58);
-      border: 1px solid rgba(148, 163, 184, 0.18);
+      padding: 19px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.60);
+      border: 1px solid rgba(148, 163, 184, 0.16);
     }
 
     .notice-card-label {
@@ -4968,67 +4966,87 @@
       font-weight: 1000;
     }
 
-    :root[data-theme="dark"] .prompt-notice {
-      border-color: rgba(255, 255, 255, 0.12);
+    :root[data-theme="dark"] .prompt-notice-bar {
+      border-color: rgba(255, 255, 255, 0.11);
       background:
-        linear-gradient(135deg, rgba(59,59,61,0.72), rgba(40,40,40,0.82) 48%, rgba(30,30,30,0.94)),
-        radial-gradient(circle at 0% 0%, rgba(10, 132, 255, 0.20), transparent 34%),
-        radial-gradient(circle at 100% 10%, rgba(100, 210, 255, 0.12), transparent 30%);
-      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.34);
+        linear-gradient(135deg, rgba(59, 59, 61, 0.64), rgba(40, 40, 40, 0.78)),
+        radial-gradient(circle at 8% 0%, rgba(10, 132, 255, 0.16), transparent 34%),
+        radial-gradient(circle at 100% 0%, rgba(100, 210, 255, 0.10), transparent 30%);
+      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
     }
 
-    :root[data-theme="dark"] .notice-summary-side span,
+    :root[data-theme="dark"] .notice-preview p,
     :root[data-theme="dark"] .notice-detail-card {
       background: rgba(40, 40, 40, 0.72);
       border-color: rgba(255, 255, 255, 0.10);
       color: #d1d5db;
     }
 
-    :root[data-theme="dark"] .notice-kicker,
+    :root[data-theme="dark"] .notice-bar-label,
     :root[data-theme="dark"] .notice-card-label {
       background: rgba(100, 210, 255, 0.12);
       color: #64d2ff;
     }
 
+    :root[data-theme="dark"] .notice-preview p strong,
     :root[data-theme="dark"] .notice-detail-card .accent-text {
       color: #64d2ff;
     }
 
     @media (hover: hover) and (pointer: fine) {
-      .prompt-notice summary:hover::after {
+      .prompt-notice-bar summary:hover .notice-bar-hint {
         background: var(--primary);
       }
     }
 
     @media (max-width: 860px) {
-      .prompt-notice summary,
+      .notice-bar-line {
+        grid-template-columns: 1fr auto;
+      }
+
+      .notice-bar-label {
+        grid-column: 1 / -1;
+        width: fit-content;
+      }
+
+      .notice-bar-line strong {
+        white-space: normal;
+      }
+
+      .notice-preview,
       .notice-detail {
         grid-template-columns: 1fr;
       }
 
-      .notice-summary-side {
-        justify-content: flex-start;
-        max-width: none;
-      }
-
-      .prompt-notice summary::after {
-        grid-column: 1;
-        justify-self: start;
+      .prompt-notice-bar.is-readable .notice-preview,
+      .prompt-notice-bar[open] .notice-preview {
+        max-height: 460px;
       }
     }
 
     @media (max-width: 560px) {
-      .prompt-notice {
-        margin-top: 22px;
-        border-radius: 24px;
+      .prompt-notice-bar {
+        margin-top: 18px;
+        border-radius: 20px;
       }
 
-      .prompt-notice summary {
-        padding: 20px;
+      .notice-bar-line {
+        min-height: auto;
+        padding: 16px;
+      }
+
+      .notice-preview {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .prompt-notice-bar.is-readable .notice-preview,
+      .prompt-notice-bar[open] .notice-preview {
+        padding: 0 16px 16px;
       }
 
       .notice-detail {
-        padding: 0 20px 20px;
+        padding: 0 16px 16px;
       }
 
       .notice-detail-card {
@@ -5142,17 +5160,17 @@
           </a>
         </div>
 
-        <details class="prompt-notice compact-first" id="promptNotice">
+        <details class="prompt-notice-bar" id="promptNotice">
           <summary>
-            <div class="notice-summary-main">
-              <span class="notice-kicker">시작 전 10초 안내</span>
-              <strong>프롬프트를 그대로 복사하기 전에, 활용 방식만 가볍게 확인해 주세요.</strong>
-              <span>의도를 디테일하게 반영하고 싶은 작업일수록 효과적이며, 한 대화창에서 이어서 요청하면 반복 입력과 재작업을 줄일 수 있습니다.</span>
+            <div class="notice-bar-line">
+              <span class="notice-bar-label">프롬프트 활용 전 안내</span>
+              <strong>균일한 결과를 위한 범용 프롬프트입니다.</strong>
+              <span class="notice-bar-hint">안내 열기</span>
             </div>
-            <div class="notice-summary-side" aria-hidden="true">
-              <span>의도 반영</span>
-              <span>균일한 결과</span>
-              <span>이어서 요청</span>
+            <div class="notice-preview">
+              <p><strong>의도 반영</strong> 주제, 대상, 분위기, 비율, 텍스트 반영 방식처럼 원하는 조건을 구체적으로 반영하는 데 적합합니다.</p>
+              <p><strong>초기 소모 가능</strong> 처음 실행 시 간단한 요청보다 크레딧이나 처리 시간이 더 필요할 수 있습니다.</p>
+              <p><strong>이어쓰기 권장</strong> 하나의 대화창 안에서 자료와 조건을 보완하며 이어서 요청하면 반복 입력과 재작업을 줄일 수 있습니다.</p>
             </div>
           </summary>
           <div class="notice-detail">
@@ -7969,14 +7987,14 @@ PDF는 반드시 `.docx`, `.pptx`, `.xlsx`, `.txt`, `.md` 중 하나의 편집 �
 
 
   <script>
-    // Prompt notice grows from compact to readable after the user starts exploring
+    // Prompt notice: slim on first view, preview opens after a small scroll
     (function () {
       const notice = document.getElementById('promptNotice');
       if (!notice) return;
 
       function syncNoticeState() {
-        const shouldExpand = window.scrollY > 48 || notice.open;
-        notice.classList.toggle('is-readable', shouldExpand);
+        const shouldPreview = window.scrollY > 48 || notice.open;
+        notice.classList.toggle('is-readable', shouldPreview);
       }
 
       notice.addEventListener('toggle', syncNoticeState);
