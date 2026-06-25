@@ -5147,6 +5147,175 @@
         linear-gradient(90deg, rgba(100,210,255,0.10) 0%, rgba(59,59,61,0.78) 100%) !important;
     }
 
+
+    /* ===== Level 2 independent teal palette ===== */
+    #handwriting {
+      --level-accent: #0f766e;
+      --level-accent-2: #14b8a6;
+      --level-accent-soft: rgba(20, 184, 166, 0.10);
+      --level-accent-line: rgba(20, 184, 166, 0.24);
+      --level-accent-text: #0f766e;
+    }
+
+    #handwriting .level-banner-2 {
+      background:
+        linear-gradient(135deg, rgba(15, 118, 110, 0.94), rgba(20, 184, 166, 0.82)),
+        radial-gradient(circle at top right, rgba(204, 251, 241, 0.26), transparent 34%) !important;
+      border-color: rgba(20, 184, 166, 0.28) !important;
+    }
+
+    #handwriting .level-banner-2 .level-kicker span,
+    #handwriting .level-banner-2 .level-banner-index {
+      background: rgba(255, 255, 255, 0.18) !important;
+      border-color: rgba(255, 255, 255, 0.18) !important;
+    }
+
+    #handwriting .level-badge {
+      border-color: var(--level-accent-line) !important;
+      background: var(--level-accent-soft) !important;
+      color: var(--level-accent-text) !important;
+    }
+
+    #handwriting .level-badge.orange {
+      background: rgba(20, 184, 166, 0.13) !important;
+      color: #0f766e !important;
+    }
+
+    #handwriting .level-badge.green {
+      background: rgba(13, 148, 136, 0.12) !important;
+      color: #0d9488 !important;
+    }
+
+    #handwriting .prompt-first-title::before,
+    #handwriting .prompt-section-title::before,
+    #handwriting .info-box::before,
+    #handwriting .guidance-card::before,
+    #handwriting .workflow-capsule::before,
+    #handwriting .growth-panel::before,
+    #handwriting .caution-box::before {
+      background: linear-gradient(90deg, #0f766e 0%, #14b8a6 100%) !important;
+    }
+
+    #handwriting .prompt-preview:not(.quick-preview) p::before {
+      background: #14b8a6 !important;
+      box-shadow: 0 0 0 5px rgba(20, 184, 166, 0.13) !important;
+    }
+
+    #handwriting .letter-prompt {
+      border-color: rgba(20, 184, 166, 0.22) !important;
+    }
+
+    #handwriting .letter-prompt-head {
+      background:
+        linear-gradient(90deg, rgba(15, 118, 110, 0.12), rgba(20, 184, 166, 0.08)) !important;
+    }
+
+    #handwriting .letter-copy,
+    #handwriting .collapse-toggle {
+      border-color: rgba(20, 184, 166, 0.28) !important;
+    }
+
+    #handwriting .letter-copy {
+      background: #0f766e !important;
+      color: #ffffff !important;
+    }
+
+    #handwriting .collapse-toggle {
+      color: #0f766e !important;
+      background: rgba(20, 184, 166, 0.08) !important;
+    }
+
+    #handwriting .section-flow-note,
+    #handwriting .guidance-card,
+    #handwriting .workflow-capsule,
+    #handwriting .growth-panel,
+    #handwriting .growth-step,
+    #handwriting .info-box,
+    #handwriting .caution-box {
+      border-color: rgba(20, 184, 166, 0.18) !important;
+    }
+
+    #handwriting .guidance-list li::before,
+    #handwriting .info-box li::before,
+    #handwriting .caution-box li::before,
+    #handwriting .growth-step b,
+    #handwriting .workflow-capsule strong {
+      color: #0f766e !important;
+      background: rgba(20, 184, 166, 0.11) !important;
+    }
+
+    #handwriting .section-flow-note strong,
+    #handwriting .guidance-card h3,
+    #handwriting .info-box h3,
+    #handwriting .growth-panel h3,
+    #handwriting .caution-box h3 {
+      color: #0f766e !important;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      #handwriting .letter-prompt:hover,
+      #handwriting .guidance-card:hover,
+      #handwriting .workflow-capsule:hover,
+      #handwriting .growth-panel:hover,
+      #handwriting .growth-step:hover,
+      #handwriting .section-flow-note:hover,
+      #handwriting .info-box:hover,
+      #handwriting .caution-box:hover {
+        border-color: rgba(20, 184, 166, 0.28) !important;
+        box-shadow: 0 18px 34px rgba(15, 118, 110, 0.12) !important;
+      }
+
+      #handwriting .letter-copy:hover,
+      #handwriting .collapse-toggle:hover {
+        box-shadow: 0 12px 24px rgba(15, 118, 110, 0.14) !important;
+      }
+    }
+
+    :root[data-theme="dark"] #handwriting {
+      --level-accent: #5eead4;
+      --level-accent-2: #2dd4bf;
+      --level-accent-soft: rgba(94, 234, 212, 0.11);
+      --level-accent-line: rgba(94, 234, 212, 0.20);
+      --level-accent-text: #5eead4;
+    }
+
+    :root[data-theme="dark"] #handwriting .level-banner-2 {
+      background:
+        linear-gradient(135deg, rgba(15, 118, 110, 0.82), rgba(17, 94, 89, 0.92)),
+        radial-gradient(circle at top right, rgba(94, 234, 212, 0.16), transparent 36%) !important;
+      border-color: rgba(94, 234, 212, 0.18) !important;
+    }
+
+    :root[data-theme="dark"] #handwriting .level-badge,
+    :root[data-theme="dark"] #handwriting .collapse-toggle,
+    :root[data-theme="dark"] #handwriting .guidance-list li::before,
+    :root[data-theme="dark"] #handwriting .info-box li::before,
+    :root[data-theme="dark"] #handwriting .caution-box li::before,
+    :root[data-theme="dark"] #handwriting .growth-step b,
+    :root[data-theme="dark"] #handwriting .workflow-capsule strong {
+      background: rgba(94, 234, 212, 0.11) !important;
+      border-color: rgba(94, 234, 212, 0.18) !important;
+      color: #5eead4 !important;
+    }
+
+    :root[data-theme="dark"] #handwriting .letter-copy {
+      background: #0f766e !important;
+      color: #ffffff !important;
+    }
+
+    :root[data-theme="dark"] #handwriting .letter-prompt-head {
+      background:
+        linear-gradient(90deg, rgba(94, 234, 212, 0.10), rgba(20, 184, 166, 0.05)) !important;
+    }
+
+    :root[data-theme="dark"] #handwriting .section-flow-note strong,
+    :root[data-theme="dark"] #handwriting .guidance-card h3,
+    :root[data-theme="dark"] #handwriting .info-box h3,
+    :root[data-theme="dark"] #handwriting .growth-panel h3,
+    :root[data-theme="dark"] #handwriting .caution-box h3 {
+      color: #5eead4 !important;
+    }
+
 </style>
 </head>
 
