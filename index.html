@@ -5147,6 +5147,859 @@
         linear-gradient(90deg, rgba(100,210,255,0.10) 0%, rgba(59,59,61,0.78) 100%) !important;
     }
 
+
+    /* ===== Level background palette optimizer: background-only accents =====
+       목적: 글자색은 기존 톤을 유지하고, 배경·라인·점·박스 계열만 레벨별 컬러로 분리합니다. */
+    #thumbnail,
+    #handwriting,
+    #llm-skill,
+    #models {
+      --level-bg-rgb: 23, 78, 166;
+      --level-bg-rgb-2: 100, 210, 255;
+      --level-bg-solid: #174ea6;
+      --level-bg-soft: #64d2ff;
+    }
+
+    #thumbnail {
+      --level-bg-rgb: 23, 78, 166;
+      --level-bg-rgb-2: 100, 210, 255;
+      --level-bg-solid: #174ea6;
+      --level-bg-soft: #64d2ff;
+    }
+
+    #handwriting {
+      --level-bg-rgb: 35, 107, 92;
+      --level-bg-rgb-2: 20, 184, 166;
+      --level-bg-solid: #236b5c;
+      --level-bg-soft: #14b8a6;
+    }
+
+    #llm-skill {
+      --level-bg-rgb: 76, 63, 145;
+      --level-bg-rgb-2: 168, 85, 247;
+      --level-bg-solid: #4c3f91;
+      --level-bg-soft: #a855f7;
+    }
+
+    #models {
+      --level-bg-rgb: 17, 24, 39;
+      --level-bg-rgb-2: 100, 116, 139;
+      --level-bg-solid: #111827;
+      --level-bg-soft: #64748b;
+    }
+
+    /* 얇은 안내 바·섹션 메모 배경 */
+    #thumbnail .section-flow-note,
+    #handwriting .section-flow-note,
+    #llm-skill .section-flow-note,
+    #models .section-flow-note {
+      background: rgba(var(--level-bg-rgb), 0.06) !important;
+      border-color: rgba(var(--level-bg-rgb), 0.14) !important;
+    }
+
+    /* 카드 상단 라인·프롬프트 미리보기 점·리스트 점 */
+    #thumbnail .guidance-card::before,
+    #handwriting .guidance-card::before,
+    #llm-skill .guidance-card::before,
+    #models .guidance-card::before,
+    #thumbnail .info-box::before,
+    #handwriting .info-box::before,
+    #llm-skill .info-box::before,
+    #models .info-box::before,
+    #thumbnail .workflow-capsule::before,
+    #handwriting .workflow-capsule::before,
+    #llm-skill .workflow-capsule::before,
+    #models .workflow-capsule::before,
+    #thumbnail .growth-panel::before,
+    #handwriting .growth-panel::before,
+    #llm-skill .growth-panel::before,
+    #models .growth-panel::before {
+      background: linear-gradient(90deg, var(--level-bg-solid) 0%, var(--level-bg-soft) 100%) !important;
+    }
+
+    #thumbnail .prompt-preview:not(.quick-preview) p::before,
+    #handwriting .prompt-preview:not(.quick-preview) p::before,
+    #llm-skill .prompt-preview:not(.quick-preview) p::before,
+    #models .prompt-preview:not(.quick-preview) p::before,
+    #thumbnail .guidance-list li::before,
+    #handwriting .guidance-list li::before,
+    #llm-skill .guidance-list li::before,
+    #models .guidance-list li::before {
+      background: var(--level-bg-solid) !important;
+      box-shadow: 0 0 0 5px rgba(var(--level-bg-rgb), 0.10) !important;
+    }
+
+    /* 캡슐형 배경만 레벨 컬러로 */
+    #thumbnail .workflow-capsule,
+    #handwriting .workflow-capsule,
+    #llm-skill .workflow-capsule,
+    #models .workflow-capsule {
+      background:
+        radial-gradient(circle at 50% 0%, rgba(var(--level-bg-rgb), 0.14), transparent 56%),
+        linear-gradient(180deg, rgba(255,255,255,0.96), rgba(246,248,251,0.96)) !important;
+      border-color: rgba(var(--level-bg-rgb), 0.18) !important;
+    }
+
+    /* 큰 보조 박스 배경·테두리 */
+    #thumbnail .growth-panel,
+    #handwriting .growth-panel,
+    #llm-skill .growth-panel,
+    #models .growth-panel {
+      background:
+        linear-gradient(135deg, rgba(var(--level-bg-rgb), 0.08), rgba(var(--level-bg-rgb-2), 0.04) 42%, rgba(255,255,255,0.90) 100%) !important;
+      border-color: rgba(var(--level-bg-rgb), 0.16) !important;
+    }
+
+    #thumbnail .growth-step b,
+    #handwriting .growth-step b,
+    #llm-skill .growth-step b,
+    #models .growth-step b {
+      background: var(--level-bg-solid) !important;
+    }
+
+    /* 프롬프트 박스는 글자색을 유지하고 테두리·헤더 배경만 레벨 컬러로 */
+    #thumbnail .letter-prompt,
+    #handwriting .letter-prompt,
+    #llm-skill .letter-prompt,
+    #models .letter-prompt {
+      border-color: rgba(var(--level-bg-rgb), 0.22) !important;
+    }
+
+    #thumbnail .letter-prompt-head,
+    #handwriting .letter-prompt-head,
+    #llm-skill .letter-prompt-head,
+    #models .letter-prompt-head {
+      background:
+        linear-gradient(90deg, rgba(var(--level-bg-rgb), 0.18), rgba(var(--level-bg-rgb-2), 0.08)),
+        #1f2937 !important;
+    }
+
+    /* 표의 첫 칸 배경 포인트 */
+    #thumbnail .model-table tbody td:first-child,
+    #handwriting .model-table tbody td:first-child,
+    #llm-skill .model-table tbody td:first-child,
+    #models .model-table tbody td:first-child {
+      background:
+        linear-gradient(90deg, rgba(var(--level-bg-rgb), 0.08) 0%, rgba(255,255,255,0) 100%) !important;
+    }
+
+    /* hover 그림자도 배경 레벨 컬러에 맞춰 은은하게만 */
+    @media (hover: hover) and (pointer: fine) {
+      #thumbnail .guidance-card:hover,
+      #handwriting .guidance-card:hover,
+      #llm-skill .guidance-card:hover,
+      #models .guidance-card:hover,
+      #thumbnail .workflow-capsule:hover,
+      #handwriting .workflow-capsule:hover,
+      #llm-skill .workflow-capsule:hover,
+      #models .workflow-capsule:hover,
+      #thumbnail .growth-panel:hover,
+      #handwriting .growth-panel:hover,
+      #llm-skill .growth-panel:hover,
+      #models .growth-panel:hover,
+      #thumbnail .growth-step:hover,
+      #handwriting .growth-step:hover,
+      #llm-skill .growth-step:hover,
+      #models .growth-step:hover,
+      #thumbnail .letter-prompt:hover,
+      #handwriting .letter-prompt:hover,
+      #llm-skill .letter-prompt:hover,
+      #models .letter-prompt:hover {
+        border-color: rgba(var(--level-bg-rgb), 0.26) !important;
+        box-shadow: 0 18px 34px rgba(var(--level-bg-rgb), 0.11) !important;
+      }
+    }
+
+    /* 다크모드: 배경 계열만 보정 */
+    :root[data-theme="dark"] #thumbnail .workflow-capsule,
+    :root[data-theme="dark"] #handwriting .workflow-capsule,
+    :root[data-theme="dark"] #llm-skill .workflow-capsule,
+    :root[data-theme="dark"] #models .workflow-capsule {
+      background:
+        radial-gradient(circle at 50% 0%, rgba(var(--level-bg-rgb-2), 0.14), transparent 56%),
+        linear-gradient(180deg, rgba(59,59,61,0.78), rgba(40,40,40,0.96)) !important;
+      border-color: rgba(var(--level-bg-rgb-2), 0.16) !important;
+    }
+
+    :root[data-theme="dark"] #thumbnail .growth-panel,
+    :root[data-theme="dark"] #handwriting .growth-panel,
+    :root[data-theme="dark"] #llm-skill .growth-panel,
+    :root[data-theme="dark"] #models .growth-panel {
+      background:
+        linear-gradient(135deg, rgba(var(--level-bg-rgb), 0.14), rgba(var(--level-bg-rgb-2), 0.06) 44%, rgba(40,40,40,0.78) 100%) !important;
+      border-color: rgba(var(--level-bg-rgb-2), 0.18) !important;
+    }
+
+    :root[data-theme="dark"] #thumbnail .letter-prompt-head,
+    :root[data-theme="dark"] #handwriting .letter-prompt-head,
+    :root[data-theme="dark"] #llm-skill .letter-prompt-head,
+    :root[data-theme="dark"] #models .letter-prompt-head {
+      background:
+        linear-gradient(90deg, rgba(var(--level-bg-rgb-2), 0.11), rgba(var(--level-bg-rgb), 0.05)),
+        #1f2937 !important;
+    }
+
+
+    /* ===== Prompt box unified theme: same across levels =====
+       목적: Level별 배경 컬러는 유지하되, 프롬프트 박스 자체는 모든 Level에서 동일한 다크 테마로 통일합니다. */
+    #thumbnail .letter-prompt,
+    #handwriting .letter-prompt,
+    #llm-skill .letter-prompt,
+    #models .letter-prompt,
+    #quick-prompts .letter-prompt {
+      background: #111827 !important;
+      border-color: rgba(255, 255, 255, 0.08) !important;
+      color: #e5e7eb !important;
+    }
+
+    #thumbnail .letter-prompt-head,
+    #handwriting .letter-prompt-head,
+    #llm-skill .letter-prompt-head,
+    #models .letter-prompt-head,
+    #quick-prompts .letter-prompt-head {
+      background: #1f2937 !important;
+      color: #cbd5e1 !important;
+      border-color: rgba(255, 255, 255, 0.08) !important;
+    }
+
+    #thumbnail .letter-prompt pre,
+    #handwriting .letter-prompt pre,
+    #llm-skill .letter-prompt pre,
+    #models .letter-prompt pre,
+    #quick-prompts .letter-prompt pre,
+    #thumbnail .letter-prompt.collapsed .prompt-preview,
+    #handwriting .letter-prompt.collapsed .prompt-preview,
+    #llm-skill .letter-prompt.collapsed .prompt-preview,
+    #models .letter-prompt.collapsed .prompt-preview,
+    #quick-prompts .letter-prompt.collapsed .prompt-preview {
+      background: #111827 !important;
+      color: #e5e7eb !important;
+    }
+
+    #thumbnail .prompt-preview:not(.quick-preview) p::before,
+    #handwriting .prompt-preview:not(.quick-preview) p::before,
+    #llm-skill .prompt-preview:not(.quick-preview) p::before,
+    #models .prompt-preview:not(.quick-preview) p::before,
+    #quick-prompts .prompt-preview:not(.quick-preview) p::before {
+      background: #64d2ff !important;
+      box-shadow: 0 0 0 5px rgba(100, 210, 255, 0.12) !important;
+    }
+
+    #thumbnail .letter-copy,
+    #handwriting .letter-copy,
+    #llm-skill .letter-copy,
+    #models .letter-copy,
+    #quick-prompts .letter-copy {
+      background: #3b82f6 !important;
+      color: #ffffff !important;
+      border-color: transparent !important;
+    }
+
+    #thumbnail .letter-copy:hover,
+    #handwriting .letter-copy:hover,
+    #llm-skill .letter-copy:hover,
+    #models .letter-copy:hover,
+    #quick-prompts .letter-copy:hover {
+      background: #2563eb !important;
+    }
+
+    #thumbnail .collapse-toggle,
+    #handwriting .collapse-toggle,
+    #llm-skill .collapse-toggle,
+    #models .collapse-toggle,
+    #quick-prompts .collapse-toggle {
+      background: #374151 !important;
+      color: #ffffff !important;
+      border-color: transparent !important;
+    }
+
+    #thumbnail .collapse-toggle:hover,
+    #handwriting .collapse-toggle:hover,
+    #llm-skill .collapse-toggle:hover,
+    #models .collapse-toggle:hover,
+    #quick-prompts .collapse-toggle:hover {
+      background: #4b5563 !important;
+    }
+
+    #thumbnail .letter-prompt.collapsed pre::after,
+    #handwriting .letter-prompt.collapsed pre::after,
+    #llm-skill .letter-prompt.collapsed pre::after,
+    #models .letter-prompt.collapsed pre::after,
+    #quick-prompts .letter-prompt.collapsed pre::after {
+      background: linear-gradient(transparent, #111827) !important;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      #thumbnail .letter-prompt:hover,
+      #handwriting .letter-prompt:hover,
+      #llm-skill .letter-prompt:hover,
+      #models .letter-prompt:hover,
+      #quick-prompts .letter-prompt:hover {
+        border-color: rgba(100, 210, 255, 0.18) !important;
+        box-shadow: 0 18px 34px rgba(15, 23, 42, 0.14) !important;
+      }
+    }
+
+    :root[data-theme="dark"] #thumbnail .letter-prompt,
+    :root[data-theme="dark"] #handwriting .letter-prompt,
+    :root[data-theme="dark"] #llm-skill .letter-prompt,
+    :root[data-theme="dark"] #models .letter-prompt,
+    :root[data-theme="dark"] #quick-prompts .letter-prompt {
+      background: #111827 !important;
+      border-color: rgba(255, 255, 255, 0.08) !important;
+    }
+
+    :root[data-theme="dark"] #thumbnail .letter-prompt-head,
+    :root[data-theme="dark"] #handwriting .letter-prompt-head,
+    :root[data-theme="dark"] #llm-skill .letter-prompt-head,
+    :root[data-theme="dark"] #models .letter-prompt-head,
+    :root[data-theme="dark"] #quick-prompts .letter-prompt-head {
+      background: #1f2937 !important;
+    }
+
+
+    /* ===== Bonus model table hover: theme-matched slate fill ===== */
+    #models .model-table tbody tr:hover td {
+      background: rgba(17, 24, 39, 0.045) !important;
+      border-color: rgba(17, 24, 39, 0.18) !important;
+    }
+
+    #models .model-table tbody tr:hover td:first-child {
+      background:
+        linear-gradient(90deg, rgba(17, 24, 39, 0.10) 0%, rgba(17, 24, 39, 0.045) 100%) !important;
+    }
+
+    #models .model-table tbody tr:hover td:last-child {
+      background:
+        linear-gradient(90deg, rgba(17, 24, 39, 0.045) 0%, rgba(100, 116, 139, 0.055) 100%) !important;
+    }
+
+    :root[data-theme="dark"] #models .model-table tbody tr:hover td {
+      background: rgba(100, 116, 139, 0.14) !important;
+      border-color: rgba(148, 163, 184, 0.22) !important;
+    }
+
+    :root[data-theme="dark"] #models .model-table tbody tr:hover td:first-child {
+      background:
+        linear-gradient(90deg, rgba(148, 163, 184, 0.18) 0%, rgba(100, 116, 139, 0.14) 100%) !important;
+    }
+
+    :root[data-theme="dark"] #models .model-table tbody tr:hover td:last-child {
+      background:
+        linear-gradient(90deg, rgba(100, 116, 139, 0.14) 0%, rgba(148, 163, 184, 0.12) 100%) !important;
+    }
+
+
+    /* ===== Final color cleanup: Level 3 purple backgrounds + seamless bonus table hover ===== */
+
+    /* Level 3에 남아 보이는 기본 블루 배경 계열 제거 */
+    #llm-skill {
+      --level-bg-rgb: 76, 63, 145 !important;
+      --level-bg-rgb-2: 168, 85, 247 !important;
+      --level-bg-solid: #4c3f91 !important;
+      --level-bg-soft: #a855f7 !important;
+    }
+
+    #llm-skill .quality-card {
+      border-color: rgba(76, 63, 145, 0.18) !important;
+    }
+
+    #llm-skill .quality-card::before {
+      background: linear-gradient(180deg, #7c3aed 0%, #a855f7 100%) !important;
+    }
+
+    #llm-skill .quality-card .quality-num {
+      background: #111827 !important;
+      color: #ffffff !important;
+    }
+
+    #llm-skill .quality-card .quality-tag,
+    #llm-skill .quality-action-pill {
+      background: rgba(124, 58, 237, 0.10) !important;
+      color: #6d28d9 !important;
+    }
+
+    #llm-skill .skill-note,
+    #llm-skill .section-flow-note {
+      background: rgba(76, 63, 145, 0.06) !important;
+      border-color: rgba(76, 63, 145, 0.14) !important;
+    }
+
+    #llm-skill .skill-note::before,
+    #llm-skill .section-flow-note::before {
+      background: linear-gradient(90deg, #4c3f91 0%, #a855f7 100%) !important;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      #llm-skill .quality-card:hover,
+      #llm-skill .skill-note:hover,
+      #llm-skill .section-flow-note:hover {
+        border-color: rgba(124, 58, 237, 0.24) !important;
+        box-shadow: 0 18px 34px rgba(76, 63, 145, 0.11) !important;
+      }
+    }
+
+    :root[data-theme="dark"] #llm-skill .quality-card {
+      border-color: rgba(168, 85, 247, 0.18) !important;
+    }
+
+    :root[data-theme="dark"] #llm-skill .quality-card::before {
+      background: linear-gradient(180deg, #a855f7 0%, #7c3aed 100%) !important;
+    }
+
+    :root[data-theme="dark"] #llm-skill .quality-card .quality-tag,
+    :root[data-theme="dark"] #llm-skill .quality-action-pill {
+      background: rgba(168, 85, 247, 0.14) !important;
+      color: #d8b4fe !important;
+    }
+
+    :root[data-theme="dark"] #llm-skill .skill-note,
+    :root[data-theme="dark"] #llm-skill .section-flow-note {
+      background: rgba(168, 85, 247, 0.09) !important;
+      border-color: rgba(168, 85, 247, 0.18) !important;
+    }
+
+    /* BONUS 표 hover: 셀마다 끊겨 보이는 칠 제거, 행 전체가 하나의 면처럼 보이게 */
+    @media (min-width: 761px) {
+      #models .model-table {
+        border-collapse: collapse !important;
+        border-spacing: 0 !important;
+        overflow: hidden !important;
+        border-radius: 18px !important;
+      }
+
+      #models .model-table tbody tr {
+        background: transparent !important;
+        box-shadow: none !important;
+      }
+
+      #models .model-table tbody tr:hover {
+        transform: none !important;
+        box-shadow: none !important;
+        background: rgba(17, 24, 39, 0.045) !important;
+      }
+
+      #models .model-table tbody td,
+      #models .model-table tbody td:first-child,
+      #models .model-table tbody td:last-child {
+        background: transparent !important;
+        border-radius: 0 !important;
+        border-left: 0 !important;
+        border-right: 0 !important;
+      }
+
+      #models .model-table tbody tr:hover td,
+      #models .model-table tbody tr:hover td:first-child,
+      #models .model-table tbody tr:hover td:last-child {
+        background: transparent !important;
+        border-color: rgba(17, 24, 39, 0.16) !important;
+      }
+
+      #models .model-table tbody td:first-child {
+        padding-left: 18px !important;
+      }
+
+      #models .model-table tbody tr:first-child td:first-child {
+        border-top-left-radius: 18px !important;
+      }
+
+      #models .model-table tbody tr:first-child td:last-child {
+        border-top-right-radius: 18px !important;
+      }
+
+      #models .model-table tbody tr:last-child td:first-child {
+        border-bottom-left-radius: 18px !important;
+      }
+
+      #models .model-table tbody tr:last-child td:last-child {
+        border-bottom-right-radius: 18px !important;
+      }
+    }
+
+    :root[data-theme="dark"] #models .model-table tbody tr:hover {
+      background: rgba(100, 116, 139, 0.14) !important;
+    }
+
+    :root[data-theme="dark"] #models .model-table tbody tr:hover td,
+    :root[data-theme="dark"] #models .model-table tbody tr:hover td:first-child,
+    :root[data-theme="dark"] #models .model-table tbody tr:hover td:last-child {
+      background: transparent !important;
+      border-color: rgba(148, 163, 184, 0.22) !important;
+    }
+
+
+    /* ===== Level 3 label background fix: English label transparent ===== */
+    #llm-skill .quality-card .quality-tag,
+    #llm-skill .quality-tag {
+      background: transparent !important;
+      border-color: transparent !important;
+      box-shadow: none !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      color: #6d28d9 !important;
+    }
+
+    :root[data-theme="dark"] #llm-skill .quality-card .quality-tag,
+    :root[data-theme="dark"] #llm-skill .quality-tag {
+      background: transparent !important;
+      border-color: transparent !important;
+      box-shadow: none !important;
+      color: #d8b4fe !important;
+    }
+
+
+    /* ===== Level 3 point color + label typography fix ===== */
+    #llm-skill {
+      --level-bg-rgb: 85, 73, 151 !important;
+      --level-bg-rgb-2: 85, 73, 151 !important;
+      --level-bg-solid: #554997 !important;
+      --level-bg-soft: #554997 !important;
+    }
+
+    #llm-skill .quality-card {
+      border-color: rgba(85, 73, 151, 0.18) !important;
+    }
+
+    #llm-skill .quality-card::before {
+      background: #554997 !important;
+    }
+
+    #llm-skill .quality-card .quality-num {
+      background: #111827 !important;
+      color: #ffffff !important;
+    }
+
+    #llm-skill .quality-action-pill {
+      background: rgba(85, 73, 151, 0.10) !important;
+      color: #554997 !important;
+      border-color: rgba(85, 73, 151, 0.12) !important;
+    }
+
+    #llm-skill .skill-note,
+    #llm-skill .section-flow-note {
+      background: rgba(85, 73, 151, 0.06) !important;
+      border-color: rgba(85, 73, 151, 0.14) !important;
+    }
+
+    #llm-skill .skill-note::before,
+    #llm-skill .section-flow-note::before {
+      background: #554997 !important;
+    }
+
+    #llm-skill .quality-card .quality-tag,
+    #llm-skill .quality-tag {
+      background: transparent !important;
+      border-color: transparent !important;
+      box-shadow: none !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      color: #174ea6 !important;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      #llm-skill .quality-card:hover,
+      #llm-skill .skill-note:hover,
+      #llm-skill .section-flow-note:hover {
+        border-color: rgba(85, 73, 151, 0.24) !important;
+        box-shadow: 0 18px 34px rgba(85, 73, 151, 0.11) !important;
+      }
+    }
+
+    :root[data-theme="dark"] #llm-skill .quality-card {
+      border-color: rgba(85, 73, 151, 0.34) !important;
+    }
+
+    :root[data-theme="dark"] #llm-skill .quality-card::before {
+      background: #554997 !important;
+    }
+
+    :root[data-theme="dark"] #llm-skill .quality-action-pill {
+      background: rgba(85, 73, 151, 0.24) !important;
+      color: #d8b4fe !important;
+      border-color: rgba(85, 73, 151, 0.32) !important;
+    }
+
+    :root[data-theme="dark"] #llm-skill .skill-note,
+    :root[data-theme="dark"] #llm-skill .section-flow-note {
+      background: rgba(85, 73, 151, 0.16) !important;
+      border-color: rgba(85, 73, 151, 0.28) !important;
+    }
+
+    :root[data-theme="dark"] #llm-skill .quality-card .quality-tag,
+    :root[data-theme="dark"] #llm-skill .quality-tag {
+      background: transparent !important;
+      border-color: transparent !important;
+      box-shadow: none !important;
+      color: #93c5fd !important;
+    }
+
+
+    /* ===== Final shadow policy: no default shadow, shallow shadow only on hover ===== */
+
+    /* 다크모드 버튼 hover 제거 */
+    .theme-toggle,
+    .theme-toggle:hover,
+    .topbar .theme-toggle,
+    .topbar .theme-toggle:hover,
+    .topbar.is-scrolled .theme-toggle,
+    .topbar.is-scrolled .theme-toggle:hover {
+      transform: translateY(-50%) !important;
+      box-shadow: none !important;
+      background: rgba(255, 255, 255, 0.72) !important;
+      border-color: #dbe7ff !important;
+    }
+
+    :root[data-theme="dark"] .theme-toggle,
+    :root[data-theme="dark"] .theme-toggle:hover,
+    :root[data-theme="dark"] .topbar .theme-toggle,
+    :root[data-theme="dark"] .topbar .theme-toggle:hover,
+    :root[data-theme="dark"] .topbar.is-scrolled .theme-toggle,
+    :root[data-theme="dark"] .topbar.is-scrolled .theme-toggle:hover {
+      transform: translateY(-50%) !important;
+      box-shadow: none !important;
+      background: rgba(17, 24, 39, 0.72) !important;
+      border-color: #2d3a52 !important;
+    }
+
+    /* 기본 그림자 일괄 제거 */
+    .card,
+    .footer-card,
+    .hero-thumb,
+    .thumb-arrow,
+    .theme-toggle,
+    .topbar,
+    .topbar.is-scrolled,
+    .detail-card,
+    .level-banner,
+    .level-banner-index,
+    .detail-num,
+    .level-badge,
+    .info-box,
+    .skill-card,
+    .model-card-compact,
+    .caution-box,
+    .example-box,
+    .model-guide,
+    .info-box li,
+    .caution-box li,
+    .model-guide li,
+    .letter-prompt,
+    .letter-copy,
+    .collapse-toggle,
+    .prompt-preview,
+    .guidance-card,
+    .workflow-capsule,
+    .growth-panel,
+    .growth-step,
+    .quality-card,
+    .quality-num,
+    .quality-action-pill,
+    .section-flow-note,
+    .prompt-notice-bar,
+    .notice-preview p,
+    .notice-detail-card,
+    .model-table,
+    .model-table tbody tr,
+    .next-btn,
+    .feedback a,
+    .top-btn,
+    .copy-all-btn,
+    .section-jump-nav {
+      box-shadow: none !important;
+    }
+
+    /* hover 시에만 얕은 그림자 */
+    @media (hover: hover) and (pointer: fine) {
+      .hero-thumb:hover,
+      .guidance-card:hover,
+      .workflow-capsule:hover,
+      .growth-panel:hover,
+      .growth-step:hover,
+      .info-box:hover,
+      .caution-box:hover,
+      .model-guide:hover,
+      .example-box:hover,
+      .skill-card:hover,
+      .model-card-compact:hover,
+      .letter-prompt:hover,
+      .quality-card:hover,
+      .section-flow-note:hover,
+      .prompt-notice-bar:hover {
+        box-shadow: 0 10px 22px rgba(15, 23, 42, 0.075) !important;
+      }
+
+      .letter-copy:hover,
+      .collapse-toggle:hover,
+      .copy-all-btn:hover,
+      .next-btn:hover,
+      .feedback a:hover,
+      .top-btn:hover {
+        box-shadow: 0 8px 18px rgba(15, 23, 42, 0.09) !important;
+      }
+
+      .info-box li:hover,
+      .caution-box li:hover,
+      .model-guide li:hover,
+      .quality-action-pill:hover {
+        box-shadow: 0 6px 14px rgba(15, 23, 42, 0.065) !important;
+      }
+
+      .theme-toggle:hover,
+      .topbar .theme-toggle:hover,
+      .topbar.is-scrolled .theme-toggle:hover {
+        box-shadow: none !important;
+        transform: translateY(-50%) !important;
+      }
+    }
+
+    :root[data-theme="dark"] .card,
+    :root[data-theme="dark"] .footer-card,
+    :root[data-theme="dark"] .hero-thumb,
+    :root[data-theme="dark"] .thumb-arrow,
+    :root[data-theme="dark"] .theme-toggle,
+    :root[data-theme="dark"] .topbar,
+    :root[data-theme="dark"] .topbar.is-scrolled,
+    :root[data-theme="dark"] .detail-card,
+    :root[data-theme="dark"] .level-banner,
+    :root[data-theme="dark"] .level-banner-index,
+    :root[data-theme="dark"] .detail-num,
+    :root[data-theme="dark"] .level-badge,
+    :root[data-theme="dark"] .info-box,
+    :root[data-theme="dark"] .skill-card,
+    :root[data-theme="dark"] .model-card-compact,
+    :root[data-theme="dark"] .caution-box,
+    :root[data-theme="dark"] .example-box,
+    :root[data-theme="dark"] .model-guide,
+    :root[data-theme="dark"] .info-box li,
+    :root[data-theme="dark"] .caution-box li,
+    :root[data-theme="dark"] .model-guide li,
+    :root[data-theme="dark"] .letter-prompt,
+    :root[data-theme="dark"] .letter-copy,
+    :root[data-theme="dark"] .collapse-toggle,
+    :root[data-theme="dark"] .prompt-preview,
+    :root[data-theme="dark"] .guidance-card,
+    :root[data-theme="dark"] .workflow-capsule,
+    :root[data-theme="dark"] .growth-panel,
+    :root[data-theme="dark"] .growth-step,
+    :root[data-theme="dark"] .quality-card,
+    :root[data-theme="dark"] .quality-num,
+    :root[data-theme="dark"] .quality-action-pill,
+    :root[data-theme="dark"] .section-flow-note,
+    :root[data-theme="dark"] .prompt-notice-bar,
+    :root[data-theme="dark"] .notice-preview p,
+    :root[data-theme="dark"] .notice-detail-card,
+    :root[data-theme="dark"] .model-table,
+    :root[data-theme="dark"] .model-table tbody tr,
+    :root[data-theme="dark"] .next-btn,
+    :root[data-theme="dark"] .feedback a,
+    :root[data-theme="dark"] .top-btn,
+    :root[data-theme="dark"] .copy-all-btn,
+    :root[data-theme="dark"] .section-jump-nav {
+      box-shadow: none !important;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      :root[data-theme="dark"] .hero-thumb:hover,
+      :root[data-theme="dark"] .guidance-card:hover,
+      :root[data-theme="dark"] .workflow-capsule:hover,
+      :root[data-theme="dark"] .growth-panel:hover,
+      :root[data-theme="dark"] .growth-step:hover,
+      :root[data-theme="dark"] .info-box:hover,
+      :root[data-theme="dark"] .caution-box:hover,
+      :root[data-theme="dark"] .model-guide:hover,
+      :root[data-theme="dark"] .example-box:hover,
+      :root[data-theme="dark"] .skill-card:hover,
+      :root[data-theme="dark"] .model-card-compact:hover,
+      :root[data-theme="dark"] .letter-prompt:hover,
+      :root[data-theme="dark"] .quality-card:hover,
+      :root[data-theme="dark"] .section-flow-note:hover,
+      :root[data-theme="dark"] .prompt-notice-bar:hover {
+        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.22) !important;
+      }
+
+      :root[data-theme="dark"] .letter-copy:hover,
+      :root[data-theme="dark"] .collapse-toggle:hover,
+      :root[data-theme="dark"] .copy-all-btn:hover,
+      :root[data-theme="dark"] .next-btn:hover,
+      :root[data-theme="dark"] .feedback a:hover,
+      :root[data-theme="dark"] .top-btn:hover {
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.20) !important;
+      }
+
+      :root[data-theme="dark"] .theme-toggle:hover,
+      :root[data-theme="dark"] .topbar .theme-toggle:hover,
+      :root[data-theme="dark"] .topbar.is-scrolled .theme-toggle:hover {
+        box-shadow: none !important;
+        transform: translateY(-50%) !important;
+      }
+    }
+
+
+    /* ===== Square Chosun logo update ===== */
+    :root {
+      --logo-expanded-w: clamp(78px, 7.2vw, 112px);
+      --logo-expanded-h: clamp(78px, 7.2vw, 112px);
+      --logo-compact-w: 42px;
+      --logo-compact-h: 42px;
+    }
+
+    .topbar .top-logo {
+      width: var(--logo-expanded-w) !important;
+      height: var(--logo-expanded-h) !important;
+      border-radius: 0 !important;
+      opacity: 1 !important;
+    }
+
+    .topbar.is-scrolled .top-logo {
+      width: var(--logo-compact-w) !important;
+      height: var(--logo-compact-h) !important;
+      opacity: 1 !important;
+    }
+
+    .topbar .top-logo img {
+      object-fit: contain !important;
+      object-position: left center !important;
+    }
+
+    .topbar .top-logo .logo-light {
+      opacity: 1 !important;
+    }
+
+    .topbar .top-logo .logo-dark {
+      display: none !important;
+    }
+
+    :root[data-theme="dark"] .topbar .top-logo .logo-light {
+      opacity: 1 !important;
+    }
+
+    @media (max-width: 1080px) {
+      :root {
+        --logo-expanded-w: clamp(68px, 9vw, 96px);
+        --logo-expanded-h: clamp(68px, 9vw, 96px);
+        --logo-compact-w: 40px;
+        --logo-compact-h: 40px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      :root {
+        --logo-expanded-w: clamp(48px, 15vw, 66px);
+        --logo-expanded-h: clamp(48px, 15vw, 66px);
+        --logo-compact-w: 34px;
+        --logo-compact-h: 34px;
+      }
+    }
+
+    @media (max-width: 430px) {
+      :root {
+        --logo-expanded-w: 48px;
+        --logo-expanded-h: 48px;
+        --logo-compact-w: 32px;
+        --logo-compact-h: 32px;
+      }
+    }
+
 </style>
 </head>
 
@@ -5154,8 +6007,7 @@
   <div class="topbar">
     <div class="container topbar-inner">
       <a class="top-logo" href="#home" aria-label="조선대학교 로고">
-        <img class="logo-light" src="assets/chosun-logo.png" alt="" />
-        <img class="logo-dark" src="assets/chosun-logo-white.png" alt="" aria-hidden="true" />
+        <img class="logo-light" src="assets/chosun-logo-square.png" alt="" />
       </a>
       <a class="brand" href="#home">조선대학교 AI 플랫폼 역량 강화 레터</a>
 
