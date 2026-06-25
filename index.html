@@ -6100,6 +6100,193 @@
       }
     }
 
+
+    /* ===== Fixed platform shortcut pill: aligned with bottom-right top button ===== */
+    .platform-fixed-pill {
+      position: fixed;
+      right: calc(72px + env(safe-area-inset-right));
+      bottom: calc(18px + env(safe-area-inset-bottom));
+      z-index: 49;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border-radius: 999px;
+      background: rgba(17, 24, 39, 0.78);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: -0.025em;
+      line-height: 1;
+      white-space: nowrap;
+      backdrop-filter: blur(18px) saturate(150%);
+      -webkit-backdrop-filter: blur(18px) saturate(150%);
+      box-shadow: none !important;
+      transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+    }
+
+    .platform-fixed-pill:hover {
+      background: rgba(17, 24, 39, 0.92);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.22);
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.09) !important;
+    }
+
+    :root[data-theme="dark"] .platform-fixed-pill {
+      background: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.14);
+      box-shadow: none !important;
+    }
+
+    :root[data-theme="dark"] .platform-fixed-pill:hover {
+      background: rgba(255, 255, 255, 0.20);
+      border-color: rgba(255, 255, 255, 0.22);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.20) !important;
+    }
+
+    @media (max-width: 760px) {
+      .platform-fixed-pill {
+        right: calc(64px + env(safe-area-inset-right));
+        bottom: calc(14px + env(safe-area-inset-bottom));
+        min-height: 40px;
+        padding: 0 14px;
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .platform-fixed-pill {
+        left: 16px;
+        right: calc(62px + env(safe-area-inset-right));
+        padding: 0 10px;
+      }
+    }
+
+
+    /* ===== Fixed platform pill height alignment with top button ===== */
+    .platform-fixed-pill,
+    .top-btn {
+      bottom: calc(18px + env(safe-area-inset-bottom)) !important;
+    }
+
+    .platform-fixed-pill {
+      height: 44px !important;
+      min-height: 44px !important;
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+      box-sizing: border-box !important;
+      line-height: 44px !important;
+    }
+
+    .top-btn {
+      width: 44px !important;
+      height: 44px !important;
+      min-width: 44px !important;
+      min-height: 44px !important;
+      box-sizing: border-box !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      line-height: 1 !important;
+    }
+
+    @media (max-width: 760px) {
+      .platform-fixed-pill,
+      .top-btn {
+        bottom: calc(14px + env(safe-area-inset-bottom)) !important;
+      }
+
+      .platform-fixed-pill {
+        height: 40px !important;
+        min-height: 40px !important;
+        line-height: 40px !important;
+      }
+
+      .top-btn {
+        width: 40px !important;
+        height: 40px !important;
+        min-width: 40px !important;
+        min-height: 40px !important;
+      }
+    }
+
+
+    /* ===== Bottom controls unified sizing: nav + platform pill + top button ===== */
+    @media (min-width: 761px) {
+      .section-jump-nav,
+      .platform-fixed-pill,
+      .top-btn {
+        bottom: calc(18px + env(safe-area-inset-bottom)) !important;
+      }
+
+      .section-jump-nav {
+        height: 44px !important;
+        min-height: 44px !important;
+        padding: 4px 6px !important;
+        box-sizing: border-box !important;
+        align-items: center !important;
+      }
+
+      .section-jump-nav a {
+        min-height: 34px !important;
+        height: 34px !important;
+        padding: 0 11px !important;
+        box-sizing: border-box !important;
+        line-height: 1 !important;
+      }
+
+      .platform-fixed-pill {
+        height: 44px !important;
+        min-height: 44px !important;
+        line-height: 44px !important;
+      }
+
+      .top-btn {
+        width: 44px !important;
+        height: 44px !important;
+        min-width: 44px !important;
+        min-height: 44px !important;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .section-jump-nav,
+      .platform-fixed-pill,
+      .top-btn {
+        bottom: calc(14px + env(safe-area-inset-bottom)) !important;
+      }
+
+      .section-jump-nav {
+        height: 40px !important;
+        min-height: 40px !important;
+        padding: 4px 5px !important;
+        box-sizing: border-box !important;
+      }
+
+      .section-jump-nav a {
+        min-height: 30px !important;
+        height: 30px !important;
+        padding: 0 9px !important;
+        box-sizing: border-box !important;
+      }
+
+      .platform-fixed-pill {
+        height: 40px !important;
+        min-height: 40px !important;
+        line-height: 40px !important;
+      }
+
+      .top-btn {
+        width: 40px !important;
+        height: 40px !important;
+        min-width: 40px !important;
+        min-height: 40px !important;
+      }
+    }
+
 </style>
 </head>
 
@@ -8619,6 +8806,7 @@ PDF는 반드시 `.docx`, `.pptx`, `.xlsx`, `.txt`, `.md` 중 하나의 편집 �
     </div>
   </footer>
 
+  <a class="platform-fixed-pill" href="https://chosun.factchat.bot/auth" target="_blank" rel="noopener noreferrer" aria-label="AI 플랫폼 바로가기">AI 플랫폼 바로가기 ↗</a>
   <a class="top-btn" href="#home" aria-label="맨 위로 이동">↑</a>
   <div class="toast" id="toast">복사되었습니다.</div>
 
