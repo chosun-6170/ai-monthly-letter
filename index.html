@@ -5097,6 +5097,56 @@
       }
     }
 
+
+    /* ===== Model table hover fix: remove square row artifact ===== */
+    @media (min-width: 761px) {
+      .model-table {
+        border-collapse: separate !important;
+        border-spacing: 0 10px !important;
+        background: transparent !important;
+        overflow: visible !important;
+      }
+
+      .model-table tbody tr,
+      .model-table tbody tr:hover {
+        transform: none !important;
+        box-shadow: none !important;
+        background: transparent !important;
+      }
+
+      .model-table tbody td {
+        background: var(--surface) !important;
+        transition:
+          background 0.18s ease,
+          border-color 0.18s ease,
+          color 0.18s ease !important;
+      }
+
+      .model-table tbody tr:hover td {
+        background: rgba(248, 250, 252, 0.92) !important;
+        border-color: rgba(10, 132, 255, 0.22) !important;
+      }
+
+      .model-table tbody tr:hover td:first-child {
+        background:
+          linear-gradient(90deg, rgba(10,132,255,0.11) 0%, rgba(248,250,252,0.92) 100%) !important;
+      }
+    }
+
+    :root[data-theme="dark"] .model-table tbody td {
+      background: rgba(40, 40, 40, 0.74) !important;
+    }
+
+    :root[data-theme="dark"] .model-table tbody tr:hover td {
+      background: rgba(59, 59, 61, 0.78) !important;
+      border-color: rgba(100, 210, 255, 0.18) !important;
+    }
+
+    :root[data-theme="dark"] .model-table tbody tr:hover td:first-child {
+      background:
+        linear-gradient(90deg, rgba(100,210,255,0.10) 0%, rgba(59,59,61,0.78) 100%) !important;
+    }
+
 </style>
 </head>
 
