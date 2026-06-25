@@ -5058,6 +5058,23 @@
       }
     }
 
+
+    /* ===== Notice bar jitter fix: stable scroll expansion ===== */
+    .prompt-notice-bar {
+      overflow-anchor: none;
+      will-change: box-shadow, border-color;
+    }
+
+    .prompt-notice-bar .notice-preview {
+      will-change: max-height, opacity, transform;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .prompt-notice-bar .notice-preview {
+        transition: none !important;
+      }
+    }
+
 </style>
 </head>
 
@@ -7987,18 +8004,34 @@ PDF는 반드시 `.docx`, `.pptx`, `.xlsx`, `.txt`, `.md` 중 하나의 편집 �
 
 
   <script>
-    // Prompt notice: slim on first view, preview opens after a small scroll
+    // Prompt notice: stable scroll reveal without threshold jitter
     (function () {
       const notice = document.getElementById('promptNotice');
       if (!notice) return;
 
+      let ticking = false;
+
       function syncNoticeState() {
-        const shouldPreview = window.scrollY > 48 || notice.open;
-        notice.classList.toggle('is-readable', shouldPreview);
+        const y = window.scrollY || document.documentElement.scrollTop || 0;
+
+        if (notice.open || y > 96) {
+          notice.classList.add('is-readable');
+        } else if (y < 12) {
+          notice.classList.remove('is-readable');
+        }
+
+        ticking = false;
+      }
+
+      function requestSync() {
+        if (ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(syncNoticeState);
       }
 
       notice.addEventListener('toggle', syncNoticeState);
-      window.addEventListener('scroll', syncNoticeState, { passive: true });
+      window.addEventListener('scroll', requestSync, { passive: true });
+      window.addEventListener('resize', requestSync);
       syncNoticeState();
     })();
   </script>
