@@ -6287,6 +6287,278 @@
       }
     }
 
+
+    /* ===== Demo video preview buttons + YouTube modal ===== */
+    .demo-video-toggle {
+      border: 0;
+      border-radius: 999px;
+      color: #ffffff;
+      padding: 8px 12px;
+      cursor: pointer;
+      font-weight: 900;
+      min-height: 38px;
+      background: #475569;
+      box-shadow: none !important;
+    }
+
+    .demo-video-toggle:hover {
+      background: #334155;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.09) !important;
+    }
+
+    .demo-video-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 90;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.18s ease;
+    }
+
+    .demo-video-modal.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .demo-video-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.62);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .demo-video-dialog {
+      position: relative;
+      z-index: 1;
+      width: min(960px, calc(100vw - 48px));
+      border-radius: 24px;
+      overflow: hidden;
+      background: #ffffff;
+      border: 1px solid rgba(148, 163, 184, 0.24);
+      box-shadow: 0 18px 44px rgba(15, 23, 42, 0.20) !important;
+      transform: translateY(8px);
+      transition: transform 0.18s ease;
+    }
+
+    .demo-video-modal.is-open .demo-video-dialog {
+      transform: translateY(0);
+    }
+
+    .demo-video-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 18px;
+      background: rgba(248, 250, 252, 0.94);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+    }
+
+    .demo-video-label {
+      display: block;
+      margin-bottom: 5px;
+      color: #174ea6;
+      font-size: 11px;
+      font-weight: 950;
+      letter-spacing: 0.05em;
+    }
+
+    .demo-video-head h2 {
+      margin: 0;
+      color: #111827;
+      font-size: clamp(17px, 1.7vw, 22px);
+      font-weight: 950;
+      letter-spacing: -0.04em;
+    }
+
+    .demo-video-close {
+      width: 38px;
+      height: 38px;
+      border: 0;
+      border-radius: 999px;
+      background: #111827;
+      color: #ffffff;
+      cursor: pointer;
+      font-size: 22px;
+      line-height: 1;
+      font-weight: 800;
+      box-shadow: none !important;
+    }
+
+    .demo-video-close:hover {
+      background: #334155;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.09) !important;
+    }
+
+    .demo-video-frame-wrap {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: #0f172a;
+    }
+
+    .demo-video-frame-wrap iframe {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .demo-video-frame-wrap.has-video iframe {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .demo-video-empty {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-content: center;
+      gap: 8px;
+      padding: 28px;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.84);
+    }
+
+    .demo-video-empty strong {
+      color: #ffffff;
+      font-size: clamp(18px, 2vw, 24px);
+      font-weight: 950;
+      letter-spacing: -0.04em;
+    }
+
+    .demo-video-empty p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.68);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .demo-video-frame-wrap.has-video .demo-video-empty {
+      display: none;
+    }
+
+    :root[data-theme="dark"] .demo-video-dialog {
+      background: #111827;
+      border-color: rgba(255, 255, 255, 0.12);
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.32) !important;
+    }
+
+    :root[data-theme="dark"] .demo-video-head {
+      background: rgba(17, 24, 39, 0.96);
+      border-bottom-color: rgba(255, 255, 255, 0.10);
+    }
+
+    :root[data-theme="dark"] .demo-video-head h2 {
+      color: #f8fafc;
+    }
+
+    @media (max-width: 760px) {
+      .letter-prompt-actions {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .demo-video-toggle {
+        width: 100%;
+        font-size: 13px !important;
+      }
+
+      .demo-video-modal {
+        padding: 16px;
+      }
+
+      .demo-video-dialog {
+        width: calc(100vw - 32px);
+        border-radius: 20px;
+      }
+
+      .demo-video-head {
+        padding: 14px;
+      }
+    }
+
+
+    /* ===== Prompt action buttons typography alignment ===== */
+    .letter-prompt-actions {
+      align-items: center !important;
+    }
+
+    .letter-copy,
+    .collapse-toggle,
+    .demo-video-toggle {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      height: 38px !important;
+      min-height: 38px !important;
+      padding: 0 12px !important;
+      box-sizing: border-box !important;
+      font-size: 13px !important;
+      font-weight: 900 !important;
+      line-height: 1 !important;
+      letter-spacing: -0.025em !important;
+      white-space: nowrap !important;
+    }
+
+    .demo-video-toggle {
+      background: #475569 !important;
+    }
+
+    .demo-video-toggle:hover {
+      background: #334155 !important;
+    }
+
+    @media (max-width: 760px) {
+      .letter-copy,
+      .collapse-toggle,
+      .demo-video-toggle {
+        height: 36px !important;
+        min-height: 36px !important;
+        padding: 0 10px !important;
+        font-size: 12.5px !important;
+      }
+    }
+
+
+    /* ===== Preview button final label + compact sizing ===== */
+    .letter-copy,
+    .collapse-toggle,
+    .demo-video-toggle {
+      height: 38px !important;
+      min-height: 38px !important;
+      padding: 0 12px !important;
+      font-size: 13px !important;
+      line-height: 1 !important;
+      letter-spacing: -0.025em !important;
+    }
+
+    .demo-video-toggle {
+      min-width: 74px !important;
+      background: #475569 !important;
+    }
+
+    @media (max-width: 760px) {
+      .letter-copy,
+      .collapse-toggle,
+      .demo-video-toggle {
+        height: 36px !important;
+        min-height: 36px !important;
+        padding: 0 10px !important;
+        font-size: 12.5px !important;
+      }
+
+      .demo-video-toggle {
+        min-width: 0 !important;
+      }
+    }
+
 </style>
 </head>
 
@@ -6459,6 +6731,7 @@
               <span>LEVEL 1 프롬프트 · 썸네일 생성기</span>
               <div class="letter-prompt-actions">
                 <button class="letter-copy" type="button">프롬프트 복사</button>
+                <button class="demo-video-toggle" type="button" data-demo-title="LEVEL 1 썸네일 생성기 시연 영상" data-youtube-id="EZ9Z0h2Ubn4" data-youtube-url="https://youtu.be/EZ9Z0h2Ubn4">미리보기</button>
                 <button class="collapse-toggle" type="button">전체 보기</button>
               </div>
             </div>
@@ -6938,6 +7211,7 @@ no text, no letters, no words, no numbers.
               <span>LEVEL 2 프롬프트 · 손필기 변환기</span>
               <div class="letter-prompt-actions">
                 <button class="letter-copy" type="button">프롬프트 복사</button>
+                <button class="demo-video-toggle" type="button" data-demo-title="LEVEL 2 손필기 변환기 시연 영상" data-youtube-id="6HHatdSYtH8" data-youtube-url="https://youtu.be/6HHatdSYtH8">미리보기</button>
                 <button class="collapse-toggle" type="button">전체 보기</button>
               </div>
             </div>
@@ -8808,6 +9082,27 @@ PDF는 반드시 `.docx`, `.pptx`, `.xlsx`, `.txt`, `.md` 중 하나의 편집 �
 
   <a class="platform-fixed-pill" href="https://chosun.factchat.bot/auth" target="_blank" rel="noopener noreferrer" aria-label="AI 플랫폼 바로가기">AI 플랫폼 바로가기 ↗</a>
   <a class="top-btn" href="#home" aria-label="맨 위로 이동">↑</a>
+
+  <div class="demo-video-modal" id="demoVideoModal" aria-hidden="true">
+    <div class="demo-video-backdrop" data-demo-close></div>
+    <section class="demo-video-dialog" role="dialog" aria-modal="true" aria-labelledby="demoVideoTitle">
+      <div class="demo-video-head">
+        <div>
+          <span class="demo-video-label">YOUTUBE PREVIEW</span>
+          <h2 id="demoVideoTitle">미리보기</h2>
+        </div>
+        <button class="demo-video-close" type="button" data-demo-close aria-label="미리보기 닫기">×</button>
+      </div>
+      <div class="demo-video-frame-wrap">
+        <iframe id="demoVideoFrame" title="시연 영상" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+        <div class="demo-video-empty" id="demoVideoEmpty">
+          <strong>시연 영상 연결 전입니다.</strong>
+          <p>유튜브 영상 주소를 받으면 이 버튼에서 바로 재생되도록 연결할 수 있습니다.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
   <div class="toast" id="toast">복사되었습니다.</div>
 
   <script>
@@ -9288,6 +9583,82 @@ PDF는 반드시 `.docx`, `.pptx`, `.xlsx`, `.txt`, `.md` 중 하나의 편집 �
       window.addEventListener('scroll', requestSync, { passive: true });
       window.addEventListener('resize', requestSync);
       syncNoticeState();
+    })();
+  </script>
+
+
+  <script>
+    // Demo video modal: supports YouTube ID or full YouTube URL
+    (function () {
+      const modal = document.getElementById('demoVideoModal');
+      const frame = document.getElementById('demoVideoFrame');
+      const title = document.getElementById('demoVideoTitle');
+      const frameWrap = modal?.querySelector('.demo-video-frame-wrap');
+      if (!modal || !frame || !title || !frameWrap) return;
+
+      function extractYoutubeId(value) {
+        if (!value) return '';
+        const trimmed = value.trim();
+
+        if (/^[a-zA-Z0-9_-]{11}$/.test(trimmed)) return trimmed;
+
+        try {
+          const url = new URL(trimmed);
+          if (url.hostname.includes('youtu.be')) {
+            return url.pathname.replace('/', '').slice(0, 11);
+          }
+          if (url.searchParams.get('v')) {
+            return url.searchParams.get('v').slice(0, 11);
+          }
+          const embedMatch = url.pathname.match(/\/embed\/([a-zA-Z0-9_-]{11})/);
+          if (embedMatch) return embedMatch[1];
+          const shortsMatch = url.pathname.match(/\/shorts\/([a-zA-Z0-9_-]{11})/);
+          if (shortsMatch) return shortsMatch[1];
+        } catch (error) {
+          return '';
+        }
+
+        return '';
+      }
+
+      function openDemo(button) {
+        const videoId = extractYoutubeId(button.dataset.youtubeId || button.dataset.youtubeUrl || '');
+        title.textContent = button.dataset.demoTitle || '시연 영상';
+
+        if (videoId) {
+          frame.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
+          frameWrap.classList.add('has-video');
+        } else {
+          frame.src = '';
+          frameWrap.classList.remove('has-video');
+        }
+
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.documentElement.classList.add('modal-open');
+      }
+
+      function closeDemo() {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        frame.src = '';
+        frameWrap.classList.remove('has-video');
+        document.documentElement.classList.remove('modal-open');
+      }
+
+      document.querySelectorAll('.demo-video-toggle').forEach((button) => {
+        button.addEventListener('click', () => openDemo(button));
+      });
+
+      modal.querySelectorAll('[data-demo-close]').forEach((button) => {
+        button.addEventListener('click', closeDemo);
+      });
+
+      window.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && modal.classList.contains('is-open')) {
+          closeDemo();
+        }
+      });
     })();
   </script>
 
