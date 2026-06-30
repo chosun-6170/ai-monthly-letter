@@ -1981,7 +1981,7 @@
     }
 
     .topbar .brand::after {
-      content: "조선대학교 AI 플랫폼 역량 강화 레터";
+      content: "조선대학교 교육혁신원 디지털교육지원팀 월간 레터 · 2026년 7월호(통권 제1호)"";
       position: absolute;
       left: calc(var(--logo-compact-w) + 16px);
       right: 62px;
@@ -6670,6 +6670,117 @@
 
       .footer-logo-item.footer-logo-team img {
         max-height: 26px !important;
+      }
+    }
+
+
+    /* ===== Compact topbar title + one-line footer logo fix ===== */
+    .topbar .brand::after {
+      content: "조선대학교 교육혁신원 디지털교육지원팀 월간 레터 · 2026년 7월호(통권 제1호)" !important;
+      font-size: clamp(12px, 1.25vw, 15px) !important;
+      letter-spacing: -0.035em !important;
+      line-height: 1.25 !important;
+    }
+
+    .footer-logo-strip {
+      width: fit-content !important;
+      max-width: min(calc(100% - 32px), 520px) !important;
+      display: inline-flex !important;
+      flex-wrap: nowrap !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 10px !important;
+      padding: 9px 13px !important;
+      border-radius: 17px !important;
+    }
+
+    .level-footer .container {
+      text-align: center;
+    }
+
+    .footer-logo-item {
+      width: auto !important;
+      min-width: 0 !important;
+      min-height: 30px !important;
+      flex: 0 0 auto !important;
+    }
+
+    .footer-logo-divider {
+      display: block !important;
+      flex: 0 0 auto !important;
+      height: 24px !important;
+    }
+
+    .footer-logo-item.footer-logo-innovation img {
+      max-height: 24px !important;
+      height: auto !important;
+      width: auto !important;
+    }
+
+    .footer-logo-item.footer-logo-team img {
+      max-height: 28px !important;
+      height: auto !important;
+      width: auto !important;
+    }
+
+    :root[data-theme="dark"] .footer-logo-innovation {
+      padding: 3px 6px !important;
+      border-radius: 10px !important;
+    }
+
+    @media (max-width: 760px) {
+      .topbar .brand::after {
+        font-size: clamp(11px, 3.1vw, 13px) !important;
+        line-height: 1.22 !important;
+      }
+
+      .footer-logo-strip {
+        max-width: min(calc(100% - 28px), 430px) !important;
+        gap: 8px !important;
+        padding: 8px 10px !important;
+        border-radius: 15px !important;
+      }
+
+      .footer-logo-innovation,
+      .footer-logo-team {
+        width: auto !important;
+      }
+
+      .footer-logo-divider {
+        display: block !important;
+        height: 20px !important;
+      }
+
+      .footer-logo-item {
+        min-height: 26px !important;
+      }
+
+      .footer-logo-item.footer-logo-innovation img {
+        max-height: 19px !important;
+      }
+
+      .footer-logo-item.footer-logo-team img {
+        max-height: 23px !important;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .footer-logo-strip {
+        gap: 7px !important;
+        padding: 7px 9px !important;
+        max-width: calc(100% - 24px) !important;
+      }
+
+      .footer-logo-item.footer-logo-innovation img {
+        max-height: 17px !important;
+      }
+
+      .footer-logo-item.footer-logo-team img {
+        max-height: 20px !important;
+      }
+
+      .footer-logo-divider {
+        height: 18px !important;
       }
     }
 
