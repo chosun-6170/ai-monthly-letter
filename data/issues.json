@@ -1,0 +1,65 @@
+{
+  "currentIssue": "2026-07",
+  "issues": [
+    {
+      "id": "2026-07",
+      "year": 2026,
+      "month": 7,
+      "volume": "통권 제1호",
+      "status": "published",
+      "label": "2026년 7월호",
+      "title": "AI, 어디까지 써봤니? 숨겨진 능력치 200% 끌어올리는 치트키 🎮",
+      "path": "issues/2026-07/"
+    },
+    {
+      "id": "2026-08",
+      "year": 2026,
+      "month": 8,
+      "volume": "통권 제2호",
+      "status": "planned",
+      "label": "2026년 8월호",
+      "title": "8월호 준비 중",
+      "path": "issues/2026-08/"
+    },
+    {
+      "id": "2026-09",
+      "year": 2026,
+      "month": 9,
+      "volume": "통권 제3호",
+      "status": "planned",
+      "label": "2026년 9월호",
+      "title": "9월호 준비 중",
+      "path": "issues/2026-09/"
+    },
+    {
+      "id": "2026-10",
+      "year": 2026,
+      "month": 10,
+      "volume": "통권 제4호",
+      "status": "planned",
+      "label": "2026년 10월호",
+      "title": "10월호 준비 중",
+      "path": "issues/2026-10/"
+    },
+    {
+      "id": "2026-11",
+      "year": 2026,
+      "month": 11,
+      "volume": "통권 제5호",
+      "status": "planned",
+      "label": "2026년 11월호",
+      "title": "11월호 준비 중",
+      "path": "issues/2026-11/"
+    },
+    {
+      "id": "2026-12",
+      "year": 2026,
+      "month": 12,
+      "volume": "통권 제6호",
+      "status": "planned",
+      "label": "2026년 12월호",
+      "title": "12월호 준비 중",
+      "path": "issues/2026-12/"
+    }
+  ]
+}
