@@ -93,13 +93,22 @@
   }
 
   function renderPrintLayout(currentIssue) {
-    if (document.querySelector(".print-report-header")) return;
+    if (document.querySelector(".print-document")) return;
 
     const main = document.querySelector("main");
+    const hero = document.querySelector(".hero");
     const thumbGrid = document.querySelector(".hero .thumb-grid");
-    if (!main || !thumbGrid) return;
+    const footer = document.querySelector(".level-footer");
+    if (!main || !hero || !thumbGrid) return;
 
     const title = document.querySelector(".brand")?.textContent?.trim() || document.title;
+
+    const printDocument = document.createElement("div");
+    printDocument.className = "print-document";
+    printDocument.setAttribute("aria-hidden", "true");
+
+    const cover = document.createElement("section");
+    cover.className = "print-cover-page";
 
     const header = document.createElement("header");
     header.className = "print-report-header";
@@ -117,19 +126,10 @@
     issue.textContent = `${currentIssue.label} · ${currentIssue.volume}`;
 
     header.append(organization, titleElement, issue);
-    main.before(header);
 
-    const runningHeader = document.createElement("div");
-    runningHeader.className = "print-running-header";
-
-    const runningTitle = document.createElement("span");
-    runningTitle.textContent = "조선대학교 디지털교육지원팀 통합 AI 플랫폼 월간 레터";
-
-    const runningIssue = document.createElement("strong");
-    runningIssue.textContent = `${currentIssue.label} · ${currentIssue.volume}`;
-
-    runningHeader.append(runningTitle, runningIssue);
-    header.after(runningHeader);
+    const coverContent = document.createElement("div");
+    coverContent.className = "print-cover-content";
+    coverContent.appendChild(thumbGrid.cloneNode(true));
 
     const tools = document.createElement("div");
     tools.className = "print-cover-tools";
@@ -151,7 +151,56 @@
     platform.innerHTML = "<strong>AI 플랫폼 바로가기 ↗</strong><span>chosun.factchat.bot/auth</span>";
 
     tools.append(printNav, platform);
-    thumbGrid.after(tools);
+    coverContent.appendChild(tools);
+
+    const notice = hero.querySelector(".prompt-notice-bar");
+    if (notice) {
+      const noticeClone = notice.cloneNode(true);
+      noticeClone.removeAttribute("open");
+      coverContent.appendChild(noticeClone);
+    }
+
+    cover.append(header, coverContent);
+
+    const reportTable = document.createElement("table");
+    reportTable.className = "print-report-pages";
+
+    const tableHead = document.createElement("thead");
+    const headRow = document.createElement("tr");
+    const headCell = document.createElement("td");
+    const runningHeader = document.createElement("div");
+    runningHeader.className = "print-running-header";
+
+    const runningTitle = document.createElement("span");
+    runningTitle.textContent = "조선대학교 디지털교육지원팀 통합 AI 플랫폼 월간 레터";
+
+    const runningIssue = document.createElement("strong");
+    runningIssue.textContent = `${currentIssue.label} · ${currentIssue.volume}`;
+
+    runningHeader.append(runningTitle, runningIssue);
+    headCell.appendChild(runningHeader);
+    headRow.appendChild(headCell);
+    tableHead.appendChild(headRow);
+
+    const tableBody = document.createElement("tbody");
+    const bodyRow = document.createElement("tr");
+    const bodyCell = document.createElement("td");
+    const reportContent = document.createElement("div");
+    reportContent.className = "print-report-content";
+
+    main.querySelectorAll(":scope > .detail-section, :scope > .quick-section").forEach((section) => {
+      reportContent.appendChild(section.cloneNode(true));
+    });
+
+    if (footer) reportContent.appendChild(footer.cloneNode(true));
+
+    bodyCell.appendChild(reportContent);
+    bodyRow.appendChild(bodyCell);
+    tableBody.appendChild(bodyRow);
+    reportTable.append(tableHead, tableBody);
+
+    printDocument.append(cover, reportTable);
+    document.body.appendChild(printDocument);
   }
 
   function renderNavigation(data) {

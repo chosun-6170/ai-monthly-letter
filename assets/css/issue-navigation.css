@@ -365,7 +365,8 @@ a.issue-pager__item:focus-visible {
 /* 인쇄용 요소는 일반 화면에서 완전히 숨긴다. */
 .print-report-header,
 .print-running-header,
-.print-cover-tools {
+.print-cover-tools,
+.print-document {
   display: none;
 }
 
@@ -878,5 +879,225 @@ a.issue-pager__item:focus-visible {
 
   a {
     color: inherit;
+  }
+}
+
+/*
+ * Safari PDF 안정화
+ * 표지는 독립된 첫 페이지로, 본문은 반복되는 table header를 가진 인쇄 전용 복제본으로 출력한다.
+ * 화면용 DOM은 그대로 두고 인쇄할 때만 복제본을 표시한다.
+ */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 10mm 11mm 11mm;
+  }
+
+  body > main,
+  body > .level-footer,
+  body > .issue-pager {
+    display: none !important;
+  }
+
+  .print-document {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+  }
+
+  .print-cover-page {
+    display: block !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    break-after: page !important;
+    page-break-after: always !important;
+  }
+
+  .print-cover-page .print-report-header {
+    display: block !important;
+    position: static !important;
+    z-index: auto !important;
+    width: 100% !important;
+    margin: 0 0 7mm !important;
+    padding: 0 0 5mm !important;
+    border-bottom: 0.45mm solid #174ea6 !important;
+    background: #ffffff !important;
+  }
+
+  .print-cover-content {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .print-cover-content .hero-thumb,
+  .print-cover-content .hero-thumb.no-image {
+    isolation: isolate !important;
+    background: #111827 !important;
+  }
+
+  .print-cover-content .hero-thumb img {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 0 !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .print-cover-content .hero-thumb::before {
+    z-index: 1 !important;
+  }
+
+  .print-cover-content .thumb-content {
+    z-index: 2 !important;
+  }
+
+  .print-report-pages {
+    display: table !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    table-layout: fixed !important;
+    border: 0 !important;
+    border-collapse: collapse !important;
+    background: #ffffff !important;
+  }
+
+  .print-report-pages > thead {
+    display: table-header-group !important;
+  }
+
+  .print-report-pages > tbody {
+    display: table-row-group !important;
+  }
+
+  .print-report-pages > thead > tr,
+  .print-report-pages > tbody > tr {
+    display: table-row !important;
+  }
+
+  .print-report-pages > thead > tr > td,
+  .print-report-pages > tbody > tr > td {
+    display: table-cell !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: #ffffff !important;
+  }
+
+  .print-report-pages > thead > tr > td {
+    padding-bottom: 4mm !important;
+  }
+
+  .print-report-pages .print-running-header {
+    position: static !important;
+    display: flex !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 8mm !important;
+    margin: 0 !important;
+    padding: 0 0 2mm !important;
+    border-bottom: 0.3mm solid #cbd5e1 !important;
+    background: #ffffff !important;
+  }
+
+  .print-report-content {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .print-report-content > .detail-section {
+    padding: 3mm 0 5mm !important;
+    border-top: 0 !important;
+  }
+
+  .print-report-content > .detail-section + .detail-section {
+    break-before: page !important;
+    page-break-before: always !important;
+  }
+
+  .print-report-content .level-banner {
+    margin-top: 0 !important;
+    break-after: avoid-page !important;
+    page-break-after: avoid !important;
+  }
+
+  .print-report-content .badges,
+  .print-report-content .section-kicker,
+  .print-report-content .section-title {
+    break-after: avoid-page !important;
+    page-break-after: avoid !important;
+  }
+
+  .print-document #thumbnail .letter-prompt,
+  .print-document #handwriting .letter-prompt,
+  .print-document #llm-skill .letter-prompt,
+  .print-document #models .letter-prompt,
+  .print-document #quick-prompts .letter-prompt {
+    background: #111827 !important;
+    border-color: #263247 !important;
+    color: #e5e7eb !important;
+  }
+
+  .print-document #thumbnail .letter-prompt-head,
+  .print-document #handwriting .letter-prompt-head,
+  .print-document #llm-skill .letter-prompt-head,
+  .print-document #models .letter-prompt-head,
+  .print-document #quick-prompts .letter-prompt-head {
+    background: #1f2937 !important;
+    border-color: #334155 !important;
+    color: #e5e7eb !important;
+  }
+
+  .print-document #thumbnail .letter-prompt .prompt-preview,
+  .print-document #handwriting .letter-prompt .prompt-preview,
+  .print-document #llm-skill .letter-prompt .prompt-preview,
+  .print-document #models .letter-prompt .prompt-preview,
+  .print-document #quick-prompts .letter-prompt .prompt-preview {
+    display: grid !important;
+    max-height: none !important;
+    padding: 3mm 4mm !important;
+    background: #111827 !important;
+    color: #e5e7eb !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .print-document .letter-prompt .prompt-preview p,
+  .print-document .letter-prompt .prompt-preview p *,
+  .print-document .letter-prompt .prompt-preview__text {
+    color: #e5e7eb !important;
+  }
+
+  .print-document .letter-prompt {
+    break-inside: avoid-page !important;
+    page-break-inside: avoid !important;
+  }
+
+  .print-document .quality-card,
+  .print-document .guidance-card,
+  .print-document .workflow-capsule,
+  .print-document .growth-panel,
+  .print-document .model-card-compact,
+  .print-document .skill-note-panel,
+  .print-document .caution-box {
+    break-inside: avoid-page !important;
+    page-break-inside: avoid !important;
+  }
+
+  .print-document .level-footer {
+    display: block !important;
+    break-before: auto !important;
+    page-break-before: auto !important;
   }
 }
