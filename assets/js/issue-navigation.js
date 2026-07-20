@@ -92,6 +92,42 @@
     return item;
   }
 
+  function embedPrintThumbnailImages(sourceGrid, targetGrid) {
+    const sourceImages = Array.from(sourceGrid.querySelectorAll(".hero-thumb img"));
+    const targetImages = Array.from(targetGrid.querySelectorAll(".hero-thumb img"));
+
+    sourceImages.forEach((sourceImage, index) => {
+      const targetImage = targetImages[index];
+      if (!targetImage) return;
+
+      const embed = () => {
+        if (!sourceImage.naturalWidth || !sourceImage.naturalHeight) return;
+
+        try {
+          const maxWidth = 1400;
+          const scale = Math.min(1, maxWidth / sourceImage.naturalWidth);
+          const canvas = document.createElement("canvas");
+          canvas.width = Math.max(1, Math.round(sourceImage.naturalWidth * scale));
+          canvas.height = Math.max(1, Math.round(sourceImage.naturalHeight * scale));
+
+          const context = canvas.getContext("2d");
+          if (!context) return;
+
+          context.drawImage(sourceImage, 0, 0, canvas.width, canvas.height);
+          targetImage.src = canvas.toDataURL("image/jpeg", 0.92);
+          targetImage.removeAttribute("srcset");
+          targetImage.removeAttribute("loading");
+          targetImage.removeAttribute("decoding");
+        } catch (error) {
+          targetImage.src = sourceImage.currentSrc || sourceImage.src;
+        }
+      };
+
+      if (sourceImage.complete) embed();
+      else sourceImage.addEventListener("load", embed, { once: true });
+    });
+  }
+
   function renderPrintLayout(currentIssue) {
     if (document.querySelector(".print-document")) return;
 
@@ -129,7 +165,9 @@
 
     const coverContent = document.createElement("div");
     coverContent.className = "print-cover-content";
-    coverContent.appendChild(thumbGrid.cloneNode(true));
+    const printThumbGrid = thumbGrid.cloneNode(true);
+    embedPrintThumbnailImages(thumbGrid, printThumbGrid);
+    coverContent.appendChild(printThumbGrid);
 
     const tools = document.createElement("div");
     tools.className = "print-cover-tools";
