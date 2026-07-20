@@ -364,6 +364,7 @@ a.issue-pager__item:focus-visible {
 
 /* 인쇄용 요소는 일반 화면에서 완전히 숨긴다. */
 .print-report-header,
+.print-running-header,
 .print-cover-tools {
   display: none;
 }
@@ -376,7 +377,7 @@ a.issue-pager__item:focus-visible {
  */
 @page {
   size: A4 portrait;
-  margin: 11mm;
+  margin: 20mm 11mm 11mm;
 }
 
 @media print {
@@ -416,6 +417,14 @@ a.issue-pager__item:focus-visible {
   }
 
   .topbar,
+  .topbar.is-scrolled,
+  .is-printing .topbar,
+  .topbar-inner,
+  .topbar .brand,
+  .topbar .compact-brand,
+  .topbar .topbar-logo-link,
+  .topbar::before,
+  .topbar::after,
   .issue-switcher,
   .section-jump-nav,
   .issue-pager,
@@ -434,13 +443,66 @@ a.issue-pager__item:focus-visible {
     display: none !important;
   }
 
+  .topbar,
+  .topbar.is-scrolled,
+  .is-printing .topbar {
+    position: static !important;
+    width: 0 !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    max-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+
   .print-report-header {
+    position: relative !important;
+    z-index: 20 !important;
     display: block !important;
     width: 100% !important;
-    margin: 0 0 7mm !important;
-    padding: 0 0 5mm !important;
+    margin: -13mm 0 7mm !important;
+    padding: 13mm 0 5mm !important;
     border-bottom: 0.45mm solid #174ea6 !important;
+    background: #ffffff !important;
     break-inside: avoid;
+  }
+
+  .print-running-header {
+    position: fixed !important;
+    z-index: 5 !important;
+    top: -13mm !important;
+    left: 0 !important;
+    right: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 5mm !important;
+    height: 9mm !important;
+    padding: 0 0 2mm !important;
+    border-bottom: 0.3mm solid #cbd5e1 !important;
+    background: #ffffff !important;
+    color: #475569 !important;
+    font-size: 7.5pt !important;
+    font-weight: 750 !important;
+    line-height: 1.2 !important;
+  }
+
+  .print-running-header span {
+    min-width: 0 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+  .print-running-header strong {
+    flex: 0 0 auto !important;
+    color: #174ea6 !important;
+    font-size: 7.5pt !important;
+    font-weight: 850 !important;
+    white-space: nowrap !important;
   }
 
   .print-report-organization {
@@ -485,6 +547,7 @@ a.issue-pager__item:focus-visible {
 
   .hero {
     padding: 0 0 6mm !important;
+    break-after: page !important;
   }
 
   .container,
@@ -498,13 +561,18 @@ a.issue-pager__item:focus-visible {
     padding-inline: 0 !important;
   }
 
+  .hero .container {
+    break-inside: avoid !important;
+  }
+
   .hero-head {
     display: none !important;
   }
 
   .thumb-grid {
-    display: grid !important;
-    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    display: flex !important;
+    flex-flow: row nowrap !important;
+    align-items: stretch !important;
     gap: 3mm !important;
     width: 100% !important;
     margin: 0 !important;
@@ -519,7 +587,9 @@ a.issue-pager__item:focus-visible {
   .hero-thumb.no-image {
     position: relative !important;
     display: block !important;
-    width: 100% !important;
+    flex: 1 1 0 !important;
+    width: 0 !important;
+    max-width: none !important;
     min-width: 0 !important;
     height: 56mm !important;
     min-height: 56mm !important;

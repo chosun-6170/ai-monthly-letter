@@ -4,6 +4,43 @@
   const pageIssueId = script?.dataset.issue || "";
 
   const absolutePath = (path) => `${base}${path}`;
+  let printModeActive = false;
+  let topbarInlineStyle = null;
+
+  function enterPrintMode() {
+    if (printModeActive) return;
+    printModeActive = true;
+    document.documentElement.classList.add("is-printing");
+
+    const topbar = document.querySelector(".topbar");
+    if (!topbar) return;
+
+    topbarInlineStyle = topbar.getAttribute("style");
+    topbar.style.setProperty("display", "none", "important");
+    topbar.style.setProperty("visibility", "hidden", "important");
+  }
+
+  function exitPrintMode() {
+    if (!printModeActive) return;
+    printModeActive = false;
+    document.documentElement.classList.remove("is-printing");
+
+    const topbar = document.querySelector(".topbar");
+    if (!topbar) return;
+
+    if (topbarInlineStyle === null) topbar.removeAttribute("style");
+    else topbar.setAttribute("style", topbarInlineStyle);
+    topbarInlineStyle = null;
+  }
+
+  window.addEventListener("beforeprint", enterPrintMode);
+  window.addEventListener("afterprint", exitPrintMode);
+
+  const printMedia = window.matchMedia?.("print");
+  printMedia?.addEventListener?.("change", (event) => {
+    if (event.matches) enterPrintMode();
+    else exitPrintMode();
+  });
 
   function makeIssueItem(issue, currentId) {
     const published = issue.status === "published";
@@ -81,6 +118,18 @@
 
     header.append(organization, titleElement, issue);
     main.before(header);
+
+    const runningHeader = document.createElement("div");
+    runningHeader.className = "print-running-header";
+
+    const runningTitle = document.createElement("span");
+    runningTitle.textContent = "조선대학교 디지털교육지원팀 통합 AI 플랫폼 월간 레터";
+
+    const runningIssue = document.createElement("strong");
+    runningIssue.textContent = `${currentIssue.label} · ${currentIssue.volume}`;
+
+    runningHeader.append(runningTitle, runningIssue);
+    header.after(runningHeader);
 
     const tools = document.createElement("div");
     tools.className = "print-cover-tools";
