@@ -940,8 +940,8 @@ a.issue-pager__item:focus-visible {
   }
 
   .print-cover-content .hero-thumb img {
-    position: absolute !important;
-    inset: 0 !important;
+    position: relative !important;
+    inset: auto !important;
     z-index: 0 !important;
     display: block !important;
     width: 100% !important;
