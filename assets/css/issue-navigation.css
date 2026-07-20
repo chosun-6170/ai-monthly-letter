@@ -361,3 +361,452 @@ a.issue-pager__item:focus-visible {
     font-size: 13.5px;
   }
 }
+
+/* 인쇄용 요소는 일반 화면에서 완전히 숨긴다. */
+.print-report-header,
+.print-cover-tools {
+  display: none;
+}
+
+/*
+ * 보고용 PDF 인쇄 레이아웃
+ * - 화면용 레이아웃에는 영향을 주지 않는다.
+ * - 프롬프트는 펼치지 않고 미리보기만 출력한다.
+ * - 강제 페이지 나눔 없이 세로 방향으로 자연스럽게 이어진다.
+ */
+@page {
+  size: A4 portrait;
+  margin: 11mm;
+}
+
+@media print {
+  :root,
+  :root[data-theme="dark"] {
+    color-scheme: light !important;
+    --bg: #ffffff !important;
+    --surface: #ffffff !important;
+    --surface-2: #f5f7fb !important;
+    --text: #111827 !important;
+    --muted: #64748b !important;
+    --line: #dbe2ea !important;
+    --primary: #2563eb !important;
+    --primary-2: #174ea6 !important;
+    --shadow: none !important;
+  }
+
+  html,
+  body {
+    width: auto !important;
+    min-width: 0 !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    background: #ffffff !important;
+    color: #111827 !important;
+    font-size: 9.5pt !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  body,
+  body * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  .topbar,
+  .issue-switcher,
+  .section-jump-nav,
+  .issue-pager,
+  .platform-fixed-pill,
+  .top-btn,
+  .theme-toggle,
+  .thumb-arrow,
+  .letter-prompt-actions,
+  .letter-copy,
+  .collapse-toggle,
+  .demo-video-toggle,
+  .demo-video-modal,
+  .next-row,
+  .feedback,
+  .toast {
+    display: none !important;
+  }
+
+  .print-report-header {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 0 7mm !important;
+    padding: 0 0 5mm !important;
+    border-bottom: 0.45mm solid #174ea6 !important;
+    break-inside: avoid;
+  }
+
+  .print-report-organization {
+    margin: 0 0 2.2mm !important;
+    color: #174ea6 !important;
+    font-size: 9pt !important;
+    font-weight: 800 !important;
+    line-height: 1.35 !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  .print-report-title {
+    margin: 0 !important;
+    color: #111827 !important;
+    font-size: 22pt !important;
+    font-weight: 900 !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.045em !important;
+    word-break: keep-all !important;
+  }
+
+  .print-report-issue {
+    margin: 2.6mm 0 0 !important;
+    color: #64748b !important;
+    font-size: 9pt !important;
+    font-weight: 750 !important;
+    line-height: 1.35 !important;
+  }
+
+  main,
+  .hero,
+  .detail-section,
+  .quick-section {
+    display: block !important;
+    width: 100% !important;
+    min-height: 0 !important;
+    height: auto !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    background: transparent !important;
+  }
+
+  .hero {
+    padding: 0 0 6mm !important;
+  }
+
+  .container,
+  .hero .container,
+  .detail-section .container,
+  .quick-section .container,
+  .level-footer .container {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding-inline: 0 !important;
+  }
+
+  .hero-head {
+    display: none !important;
+  }
+
+  .thumb-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 3mm !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    overflow: visible !important;
+    background: transparent !important;
+    break-inside: avoid;
+  }
+
+  .hero-thumb,
+  .hero-thumb.no-image {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 56mm !important;
+    min-height: 56mm !important;
+    margin: 0 !important;
+    border: 0 !important;
+    border-radius: 4mm !important;
+    overflow: hidden !important;
+    transform: none !important;
+    break-inside: avoid;
+  }
+
+  .hero-thumb img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  .hero-thumb.no-image img {
+    display: none !important;
+  }
+
+  .thumb-content {
+    left: 4mm !important;
+    right: 4mm !important;
+    bottom: 4mm !important;
+  }
+
+  .thumb-label,
+  .audience-label {
+    min-height: 0 !important;
+    margin-bottom: 2.2mm !important;
+    padding: 1.2mm 2.2mm !important;
+    font-size: 6.8pt !important;
+    line-height: 1.15 !important;
+  }
+
+  .thumb-meta-row {
+    gap: 1.5mm !important;
+    margin-bottom: 2.2mm !important;
+  }
+
+  .thumb-meta-row .thumb-label,
+  .thumb-meta-row .audience-label {
+    margin-bottom: 0 !important;
+  }
+
+  .hero-thumb h2 {
+    margin: 0 0 2mm !important;
+    font-size: 12.5pt !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.05em !important;
+  }
+
+  .hero-thumb p {
+    margin: 0 !important;
+    font-size: 7pt !important;
+    line-height: 1.35 !important;
+  }
+
+  .print-cover-tools {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    align-items: end !important;
+    gap: 4mm !important;
+    width: 100% !important;
+    margin: 4mm 0 0 !important;
+    break-inside: avoid;
+  }
+
+  .print-section-nav {
+    grid-column: 1 / -1;
+    display: grid !important;
+    grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+    gap: 1.5mm !important;
+    width: 100% !important;
+    padding: 1.5mm !important;
+    border: 0.3mm solid #dbe2ea !important;
+    border-radius: 3mm !important;
+    background: #f5f7fb !important;
+  }
+
+  .print-section-nav a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 0 !important;
+    padding: 2mm 1mm !important;
+    border-radius: 2mm !important;
+    color: #334155 !important;
+    font-size: 7.4pt !important;
+    font-weight: 800 !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+  }
+
+  .print-platform-link {
+    grid-column: 2;
+    justify-self: end;
+    display: inline-flex !important;
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    gap: 0.7mm !important;
+    padding: 2.4mm 3.5mm !important;
+    border: 0.3mm solid #cbd5e1 !important;
+    border-radius: 999px !important;
+    background: #ffffff !important;
+    color: #111827 !important;
+    text-align: right !important;
+    text-decoration: none !important;
+  }
+
+  .print-platform-link strong {
+    font-size: 8pt !important;
+    font-weight: 900 !important;
+    line-height: 1.15 !important;
+  }
+
+  .print-platform-link span {
+    color: #64748b !important;
+    font-size: 6.8pt !important;
+    font-weight: 650 !important;
+    line-height: 1.15 !important;
+  }
+
+  .prompt-notice-bar {
+    margin: 5mm 0 0 !important;
+    border: 0.3mm solid #dbe2ea !important;
+    border-radius: 3mm !important;
+    background: #ffffff !important;
+    overflow: hidden !important;
+  }
+
+  .prompt-notice-bar summary {
+    display: block !important;
+    min-height: 0 !important;
+    padding: 3mm 4mm !important;
+  }
+
+  .notice-bar-line {
+    min-height: 0 !important;
+    padding: 0 !important;
+  }
+
+  .notice-bar-hint,
+  .notice-preview,
+  .notice-detail {
+    display: none !important;
+  }
+
+  .detail-section,
+  .quick-section {
+    padding: 6mm 0 !important;
+    border-top: 0.3mm solid #e5e7eb !important;
+    break-before: auto !important;
+    break-after: auto !important;
+  }
+
+  .detail-card,
+  .quick-section .detail-card {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    overflow: visible !important;
+    break-inside: auto !important;
+  }
+
+  .level-banner {
+    margin: 0 0 4mm !important;
+    padding: 5mm !important;
+    border: 0.3mm solid #dbe2ea !important;
+    border-radius: 4mm !important;
+    background: #f8fafc !important;
+    overflow: hidden !important;
+    break-inside: avoid;
+  }
+
+  .level-banner-inner {
+    min-height: 0 !important;
+    gap: 4mm !important;
+  }
+
+  .level-banner h2 {
+    font-size: 20pt !important;
+    line-height: 1.15 !important;
+  }
+
+  .level-banner p {
+    font-size: 9pt !important;
+    line-height: 1.55 !important;
+  }
+
+  .level-banner-index {
+    font-size: 30pt !important;
+  }
+
+  .badges {
+    margin: 0 0 4mm !important;
+  }
+
+  .letter-prompt,
+  .quality-card,
+  .guidance-card,
+  .workflow-capsule,
+  .growth-panel,
+  .model-card-compact,
+  .skill-note-panel,
+  .caution-box {
+    break-inside: avoid;
+  }
+
+  .letter-prompt {
+    border: 0.3mm solid #cbd5e1 !important;
+    border-radius: 3mm !important;
+    overflow: hidden !important;
+  }
+
+  .letter-prompt-head {
+    min-height: 0 !important;
+    padding: 3mm 4mm !important;
+  }
+
+  .letter-prompt > pre,
+  .letter-prompt:not(.collapsed) > pre {
+    display: none !important;
+  }
+
+  .letter-prompt .prompt-preview,
+  .letter-prompt.collapsed .prompt-preview,
+  .letter-prompt:not(.collapsed) .prompt-preview,
+  .quick-grid .prompt-preview.quick-preview {
+    display: grid !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 3mm 4mm !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    background: #ffffff !important;
+    color: #334155 !important;
+  }
+
+  .prompt-preview p,
+  .quick-grid .prompt-preview.quick-preview p {
+    color: #334155 !important;
+    font-size: 8.5pt !important;
+    line-height: 1.45 !important;
+  }
+
+  table,
+  .model-table {
+    width: 100% !important;
+    table-layout: fixed !important;
+    border-collapse: collapse !important;
+  }
+
+  th,
+  td {
+    padding: 2.5mm !important;
+    color: #111827 !important;
+    font-size: 7.8pt !important;
+    line-height: 1.4 !important;
+    background: #ffffff !important;
+    border: 0.25mm solid #dbe2ea !important;
+  }
+
+  .level-footer {
+    margin: 6mm 0 0 !important;
+    padding: 6mm 0 0 !important;
+    border-top: 0.45mm solid #174ea6 !important;
+    background: #ffffff !important;
+    color: #334155 !important;
+    break-before: auto !important;
+  }
+
+  .footer-logo-strip {
+    width: fit-content !important;
+    max-width: 100% !important;
+    margin-inline: 0 !important;
+  }
+
+  a {
+    color: inherit;
+  }
+}

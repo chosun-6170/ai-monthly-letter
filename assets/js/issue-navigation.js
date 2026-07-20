@@ -55,6 +55,56 @@
     return item;
   }
 
+  function renderPrintLayout(currentIssue) {
+    if (document.querySelector(".print-report-header")) return;
+
+    const main = document.querySelector("main");
+    const thumbGrid = document.querySelector(".hero .thumb-grid");
+    if (!main || !thumbGrid) return;
+
+    const title = document.querySelector(".brand")?.textContent?.trim() || document.title;
+
+    const header = document.createElement("header");
+    header.className = "print-report-header";
+
+    const organization = document.createElement("p");
+    organization.className = "print-report-organization";
+    organization.textContent = "조선대학교 디지털교육지원팀 통합 AI 플랫폼 월간 레터";
+
+    const titleElement = document.createElement("h1");
+    titleElement.className = "print-report-title";
+    titleElement.textContent = title;
+
+    const issue = document.createElement("p");
+    issue.className = "print-report-issue";
+    issue.textContent = `${currentIssue.label} · ${currentIssue.volume}`;
+
+    header.append(organization, titleElement, issue);
+    main.before(header);
+
+    const tools = document.createElement("div");
+    tools.className = "print-cover-tools";
+
+    const printNav = document.createElement("nav");
+    printNav.className = "print-section-nav";
+    printNav.setAttribute("aria-label", "인쇄용 목차");
+
+    document.querySelectorAll(".section-jump-nav a").forEach((link) => {
+      const item = document.createElement("a");
+      item.href = link.getAttribute("href") || "#";
+      item.textContent = link.textContent.trim();
+      printNav.appendChild(item);
+    });
+
+    const platform = document.createElement("a");
+    platform.className = "print-platform-link";
+    platform.href = "https://chosun.factchat.bot/auth";
+    platform.innerHTML = "<strong>AI 플랫폼 바로가기 ↗</strong><span>chosun.factchat.bot/auth</span>";
+
+    tools.append(printNav, platform);
+    thumbGrid.after(tools);
+  }
+
   function renderNavigation(data) {
     const issues = Array.isArray(data.issues) ? data.issues : [];
     const currentId = pageIssueId || data.currentIssue;
@@ -80,6 +130,8 @@
       date.textContent = `모델 정보 확인 기준 · ${currentIssue.year}년 ${currentIssue.month}월 발행 시점`;
       modelsContent.appendChild(date);
     }
+
+    renderPrintLayout(currentIssue);
 
     const switcher = document.createElement("div");
     switcher.className = "issue-switcher";
