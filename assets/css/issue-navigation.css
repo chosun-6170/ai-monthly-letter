@@ -959,6 +959,76 @@ a.issue-pager__item:focus-visible {
     z-index: 2 !important;
   }
 
+  .print-cover-content .prompt-notice-bar.is-print-expanded {
+    margin-top: 5mm !important;
+    break-inside: avoid-page !important;
+    page-break-inside: avoid !important;
+  }
+
+  .print-cover-content .prompt-notice-bar.is-print-expanded .notice-bar-hint {
+    display: none !important;
+  }
+
+  .print-cover-content .prompt-notice-bar.is-print-expanded .notice-preview {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 2mm !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 3mm 3mm !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
+
+  .print-cover-content .prompt-notice-bar.is-print-expanded .notice-preview p {
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 2.5mm 3mm !important;
+    color: #475569 !important;
+    font-size: 7.3pt !important;
+    line-height: 1.45 !important;
+    background: #f8fafc !important;
+  }
+
+  .print-cover-content .prompt-notice-bar.is-print-expanded .notice-detail {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 2.5mm !important;
+    margin: 0 !important;
+    padding: 0 3mm 3mm !important;
+  }
+
+  .print-cover-content .prompt-notice-bar.is-print-expanded .notice-detail-card {
+    min-height: 0 !important;
+    padding: 3mm !important;
+    border: 0.3mm solid #dbe2ea !important;
+    border-radius: 3mm !important;
+    background: #ffffff !important;
+  }
+
+  .print-cover-content .prompt-notice-bar.is-print-expanded .notice-card-label {
+    font-size: 6.5pt !important;
+  }
+
+  .print-cover-content .prompt-notice-bar.is-print-expanded .notice-detail-card h3 {
+    margin: 1mm 0 1.5mm !important;
+    color: #111827 !important;
+    font-size: 10pt !important;
+    line-height: 1.25 !important;
+  }
+
+  .print-cover-content .prompt-notice-bar.is-print-expanded .notice-detail-card p {
+    margin: 0 !important;
+    color: #475569 !important;
+    font-size: 7.2pt !important;
+    line-height: 1.5 !important;
+  }
+
+  .print-cover-content .prompt-notice-bar.is-print-expanded .notice-detail-card p + p {
+    margin-top: 1.5mm !important;
+  }
+
   .print-report-pages {
     display: table !important;
     width: 100% !important;

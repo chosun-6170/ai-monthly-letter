@@ -156,7 +156,8 @@
     const notice = hero.querySelector(".prompt-notice-bar");
     if (notice) {
       const noticeClone = notice.cloneNode(true);
-      noticeClone.removeAttribute("open");
+      noticeClone.setAttribute("open", "");
+      noticeClone.classList.add("is-readable", "is-print-expanded");
       coverContent.appendChild(noticeClone);
     }
 
