@@ -4,44 +4,6 @@
   const pageIssueId = script?.dataset.issue || "";
 
   const absolutePath = (path) => `${base}${path}`;
-  let printModeActive = false;
-  let topbarInlineStyle = null;
-
-  function enterPrintMode() {
-    if (printModeActive) return;
-    printModeActive = true;
-    document.documentElement.classList.add("is-printing");
-
-    const topbar = document.querySelector(".topbar");
-    if (!topbar) return;
-
-    topbarInlineStyle = topbar.getAttribute("style");
-    topbar.style.setProperty("display", "none", "important");
-    topbar.style.setProperty("visibility", "hidden", "important");
-  }
-
-  function exitPrintMode() {
-    if (!printModeActive) return;
-    printModeActive = false;
-    document.documentElement.classList.remove("is-printing");
-
-    const topbar = document.querySelector(".topbar");
-    if (!topbar) return;
-
-    if (topbarInlineStyle === null) topbar.removeAttribute("style");
-    else topbar.setAttribute("style", topbarInlineStyle);
-    topbarInlineStyle = null;
-  }
-
-  window.addEventListener("beforeprint", enterPrintMode);
-  window.addEventListener("afterprint", exitPrintMode);
-
-  const printMedia = window.matchMedia?.("print");
-  printMedia?.addEventListener?.("change", (event) => {
-    if (event.matches) enterPrintMode();
-    else exitPrintMode();
-  });
-
   function makeIssueItem(issue, currentId) {
     const published = issue.status === "published";
     const item = document.createElement(published ? "a" : "div");
@@ -267,8 +229,6 @@
       date.textContent = `모델 정보 확인 기준 · ${currentIssue.year}년 ${currentIssue.month}월 발행 시점`;
       modelsContent.appendChild(date);
     }
-
-    renderPrintLayout(currentIssue);
 
     const switcher = document.createElement("div");
     switcher.className = "issue-switcher";
