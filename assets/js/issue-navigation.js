@@ -259,8 +259,11 @@
     switcher.append(button, panel);
     topbarInner.insertBefore(switcher, document.getElementById("themeToggle"));
 
+    const topbar = switcher.closest(".topbar");
+
     const setOpen = (open) => {
       switcher.classList.toggle("is-open", open);
+      topbar?.classList.toggle("is-issue-menu-open", open);
       button.setAttribute("aria-expanded", String(open));
     };
 
@@ -274,6 +277,11 @@
         button.focus();
       }
     });
+    window.addEventListener("scroll", () => {
+      requestAnimationFrame(() => {
+        if (!topbar?.classList.contains("is-scrolled")) setOpen(false);
+      });
+    }, { passive: true });
 
     const pager = document.createElement("nav");
     pager.className = "issue-pager";

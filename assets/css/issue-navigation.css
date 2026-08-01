@@ -20,6 +20,11 @@
   pointer-events: auto;
 }
 
+/* 월 선택 목록이 열릴 때만 축소 상단바 바깥 영역의 잘림을 해제합니다. */
+.topbar.is-scrolled.is-issue-menu-open {
+  overflow: visible;
+}
+
 /* 축소 상단바에서는 다크모드 버튼과 같은 중심선 사용 */
 .topbar.is-scrolled .issue-switcher {
   top: 50%;
