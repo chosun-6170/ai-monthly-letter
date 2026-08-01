@@ -1,0 +1,207 @@
+/* 비교용 사용자 친화 버전: 기존 디자인을 유지하고 웹 표준·탐색성만 보강 */
+
+/* ===== Layout families =====
+   같은 역할을 하는 요소가 같은 축과 치수를 공유하도록 한곳에서 관리합니다. */
+body.test-ux {
+  --family-control-size: 44px;
+  --family-prompt-edge: 30px;
+  --family-prompt-marker-column: 12px;
+  --family-prompt-column-gap: 14px;
+  --family-prompt-row-gap: 14px;
+  --family-banner-meta-gap: 18px;
+}
+
+.test-skip-link {
+  position: fixed;
+  top: 10px;
+  left: 12px;
+  z-index: 9999;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #111827;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
+  transform: translateY(-150%);
+  transition: transform 0.16s ease;
+}
+
+.test-skip-link:focus {
+  transform: translateY(0);
+}
+
+.topbar h1.brand {
+  margin: 0;
+}
+
+.topbar .brand__link {
+  display: block;
+  width: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* 상단 월 선택기가 compact 제목을 가리지 않도록 여백 확보 */
+.topbar .compact-brand {
+  right: 158px !important;
+}
+
+/* 월 선택기는 본문 발행 정보와 중복되지 않도록 compact 상단바에서만 노출 */
+.topbar:not(.is-scrolled) .issue-switcher {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.topbar.is-scrolled .issue-switcher {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* 브라우저 기본 기능 복원: 프롬프트 버튼은 그대로 작동 */
+body.test-ux,
+body.test-ux * {
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  user-select: text !important;
+  -webkit-touch-callout: default !important;
+}
+
+body.test-ux button,
+body.test-ux a,
+body.test-ux summary,
+body.test-ux [role="button"] {
+  -webkit-user-select: none !important;
+  user-select: none !important;
+}
+
+/* 키보드 사용자에게만 명확한 포커스 표시 */
+body.test-ux :is(a, button, summary, [role="button"], [tabindex]):focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.58) !important;
+  outline-offset: 3px !important;
+}
+
+:root[data-theme="dark"] body.test-ux :is(a, button, summary, [role="button"], [tabindex]):focus-visible {
+  outline-color: rgba(147, 197, 253, 0.82) !important;
+}
+
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9998;
+  height: 3px;
+  pointer-events: none;
+  background: transparent;
+}
+
+.reading-progress__bar {
+  display: block;
+  width: 0;
+  height: 100%;
+  border-radius: 0 999px 999px 0;
+  background: linear-gradient(90deg, #2563eb, #14b8a6, #554997);
+  transition: width 0.08s linear;
+}
+
+.banner-meta,
+.model-info-date {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin-top: var(--family-banner-meta-gap);
+  padding: 6px 9px;
+  border-radius: 999px;
+  background: rgba(100, 116, 139, 0.08);
+  color: var(--muted, #64748b);
+  font-size: 12px;
+  font-weight: 750;
+  line-height: 1.3;
+}
+
+/* LEVEL 1·2 프롬프트 패밀리: 헤더/본문/점/문장을 하나의 그리드 축으로 통일 */
+#thumbnail .letter-prompt,
+#handwriting .letter-prompt {
+  --prompt-edge: var(--family-prompt-edge);
+  --prompt-marker-column: var(--family-prompt-marker-column);
+  --prompt-column-gap: var(--family-prompt-column-gap);
+  --prompt-row-gap: var(--family-prompt-row-gap);
+}
+
+#thumbnail .letter-prompt-head,
+#handwriting .letter-prompt-head {
+  padding-inline: var(--prompt-edge) !important;
+}
+
+#thumbnail .letter-prompt.collapsed .prompt-preview,
+#handwriting .letter-prompt.collapsed .prompt-preview {
+  gap: var(--prompt-row-gap) !important;
+  padding: 22px var(--prompt-edge) 24px !important;
+}
+
+#thumbnail .prompt-preview:not(.quick-preview) p,
+#handwriting .prompt-preview:not(.quick-preview) p {
+  display: grid !important;
+  grid-template-columns: var(--prompt-marker-column) minmax(0, 1fr);
+  column-gap: var(--prompt-column-gap);
+  align-items: start;
+  padding-left: 0 !important;
+  font-size: 14.5px !important;
+  line-height: 1.55 !important;
+}
+
+#thumbnail .prompt-preview:not(.quick-preview) p::before,
+#handwriting .prompt-preview:not(.quick-preview) p::before {
+  position: static !important;
+  grid-column: 1;
+  width: 8px !important;
+  height: 8px !important;
+  margin-top: 0.58em;
+  transform: none !important;
+}
+
+#thumbnail .prompt-preview:not(.quick-preview) p > *,
+#handwriting .prompt-preview:not(.quick-preview) p > * {
+  grid-column: 2;
+}
+
+@media (max-width: 760px) {
+  body.test-ux {
+    --family-control-size: 40px;
+    --family-prompt-edge: 18px;
+    --family-prompt-column-gap: 11px;
+    --family-prompt-row-gap: 12px;
+    --family-banner-meta-gap: 14px;
+  }
+
+  .topbar .compact-brand {
+    right: 116px !important;
+  }
+
+  .topbar:not(.is-scrolled) .brand {
+    padding-right: 76px !important;
+  }
+
+  .issue-pager {
+    margin-bottom: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  body.test-ux *,
+  body.test-ux *::before,
+  body.test-ux *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

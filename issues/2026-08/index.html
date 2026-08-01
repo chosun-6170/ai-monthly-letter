@@ -3718,7 +3718,7 @@
     }
 
 
-    /* ===== 설명 타이포 시인성 보정: 본문성 텍스트만 살짝 확대 ===== */
+    /* ===== 설명 타이포 시인성 보정: 상속값 대신 고정 단계 사용 ===== */
     .level-banner p,
     .detail-lead,
     .guidance-list li,
@@ -3732,10 +3732,13 @@
     .example-box p,
     .model-card-compact p,
     .skill-card p,
-    .model-table th,
-    .model-table td,
     .level-footer p {
-      font-size: calc(1em + 1.5px);
+      font-size: 16px;
+    }
+
+    .model-table th,
+    .model-table td {
+      font-size: 14px;
     }
 
     .hero-guide,
@@ -3743,7 +3746,7 @@
     .thumb-content p,
     .eyebrow,
     .small {
-      font-size: calc(1em + 1px);
+      font-size: 14px;
     }
 
     .guidance-list li,
@@ -3780,10 +3783,13 @@
       .example-box p,
       .model-card-compact p,
       .skill-card p,
-      .model-table th,
-      .model-table td,
       .level-footer p {
-        font-size: calc(1em + 1px);
+        font-size: 15px;
+      }
+
+      .model-table th,
+      .model-table td {
+        font-size: 14px;
       }
     }
 
@@ -7734,41 +7740,53 @@
     }
 
     .model-choice-card {
-      min-height: 206px;
-      padding: 22px;
+      min-height: 0;
+      padding: 20px;
       border: 1px solid rgba(100, 116, 139, 0.22);
-      border-radius: 24px;
+      border-radius: 20px;
       background: var(--surface);
     }
 
     .model-choice-card > span {
       color: #0a84ff;
-      font-size: 11px;
-      font-weight: 1000;
-      letter-spacing: 0.07em;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: -0.01em;
     }
 
     .model-choice-card h4 {
-      margin: 10px 0 8px;
+      margin: 8px 0 0;
       color: var(--text);
-      font-size: 20px;
+      font-size: 21px;
+      line-height: 1.3;
       letter-spacing: -0.04em;
     }
 
-    .model-choice-card strong {
-      display: block;
-      color: var(--text);
-      font-size: 14px;
-      line-height: 1.55;
+    .model-choice-card p {
+      margin: 9px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.62;
       word-break: keep-all;
     }
 
-    .model-choice-card p {
-      margin: 12px 0 0;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.6;
-      word-break: keep-all;
+    .model-choice-models {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 16px;
+    }
+
+    .model-choice-models span {
+      padding: 7px 10px;
+      border: 1px solid rgba(10, 132, 255, 0.12);
+      border-radius: 999px;
+      background: rgba(10, 132, 255, 0.065);
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.35;
+      white-space: nowrap;
     }
 
     .bonus-tip {
@@ -7800,36 +7818,105 @@
       word-break: keep-all;
     }
 
+    .super-agent-tip-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 14px;
+      align-items: stretch;
+      margin-top: 14px;
+    }
+
+    .super-agent-tip-row > * {
+      min-width: 0;
+      height: 100%;
+    }
+
+    .super-agent-tip-row .bonus-tip {
+      margin-top: 0;
+    }
+
     .platform-feature-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      align-items: stretch;
     }
 
     .platform-feature-card {
-      min-height: 344px;
+      min-height: 0;
+      min-width: 0;
+      padding: 18px;
+      border-radius: 20px;
+      background: var(--surface);
+    }
+
+    .platform-feature-card h3 {
+      margin: 12px 0 7px;
+      font-size: 20px;
+      line-height: 1.3;
+      overflow-wrap: anywhere;
+    }
+
+    .platform-feature-card > p {
+      min-height: 0;
+      font-size: 16px;
+      line-height: 1.62;
+      overflow-wrap: anywhere;
+    }
+
+    .platform-heading {
+      margin-top: 42px;
+    }
+
+    .platform-heading h3 {
+      margin-top: 0;
+      font-size: clamp(24px, 2.8vw, 32px);
+    }
+
+    .platform-feature-card .feature-card-top,
+    .platform-feature-card .feature-state {
+      font-size: 13px;
+      letter-spacing: -0.01em;
+    }
+
+    .platform-feature-card .feature-card-top {
+      flex-wrap: wrap;
+    }
+
+    .platform-feature-card .feature-card-top > span:first-child {
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .platform-feature-card .feature-state {
+      flex: 0 0 auto;
     }
 
     .feature-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 7px;
-      margin: 18px 0 0;
+      gap: 6px;
+      margin: 13px 0 0;
       padding: 0;
       list-style: none;
     }
 
     .feature-list li {
-      padding: 7px 9px;
+      max-width: 100%;
+      padding: 6px 8px;
       border-radius: 999px;
       background: rgba(100, 116, 139, 0.08);
       color: var(--text);
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 800;
+      line-height: 1.4;
+      overflow-wrap: anywhere;
     }
 
     .feature-route {
-      margin-top: 18px;
-      padding: 13px;
-      border-radius: 16px;
+      min-width: 0;
+      margin-top: 14px;
+      padding: 10px 12px;
+      border-radius: 13px;
       background: rgba(100, 116, 139, 0.07);
     }
 
@@ -7840,16 +7927,22 @@
 
     .feature-route span {
       color: var(--muted);
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 900;
     }
 
     .feature-route strong {
-      margin-top: 4px;
+      margin-top: 3px;
       color: var(--text);
-      font-size: 13px;
+      font-size: 14px;
       line-height: 1.5;
-      word-break: keep-all;
+      word-break: normal;
+      overflow-wrap: anywhere;
+    }
+
+    :root[data-theme="dark"] .model-choice-models span {
+      border-color: rgba(100, 210, 255, 0.14);
+      background: rgba(100, 210, 255, 0.075);
     }
 
     :root[data-theme="dark"] .model-choice-card {
@@ -7867,9 +7960,43 @@
       color: #64d2ff;
     }
 
+    #models .update-section-heading p,
+    #models .model-group-heading p,
+    #models .model-choice-card p,
+    #models .bonus-tip p {
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    #models .update-credit-note,
+    #models .version-transition-card p,
+    #models .version-transition-note {
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    #models .model-choice-models span {
+      font-size: 14px;
+    }
+
+    #models .model-summary,
+    #models .model-meta-grid strong {
+      font-size: 16px;
+    }
+
+    @media (max-width: 1080px) {
+      .platform-feature-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 900px) {
       .model-choice-grid,
       .platform-feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .super-agent-tip-row {
         grid-template-columns: 1fr;
       }
     }
@@ -8037,8 +8164,8 @@
 
     /* ===== 2026년 8월 BONUS: 신규 모델 16종 매트릭스 ===== */
     .model-overview-grid {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 12px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
     }
 
     .model-overview-card {
@@ -8104,7 +8231,7 @@
       background: rgba(255, 255, 255, 0.025);
     }
 
-    @media (min-width: 761px) and (max-width: 1179px) {
+    @media (min-width: 761px) and (max-width: 980px) {
       .model-overview-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -8266,18 +8393,46 @@
       line-height: 1.6;
     }
 
-    .model-choice-card.is-wide {
-      grid-column: 1 / -1;
-      min-height: auto;
-    }
-
     .platform-feature-card {
       display: flex;
       flex-direction: column;
     }
 
     .platform-feature-card .feature-route {
-      margin-top: auto;
+      margin-top: 16px;
+    }
+
+    .version-transition-flow {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .version-transition-source,
+    .version-transition-target {
+      display: block;
+    }
+
+    .version-transition-source {
+      overflow-wrap: anywhere;
+    }
+
+    .version-transition-target {
+      margin-top: 8px;
+      color: var(--text);
+      font-weight: 800;
+    }
+
+    .version-transition-arrow {
+      display: inline-block;
+      margin-right: 6px;
+      color: #6d28d9;
+      font-weight: 1000;
+    }
+
+    :root[data-theme="dark"] .version-transition-arrow {
+      color: #c4b5fd;
     }
 
     :root[data-theme="dark"] .model-group-heading,
@@ -8391,6 +8546,222 @@
       }
     }
 
+    /* ===== 2026년 8월 최종 타이포 시스템 ===== */
+    :root {
+      --aug-type-caption: 12px;
+      --aug-type-label: 13px;
+      --aug-type-support: 15px;
+      --aug-type-body: 17px;
+      --aug-type-body-lg: 18px;
+      --aug-type-prompt: 15.5px;
+    }
+
+    .topbar:not(.is-scrolled) .brand {
+      letter-spacing: -0.05em !important;
+    }
+
+    .topbar .compact-brand {
+      font-size: clamp(13px, 1.2vw, 15px);
+      font-weight: 800;
+    }
+
+    .thumb-label,
+    .audience-label,
+    .level-kicker span,
+    .level-badge,
+    .notice-bar-label,
+    .notice-bar-hint {
+      font-size: var(--aug-type-caption);
+      font-weight: 900;
+    }
+
+    .hero-thumb p {
+      font-size: var(--aug-type-support);
+      line-height: 1.55;
+      text-wrap: pretty;
+    }
+
+    /* 썸네일 설명은 의미 단위끼리 묶고, 줄바꿈은 묶음 사이에서만 허용합니다. */
+    .hero-thumb .thumb-description {
+      display: flex;
+      flex-wrap: wrap;
+      column-gap: 0.28em;
+      row-gap: 0;
+      align-items: baseline;
+      text-wrap: wrap;
+    }
+
+    .hero-thumb .thumb-description > span {
+      white-space: nowrap;
+    }
+
+    @media (min-width: 1081px) {
+      .hero-thumb .thumb-description-family {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    .level-banner h2 {
+      font-size: clamp(32px, 4.2vw, 48px);
+      line-height: 1.15;
+      letter-spacing: -0.05em;
+    }
+
+    .level-banner p {
+      font-size: var(--aug-type-body-lg);
+      line-height: 1.68;
+      text-wrap: pretty;
+    }
+
+    .guidance-card h3,
+    .info-box h3,
+    .caution-box h3,
+    .example-box h3,
+    .model-guide h3,
+    .growth-panel h3,
+    .skill-note-panel h3,
+    .prompt-section-title {
+      font-size: clamp(22px, 2vw, 24px);
+      line-height: 1.25;
+      letter-spacing: -0.035em;
+    }
+
+    .guidance-list li,
+    .guidance-steps li,
+    .guidance-card p,
+    .workflow-capsule span,
+    .growth-panel p,
+    .growth-step span,
+    .info-box li,
+    .caution-box li,
+    .model-guide li,
+    .example-box p,
+    .skill-card p,
+    .quality-card p,
+    .skill-note-panel p,
+    .level-footer p {
+      font-size: var(--aug-type-body);
+      line-height: 1.68;
+      text-wrap: pretty;
+    }
+
+    .letter-prompt-head > span,
+    .letter-copy,
+    .collapse-toggle {
+      font-size: var(--aug-type-support) !important;
+    }
+
+    .prompt-preview p {
+      font-size: var(--aug-type-prompt) !important;
+      line-height: 1.65 !important;
+    }
+
+    .letter-prompt:not(.collapsed) > pre {
+      font-size: var(--aug-type-prompt) !important;
+      line-height: 1.7 !important;
+    }
+
+    .model-slot-no {
+      font-size: var(--aug-type-caption);
+      font-weight: 900;
+    }
+
+    .update-category {
+      font-size: var(--aug-type-label);
+      font-weight: 800;
+    }
+
+    .model-overview-card h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      letter-spacing: -0.035em;
+    }
+
+    .model-summary {
+      font-size: var(--aug-type-support);
+      line-height: 1.62;
+      min-height: 68px;
+      text-wrap: pretty;
+    }
+
+    .model-meta-grid span {
+      font-size: var(--aug-type-caption);
+      font-weight: 800;
+    }
+
+    .model-meta-grid strong {
+      font-size: var(--aug-type-support);
+      line-height: 1.5;
+    }
+
+    @media (min-width: 761px) and (max-width: 1179px) {
+      .model-overview-card h3 {
+        font-size: 21px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .topbar .compact-brand {
+        font-size: var(--aug-type-label);
+      }
+
+      .thumb-label,
+      .audience-label {
+        font-size: var(--aug-type-caption);
+      }
+
+      .hero-thumb p {
+        font-size: var(--aug-type-support);
+        line-height: 1.55;
+      }
+
+      .level-banner h2 {
+        font-size: clamp(30px, 9vw, 40px);
+        line-height: 1.15;
+        letter-spacing: -0.045em;
+      }
+
+      .level-banner p {
+        font-size: 16px;
+        line-height: 1.68;
+      }
+
+      .guidance-list li,
+      .guidance-steps li,
+      .guidance-card p,
+      .workflow-capsule span,
+      .growth-panel p,
+      .growth-step span,
+      .info-box li,
+      .caution-box li,
+      .model-guide li,
+      .example-box p,
+      .skill-card p,
+      .quality-card p,
+      .skill-note-panel p,
+      .level-footer p {
+        font-size: 16px;
+      }
+
+      .letter-prompt:not(.collapsed) > pre {
+        font-size: 14.5px !important;
+      }
+
+      .model-overview-card h3 {
+        font-size: 20px;
+      }
+
+      .model-summary {
+        min-height: auto;
+        font-size: 14px;
+      }
+
+      .model-meta-grid strong {
+        font-size: 14px;
+      }
+    }
+
 </style>
   <link rel="stylesheet" href="../../assets/css/issue-navigation.css" />
 </head>
@@ -8445,7 +8816,7 @@
             <div class="thumb-content">
               <div class="thumb-meta-row"><div class="thumb-label">LEVEL 1</div><div class="audience-label">교원</div></div>
               <h2>강의자료를<br><span class="point">수업 운영안</span>으로</h2>
-              <p>학습목표·활동·평가를 연결하는 교원용 프롬프트</p>
+              <p class="thumb-description"><span>학습목표·활동·평가를 연결하는</span><span>교원용 프롬프트</span></p>
             </div>
           </a>
 
@@ -8460,7 +8831,7 @@
             <div class="thumb-content">
               <div class="thumb-meta-row"><div class="thumb-label">LEVEL 2</div><div class="audience-label">학생</div></div>
               <h2>강의자료를<br><span class="point">학습계획</span>으로</h2>
-              <p>이해·회상·적용을 돕는 학생용 AI 학습코치</p>
+              <p class="thumb-description"><span>이해·회상·적용을 돕는</span><span>학생용 AI 학습코치</span></p>
             </div>
           </a>
 
@@ -8475,7 +8846,7 @@
             <div class="thumb-content">
               <div class="thumb-meta-row"><div class="thumb-label">LEVEL 3</div><div class="audience-label">직원</div></div>
               <h2>흩어진 업무를<br><span class="point">업무 현황판</span>으로</h2>
-              <p>업무의 우선순위·기한을 정리하는 직원용 프롬프트</p>
+              <p class="thumb-description"><span>업무의 우선순위·기한을 정리하는</span><span>직원용 프롬프트</span></p>
             </div>
           </a>
 
@@ -8490,7 +8861,7 @@
             <div class="thumb-content">
               <div class="thumb-meta-row"><div class="thumb-label">BONUS LEVEL</div><div class="audience-label">공통</div></div>
               <h2>이번 달<br><span class="point">신규 LLM 모델</span></h2>
-              <p>신규 모델과 플랫폼 최신 기능</p>
+              <p class="thumb-description thumb-description-family"><span>신규 모델과</span><span>플랫폼 최신 기능</span></p>
             </div>
           </a>
         </div>
@@ -9775,7 +10146,7 @@ ID / 태그 / 상태 / 우선순위 / 업무명 / 기한 /
           <div class="update-section-heading model-choice-heading">
             <div>
               <span class="update-eyebrow">AUTO TRANSITION REFERENCE</span>
-              <h3>기존 모델 자동 전환 참고</h3>
+              <h3>일부 대화 모델 전환 안내</h3>
               <p>신규 모델 구분과는 별개로, 일부 기존 모델은 별도 설정 없이 최신 모델로 자동 전환됩니다.</p>
             </div>
           </div>
@@ -9783,12 +10154,12 @@ ID / 태그 / 상태 / 우선순위 / 업무명 / 기한 /
             <article class="version-transition-card">
               <span>TO GPT-5.6 LUNA</span>
               <h4>일상·고속 모델 전환</h4>
-              <p>GPT-5 Thinking · GPT-5.1 · GPT-5 mini · GPT-5.1 Codex Max → <strong>GPT-5.6 Luna</strong></p>
+              <p class="version-transition-flow"><span class="version-transition-source">GPT-5 Thinking · GPT-5.1 · GPT-5 mini · GPT-5.1 Codex Max</span><span class="version-transition-target"><span class="version-transition-arrow" aria-hidden="true">→</span><strong>GPT-5.6 Luna</strong></span></p>
             </article>
             <article class="version-transition-card">
               <span>TO GPT-5.6 TERRA</span>
               <h4>균형형 모델 전환</h4>
-              <p>GPT-5.2 · GPT-5.2 Codex · GPT-5.3 Codex → <strong>GPT-5.6 Terra</strong></p>
+              <p class="version-transition-flow"><span class="version-transition-source">GPT-5.2 · GPT-5.2 Codex · GPT-5.3 Codex</span><span class="version-transition-target"><span class="version-transition-arrow" aria-hidden="true">→</span><strong>GPT-5.6 Terra</strong></span></p>
             </article>
           </div>
           <p class="version-transition-note">기존 대화 기록은 그대로 유지됩니다.</p>
@@ -9797,94 +10168,94 @@ ID / 태그 / 상태 / 우선순위 / 업무명 / 기한 /
             <div>
               <span class="update-eyebrow">QUICK CHOICE</span>
               <h3>어떤 모델을 선택해야 할까요?</h3>
-              <p>업무의 복잡도와 필요한 처리 방식에 따라 먼저 살펴볼 모델을 묶었습니다.</p>
+              <p>하려는 일과 가까운 유형을 먼저 고른 뒤, 아래 추천 모델에서 시작해 보세요.</p>
             </div>
           </div>
 
           <div class="model-choice-grid">
             <article class="model-choice-card">
-              <span>FAST &amp; ECONOMIC</span>
+              <span>빠른·경제형</span>
               <h4>빠르고 경제적인 일상 업무</h4>
-              <strong>Solar Pro 2 · Gemini 3.5 Flash-Lite · Qwen 3.7 Plus · Seed 2.0 Lite · GPT-5.6 Luna</strong>
               <p>메일·공문 초안, 간단한 요약, 자료 분류와 반복 작업처럼 빠른 처리가 중요한 업무에 적합합니다.</p>
+              <div class="model-choice-models" aria-label="추천 모델"><span>Solar Pro 2</span><span>Gemini 3.5 Flash-Lite</span><span>Qwen 3.7 Plus</span><span>Seed 2.0 Lite</span><span>GPT-5.6 Luna</span></div>
             </article>
             <article class="model-choice-card">
-              <span>BALANCED WORK</span>
+              <span>균형·복합형</span>
               <h4>분석과 작성이 함께 필요한 복합 업무</h4>
-              <strong>Gemini 3.6 Flash · GPT-5.6 Terra · Grok 4.5 · GLM-5.2 · Seed 2.0 Pro</strong>
               <p>문서·이미지 분석, 보고서 작성과 코딩처럼 여러 정보를 함께 다뤄야 할 때 활용합니다.</p>
+              <div class="model-choice-models" aria-label="추천 모델"><span>Gemini 3.6 Flash</span><span>GPT-5.6 Terra</span><span>Grok 4.5</span><span>GLM-5.2</span><span>Seed 2.0 Pro</span></div>
             </article>
             <article class="model-choice-card">
-              <span>LONG CONTEXT</span>
+              <span>긴 문서·맥락</span>
               <h4>긴 문서와 대화 맥락을 다루는 업무</h4>
-              <strong>Kimi K2.6 · Kimi K3 · Qwen 3.7 Max</strong>
               <p>대용량 문서 분석, 장문 대화와 복잡한 추론·코딩이 필요한 경우에 적합합니다.</p>
+              <div class="model-choice-models" aria-label="추천 모델"><span>Kimi K2.6</span><span>Kimi K3</span><span>Qwen 3.7 Max</span></div>
             </article>
             <article class="model-choice-card">
-              <span>PROFESSIONAL</span>
+              <span>전문·고난도</span>
               <h4>전문적인 고난도 업무</h4>
-              <strong>GPT-5.6 Sol · Claude Opus 5</strong>
               <p>과학적 추론, 전문 분석과 고난도 코딩처럼 높은 성능이 필요한 업무에 적합합니다.</p>
-            </article>
-            <article class="model-choice-card is-wide">
-              <span>MULTI-STEP AGENT</span>
-              <h4>여러 단계의 작업을 AI에게 맡기고 싶을 때</h4>
-              <strong>Super Agent Lite</strong>
-              <p>자료 탐색부터 분석·정리까지 여러 단계로 이어지는 작업을 가볍고 빠르게 처리하고 싶을 때 활용해 보세요.</p>
+              <div class="model-choice-models" aria-label="추천 모델"><span>GPT-5.6 Sol</span><span>Claude Opus 5</span></div>
             </article>
           </div>
 
-          <div class="bonus-tip">
-            <span>이용 TIP</span>
-            <p>간단한 질문과 초안 작성에는 낮은 크레딧의 모델부터 활용하고, 결과가 충분하지 않거나 복잡한 판단이 필요할 때 상위 모델로 전환해 보세요.</p>
+          <div class="super-agent-tip-row">
+            <article class="model-choice-card">
+              <span>여러 단계 작업</span>
+              <h4>여러 단계의 작업을 AI에게 맡기고 싶을 때</h4>
+              <p>자료 탐색부터 분석·정리까지 여러 단계로 이어지는 작업을 가볍고 빠르게 처리하고 싶을 때 활용해 보세요.</p>
+              <div class="model-choice-models" aria-label="추천 모델"><span>Super Agent Lite</span></div>
+            </article>
+            <div class="bonus-tip">
+              <span>이용 TIP</span>
+              <p>간단한 질문과 초안 작성에는 낮은 크레딧의 모델부터 활용하고, 결과가 충분하지 않거나 복잡한 판단이 필요할 때 상위 모델로 전환해 보세요.</p>
+            </div>
           </div>
 
           <div class="update-section-heading platform-heading">
             <div>
-              <span class="update-eyebrow">PLATFORM UPDATE</span>
-              <h3>플랫폼 최신 기능 한눈에 보기</h3>
-              <p>새 기능을 목적별로 묶고 실제 접근 경로와 확인해야 할 내용을 함께 정리했습니다.</p>
+              <h3>플랫폼 기능 업데이트</h3>
+              <p>이번 달 추가·개선된 기능과 필요한 이용 경로만 간단히 확인해 보세요.</p>
             </div>
-            <span class="update-count">6 AREAS</span>
           </div>
 
           <div class="platform-feature-grid">
             <article class="platform-feature-card">
-              <div class="feature-card-top"><span>SUPER AGENT</span><span class="feature-state">EXPANDED</span></div>
+              <div class="feature-card-top"><span>슈퍼 에이전트</span><span class="feature-state">기능 확장</span></div>
               <h3>여러 챗봇의 정보를 함께 확인</h3>
               <p>사용자가 접근할 수 있는 여러 챗봇의 정보를 Super Agent가 종합하여 답변합니다.</p>
               <ul class="feature-list"><li>직접 만든 챗봇</li><li>분석·편집 권한 챗봇</li><li>그룹 공유 챗봇</li><li>스토어 공개 챗봇</li></ul>
               <div class="feature-route"><span>이용 방법</span><strong>채팅 화면에서 Super Agent 선택 후 질문 입력</strong></div>
             </article>
             <article class="platform-feature-card">
-              <div class="feature-card-top"><span>DATA CONNECTORS</span><span class="feature-state">40 SOURCES</span></div>
+              <div class="feature-card-top"><span>데이터 연동</span><span class="feature-state">40종</span></div>
               <h3>공식 데이터 바로 연결</h3>
               <p>연결된 데이터를 조회하고 답변과 함께 원문·링크를 제공해 근거를 바로 확인할 수 있습니다.</p>
               <ul class="feature-list"><li>DART 기업 공시</li><li>학술 논문 검색·인용</li><li>국가법령정보</li><li>정부지원사업 정보</li></ul>
               <div class="feature-route"><span>이용 경로</span><strong>Personalize → 데이터 연동 → 커넥터 추가</strong></div>
             </article>
             <article class="platform-feature-card">
-              <div class="feature-card-top"><span>CHAT &amp; FILE</span><span class="feature-state">UPDATE</span></div>
+              <div class="feature-card-top"><span>채팅·파일</span><span class="feature-state">개선</span></div>
               <h3>더 편리해진 채팅과 파일</h3>
               <p>답변 생성 중에도 다음 메시지를 미리 입력하고, 첨부한 파일과 생성된 미디어를 대화 화면에서 바로 확인할 수 있습니다.</p>
               <ul class="feature-list"><li>메시지 대기열</li><li>PDF·Word·Excel 미리보기</li><li>음성·영상 바로 재생과 배속 조절</li><li>Google Drive 연결 개선</li></ul>
             </article>
             <article class="platform-feature-card">
-              <div class="feature-card-top"><span>PERSONALIZE &amp; MEMORY</span><span class="feature-state">IMPROVED</span></div>
+              <div class="feature-card-top"><span>개인화·메모리</span><span class="feature-state">개편</span></div>
               <h3>개인화 화면과 메모리 관리</h3>
               <p>현황·활동·할 일·기억을 한 화면에서 확인하고, AI가 기억한 내용과 변화 과정을 직접 관리할 수 있습니다.</p>
               <ul class="feature-list"><li>메모리 여정 확인</li><li>메모리 켜기·끄기</li><li>저장 기억 내려받기</li><li>저장 기억 전체 삭제</li></ul>
               <div class="feature-route"><span>이용 경로</span><strong>좌측 메뉴 → Personalize → 메모리</strong></div>
             </article>
             <article class="platform-feature-card">
-              <div class="feature-card-top"><span>MEETING NOTES</span><span class="feature-state">IMPROVED</span></div>
+              <div class="feature-card-top"><span>회의록</span><span class="feature-state">개선</span></div>
               <h3>회의록 기능 개선</h3>
               <p>회의 내용을 더 빠르게 찾고 인용할 수 있으며, 모바일 환경에서 녹음 안정성이 향상되었습니다.</p>
               <ul class="feature-list"><li>화자 이름 변경</li><li>대화록 키워드 검색</li><li>원문 그대로 인용 표시</li><li>모바일 녹음 안정성 개선</li></ul>
               <div class="feature-route"><span>이용 경로</span><strong>좌측 사이드바 → 회의록</strong></div>
             </article>
             <article class="platform-feature-card">
-              <div class="feature-card-top"><span>STUDIO &amp; CONVENIENCE</span><span class="feature-state">REFINED</span></div>
+              <div class="feature-card-top"><span>스튜디오·편의</span><span class="feature-state">개선</span></div>
               <h3>스튜디오와 기타 편의 기능</h3>
               <p>콘텐츠 제작과 프로필 설정, 음성 대화와 PPT 편집에 필요한 화면과 컨트롤이 개선되었습니다.</p>
               <ul class="feature-list"><li>원클릭 AI 아바타</li><li>프로필 이미지 가이드</li><li>커넥터 연결자 정보</li><li>음성 대화·PPT 편집 개선</li></ul>
