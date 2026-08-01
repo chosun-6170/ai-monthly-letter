@@ -205,6 +205,8 @@
   }
 
   function renderNavigation(data) {
+    if (document.querySelector(".issue-switcher, .issue-pager")) return;
+
     const issues = Array.isArray(data.issues) ? data.issues : [];
     const currentId = pageIssueId || data.currentIssue;
     const currentIndex = Math.max(0, issues.findIndex((issue) => issue.id === currentId));
@@ -287,11 +289,21 @@
     else document.body.appendChild(pager);
   }
 
-  fetch(absolutePath("data/issues.json"), { cache: "no-store" })
-    .then((response) => {
-      if (!response.ok) throw new Error(`Issue data request failed: ${response.status}`);
-      return response.json();
-    })
-    .then(renderNavigation)
-    .catch((error) => console.warn("월별 탐색 메뉴를 불러오지 못했습니다.", error));
+  const inlineDataElement = document.getElementById("issue-navigation-data");
+
+  if (inlineDataElement?.textContent?.trim()) {
+    try {
+      renderNavigation(JSON.parse(inlineDataElement.textContent));
+    } catch (error) {
+      console.warn("내장된 월별 탐색 데이터를 읽지 못했습니다.", error);
+    }
+  } else {
+    fetch(absolutePath("data/issues.json"), { cache: "no-store" })
+      .then((response) => {
+        if (!response.ok) throw new Error(`Issue data request failed: ${response.status}`);
+        return response.json();
+      })
+      .then(renderNavigation)
+      .catch((error) => console.warn("월별 탐색 메뉴를 불러오지 못했습니다.", error));
+  }
 })();

@@ -1,5 +1,5 @@
 {
-  "currentIssue": "2026-07",
+  "currentIssue": "2026-08",
   "issues": [
     {
       "id": "2026-07",
@@ -16,9 +16,9 @@
       "year": 2026,
       "month": 8,
       "volume": "통권 제2호",
-      "status": "planned",
+      "status": "published",
       "label": "2026년 8월호",
-      "title": "8월호 준비 중",
+      "title": "프롬프트 깎는 장인들의 시크릿 노트 엿보기 📝",
       "path": "issues/2026-08/"
     },
     {

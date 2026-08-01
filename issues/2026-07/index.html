@@ -5079,6 +5079,10 @@
       will-change: max-height, opacity, transform;
     }
 
+    .prompt-notice-bar.is-anchor-layout .notice-preview {
+      transition: none !important;
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .prompt-notice-bar .notice-preview {
         transition: none !important;
@@ -7270,7 +7274,7 @@
     }
 
 </style>
-  <link rel="stylesheet" href="../../assets/css/issue-navigation.css?v=20260720-9" />
+  <link rel="stylesheet" href="../../assets/css/issue-navigation.css" />
 </head>
 
 <body>
@@ -8323,25 +8327,56 @@ no logo, no watermark, no cluttered background, no low resolution, no dark gloom
       return target.querySelector?.('.level-banner') || target;
     }
 
-    function scrollToSectionAnchor(hash, behavior = 'smooth') {
+    function prepareAnchorLayout() {
+      const notice = document.getElementById('promptNotice');
+      if (!notice) return;
+
+      notice.classList.add('is-anchor-layout', 'is-readable');
+      void notice.offsetHeight;
+
+      requestAnimationFrame(() => {
+        notice.classList.remove('is-anchor-layout');
+      });
+    }
+
+    function jumpToPageTop(top) {
+      const root = document.documentElement;
+      const previousBehavior = root.style.scrollBehavior;
+
+      root.style.scrollBehavior = 'auto';
+      window.scrollTo(0, Math.max(0, top));
+      root.style.scrollBehavior = previousBehavior;
+    }
+
+    function moveToSectionAnchor(focusElement) {
+      const topbarOffset = getCompactTopbarHeight();
+      const targetTop = Math.max(
+        0,
+        getScrollTop() + focusElement.getBoundingClientRect().top - topbarOffset
+      );
+      jumpToPageTop(targetTop);
+    }
+
+    function scrollToSectionAnchor(hash) {
       if (!hash || hash === '#') return false;
 
       if (hash === '#home') {
-        window.scrollTo({ top: 0, behavior });
+        jumpToPageTop(0);
         return true;
       }
 
       const target = document.querySelector(hash);
       if (!target) return false;
 
-      const focusElement = getAnchorFocusElement(target);
-      const topbarOffset = getCompactTopbarHeight();
-      const targetTop = focusElement.getBoundingClientRect().top + window.pageYOffset - topbarOffset;
+      if (topbar && !topbar.classList.contains('is-scrolled')) {
+        topbarScrolled = true;
+        topbar.classList.add('is-scrolled');
+      }
 
-      window.scrollTo({
-        top: Math.max(0, targetTop),
-        behavior
-      });
+      prepareAnchorLayout();
+
+      const focusElement = getAnchorFocusElement(target);
+      moveToSectionAnchor(focusElement);
 
       return true;
     }
@@ -8351,7 +8386,7 @@ no logo, no watermark, no cluttered background, no low resolution, no dark gloom
         const hash = anchor.getAttribute('href');
         if (!hash || hash.length <= 1) return;
 
-        const handled = scrollToSectionAnchor(hash, 'smooth');
+        const handled = scrollToSectionAnchor(hash);
         if (!handled) return;
 
         event.preventDefault();
@@ -8362,7 +8397,7 @@ no logo, no watermark, no cluttered background, no low resolution, no dark gloom
     window.addEventListener('load', () => {
       if (window.location.hash) {
         requestAnimationFrame(() => {
-          scrollToSectionAnchor(window.location.hash, 'auto');
+          scrollToSectionAnchor(window.location.hash);
         });
       }
     });
@@ -8862,6 +8897,6 @@ no logo, no watermark, no cluttered background, no low resolution, no dark gloom
     })();
   </script>
 
-  <script src="../../assets/js/issue-navigation.js?v=20260720-9" data-base="../../" data-issue="2026-07"></script>
+  <script src="../../assets/js/issue-navigation.js" data-base="../../" data-issue="2026-07"></script>
 </body>
 </html>
