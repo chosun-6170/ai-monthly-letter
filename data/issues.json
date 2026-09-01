@@ -1,5 +1,5 @@
 {
-  "currentIssue": "2026-08",
+  "currentIssue": "2026-09",
   "issues": [
     {
       "id": "2026-07",
@@ -26,9 +26,9 @@
       "year": 2026,
       "month": 9,
       "volume": "통권 제3호",
-      "status": "planned",
+      "status": "published",
       "label": "2026년 9월호",
-      "title": "9월호 준비 중",
+      "title": "몰라서 못 썼던 알짜 기능부터 최신 모델까지, 슬기로운 AI 활용 루틴 ✨",
       "path": "issues/2026-09/"
     },
     {
