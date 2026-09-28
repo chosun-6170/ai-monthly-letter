@@ -9,7 +9,15 @@
       "status": "published",
       "label": "2026년 7월호",
       "title": "AI, 어디까지 써봤니? 숨겨진 능력치 200% 끌어올리는 치트키 🎮",
-      "path": "issues/2026-07/"
+      "path": "issues/2026-07/",
+      "printGuides": {
+        "faculty": [
+          "thumbnail"
+        ],
+        "student": [
+          "handwriting"
+        ]
+      }
     },
     {
       "id": "2026-08",
@@ -19,7 +27,15 @@
       "status": "published",
       "label": "2026년 8월호",
       "title": "프롬프트 깎는 장인들의 시크릿 노트 엿보기 📝",
-      "path": "issues/2026-08/"
+      "path": "issues/2026-08/",
+      "printGuides": {
+        "faculty": [
+          "thumbnail"
+        ],
+        "student": [
+          "handwriting"
+        ]
+      }
     },
     {
       "id": "2026-09",
@@ -29,7 +45,15 @@
       "status": "published",
       "label": "2026년 9월호",
       "title": "몰라서 못 썼던 알짜 기능부터 최신 모델까지, 슬기로운 AI 활용 루틴 ✨",
-      "path": "issues/2026-09/"
+      "path": "issues/2026-09/",
+      "printGuides": {
+        "faculty": [
+          "thumbnail"
+        ],
+        "student": [
+          "handwriting"
+        ]
+      }
     },
     {
       "id": "2026-10",
@@ -38,8 +62,16 @@
       "volume": "통권 제4호",
       "status": "planned",
       "label": "2026년 10월호",
-      "title": "10월호 준비 중",
-      "path": "issues/2026-10/"
+      "title": "과제 설계부터 학습 진단까지, AI를 더 깊이 활용하는 방법 🔍",
+      "path": "issues/2026-10/",
+      "printGuides": {
+        "faculty": [
+          "thumbnail"
+        ],
+        "student": [
+          "handwriting"
+        ]
+      }
     },
     {
       "id": "2026-11",

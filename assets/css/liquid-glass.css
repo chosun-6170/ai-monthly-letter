@@ -328,7 +328,7 @@ html[data-liquid-glass="true"][data-theme="dark"] .section-jump-nav {
 @media (max-width: 760px) {
   html[data-liquid-glass="true"] {
     --lg-control-size: 40px;
-    --lg-issue-width: 68px;
+    --lg-issue-width: 84px;
     --lg-brand-gap: 12px;
   }
 

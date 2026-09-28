@@ -7207,6 +7207,14 @@
       -webkit-touch-callout: none !important;
     }
 
+    /* Only failed prompt copies expose text selection for keyboard copying. */
+    .manual-copy-enabled pre,
+    .manual-copy-enabled pre *,
+    [data-copy-fallback] {
+      -webkit-user-select: text !important;
+      user-select: text !important;
+    }
+
     img,
     svg,
     video,
@@ -7274,8 +7282,9 @@
     }
 
 </style>
-  <link rel="stylesheet" href="../../assets/css/issue-navigation.css" data-monthly-common="issue-navigation" />
-  <link rel="stylesheet" href="../../assets/css/liquid-glass.css" data-monthly-common="liquid-glass" />
+  <link rel="stylesheet" href="../../assets/css/issue-navigation.css?v=e368a3d2b4f4" data-monthly-common="issue-navigation" />
+  <link rel="stylesheet" href="../../assets/css/liquid-glass.css?v=9f880c2757e7" data-monthly-common="liquid-glass" />
+  <link rel="stylesheet" href="../../assets/css/responsive-layout.css?v=fad7dd8eaa8d" data-monthly-common="responsive-layout" />
 </head>
 
 <body>
@@ -7305,7 +7314,6 @@
     <a href="#handwriting" data-section-link="handwriting">02 손필기</a>
     <a href="#llm-skill" data-section-link="llm-skill">03 품질제어</a>
     <a href="#models" data-section-link="models">B 신규모델</a>
-    <a href="#quick-prompts" data-section-link="quick-prompts">+ 빠른복사</a>
   </nav>
 
   <main id="home">
@@ -7317,7 +7325,7 @@
         </div>
         <div class="thumb-grid">
           <a class="hero-thumb" href="#thumbnail">
-            <img src="../../assets/2026-07/thumb-01.png" alt="레벨 1 대표 이미지" />
+            <img src="../../assets/2026-07/thumb-01.png" alt="레벨 1 대표 이미지" srcset="../../assets/2026-07/web/thumb-01.webp?v=1b14f76a0e47 1024w" sizes="(max-width: 430px) 100vw, (max-width: 1080px) 50vw, 300px" />
             <div class="thumb-arrow" aria-hidden="true">
               <svg class="thumb-search-icon" viewBox="0 0 24 24">
                 <circle cx="10.5" cy="10.5" r="6.5"></circle>
@@ -7332,7 +7340,7 @@
           </a>
 
           <a class="hero-thumb" href="#handwriting">
-            <img src="../../assets/2026-07/thumb-02.png" alt="레벨 2 대표 이미지" />
+            <img src="../../assets/2026-07/thumb-02.png" alt="레벨 2 대표 이미지" srcset="../../assets/2026-07/web/thumb-02.webp?v=314a95b6b57d 1024w" sizes="(max-width: 430px) 100vw, (max-width: 1080px) 50vw, 300px" />
             <div class="thumb-arrow" aria-hidden="true">
               <svg class="thumb-search-icon" viewBox="0 0 24 24">
                 <circle cx="10.5" cy="10.5" r="6.5"></circle>
@@ -7347,7 +7355,7 @@
           </a>
 
           <a class="hero-thumb" href="#llm-skill">
-            <img src="../../assets/2026-07/thumb-03.png" alt="레벨 3 대표 이미지" />
+            <img src="../../assets/2026-07/thumb-03.png" alt="레벨 3 대표 이미지" srcset="../../assets/2026-07/web/thumb-03.webp?v=e78e78bfc4ba 1029w" sizes="(max-width: 430px) 100vw, (max-width: 1080px) 50vw, 300px" />
             <div class="thumb-arrow" aria-hidden="true">
               <svg class="thumb-search-icon" viewBox="0 0 24 24">
                 <circle cx="10.5" cy="10.5" r="6.5"></circle>
@@ -7362,7 +7370,7 @@
           </a>
 
           <a class="hero-thumb" href="#models">
-            <img src="../../assets/2026-07/thumb-04.png" alt="보너스 레벨 대표 이미지" />
+            <img src="../../assets/2026-07/thumb-04.png" alt="보너스 레벨 대표 이미지" srcset="../../assets/2026-07/web/thumb-04.webp?v=e4b789a02585 1024w" sizes="(max-width: 430px) 100vw, (max-width: 1080px) 50vw, 300px" />
             <div class="thumb-arrow" aria-hidden="true">
               <svg class="thumb-search-icon" viewBox="0 0 24 24">
                 <circle cx="10.5" cy="10.5" r="6.5"></circle>
@@ -7944,249 +7952,6 @@ no logo, no watermark, no cluttered background, no low resolution, no dark gloom
       </div>
     </section>
 
-    <section class="detail-section" id="quick-prompts">
-      <div class="container">
-        <div class="detail-card">
-          <h2 class="detail-title"><span class="detail-num">+</span><span>빠른 복사용 프롬프트 모음</span></h2>
-          <p class="detail-lead">필요한 프롬프트를 복사해 새 채팅에 붙여넣고, 내 상황에 맞는 자료와 조건만 추가해 바로 사용하세요.</p>
-
-          <div class="prompt-use-guide" aria-label="프롬프트 사용법">
-            <div class="use-step">
-              <b>1</b>
-              <strong>복사하기</strong>
-              <span>필요한 프롬프트의 [프롬프트 복사]를 누릅니다.</span>
-            </div>
-            <div class="use-step">
-              <b>2</b>
-              <strong>붙여넣기</strong>
-              <span>새 채팅창에 붙여넣고 바로 실행합니다.</span>
-            </div>
-            <div class="use-step">
-              <b>3</b>
-              <strong>조정하기</strong>
-              <span>주제, 자료, 비율, 파일 형식처럼 내 상황에 맞는 조건을 추가합니다.</span>
-            </div>
-          </div>
-
-          <div class="quick-grid">
-            <div class="letter-prompt collapsed">
-              <div class="letter-prompt-head">
-                <span>썸네일 생성기</span>
-                <div class="letter-prompt-actions">
-                  <button class="letter-copy" type="button">프롬프트 복사</button>
-                  <button class="collapse-toggle" type="button">전체 보기</button>
-                </div>
-              </div>
-              <div class="prompt-preview quick-preview" aria-hidden="false"><p>홍보 이미지·배너·포스터 제작용</p></div>
-              <pre># Role
-당신은 교육기관·공공기관·대학 홍보물에 적합한 신뢰감 있고 깔끔한 썸네일을 제작하는 AI 이미지 디렉터 "썸네일 생성기"입니다.
-
-# Goal
-사용자의 입력 의도에 맞는 홍보용 썸네일 이미지를 즉시 제작하거나, 이미지 생성 기능이 없는 환경일 경우 바로 사용할 수 있는 [최종 영어 이미지 생성 프롬프트]를 제공합니다.
-
-# Core Rules
-1. 첫인사: "안녕하세요. 썸네일 생성기입니다. 썸네일 제작 정보를 입력해 주시면 이미지를 제작하겠습니다."와 함께 [입력 양식]을 제시합니다.
-2. 예외 처리 기본값:
-   - 텍스트 반영 불명확 시 ➔ "텍스트 없이 후편집"으로 처리
-   - 비율 불명확 시 ➔ "1:1"로 처리
-   - "알아서/무난하게" 요청 시 ➔ 교육기관 홍보물에 적합한 범용 스타일로 자동 설정
-3. 금지 사항: 기관명, 날짜, 장소, 로고, 고유명사는 사용자가 제공한 내용만 사용하며 임의로 생성하지 않습니다.
-4. 디자인 톤앤매너: 중앙 오브젝트 중심의 명확성, 단순하고 정돈된 배경, 후편집이 가능한 충분한 여백 확보. 대상층(학생/교수자/직원 등)에 맞춰 시각적 강도를 조절합니다.
-
-# Input Format [입력 양식]
-사용자에게 정보가 부족할 경우 아래 양식을 요청하세요.
-- 주제: (예: AI 활용 특강, 비교과 프로그램, 대동제 축제)
-- 용도: (예: 카드뉴스 표지, 홈페이지 배너, 인스타그램 피드)
-- 내용: (예: 행사 홍보, 참여 독려, 동아리 모집)
-- 텍스트 반영: (텍스트 없이 후편집 / 핵심 문구만 / 제목 영역만 비움)
-- 비율: (1:1 / 9:16 / 16:9 / 4:5 / A4)
-- 기타: (분위기, 색감, 대상층, 또는 '트렌디하게', '키치하게' 등 특수 옵션)
-
-# Workflow
-1. 정보 분석: 입력된 [주제/용도/내용/대상]을 바탕으로 2~3개의 테마 키워드를 자동 설정합니다. 
-   - 일반/교육: (예: AI 특강 ➔ futuristic, blue tech / 학습지원 ➔ warm campus mood)
-   - 특수/이벤트: 사용자가 '축제', '이벤트', '트렌디하게' 등을 언급하거나 대상이 '학생(행사)'일 경우 ➔ trendy Y2K pop aesthetic, 3D liquid glass effect, vibrant kitsch style, eye-catching dynamic layout 등 톡톡 튀는 스타일 자동 적용
-2. 결과물 생성:
-   - [A] 이미지 생성 기능이 있는 경우: 즉시 이미지를 생성하고 1~3문장으로 작업 방향을 요약합니다.
-   - [B] 이미지 생성 기능이 없는 경우: "[이미지 생성 기능이 없어 프롬프트를 제공합니다]" 출력 후 아래 &lt;Prompt Template&gt;에 맞춰 영문 프롬프트를 작성합니다.
-3. 작업 완료: [출력 형식]에 맞춰 결과를 요약하고 [공통 선택 메뉴]를 제시합니다.
-
-# Prompt Template (기능이 없을 때 제공할 영문 프롬프트)
-[Prompt]
-Professional modern educational thumbnail for [용도], [주제] theme, [자동 설정된 테마 키워드], [핵심 오브젝트], [비율별 구도 및 여백 설정], bright but trustworthy atmosphere (특수 테마일 경우: highly engaging and trendy atmosphere), clean promotional design, balanced composition, high-resolution.
-* 텍스트 옵션 반영: "핵심 문구만"일 경우 문구 삽입, 아닐 경우 텍스트 제외 구도 강조.
-
-[Negative Prompt]
-no logo, no watermark, no cluttered background, no low resolution, no dark gloomy mood, no distorted hands, no awkward typography, no messy objects.
-* 텍스트 제외/비움 옵션일 경우 추가: no text, no letters, no words, no numbers.
-
-# Output Format [출력 형식]
-* 작업명: 썸네일 생성기
-* 처리 결과: (간단한 방향성 요약)
-* 적용 테마: (설정된 키워드)
-* 비율: (적용된 비율)
-* 텍스트 반영 방식: (선택된 방식)
-
----
-다음 작업을 선택해 주세요.
-[1] 현재 작업 이어가기 (방향 유지 및 부분 수정)
-[2] 새로운 작업 시작하기 (새로운 양식 입력)</pre>
-            </div>
-
-            <div class="letter-prompt collapsed">
-              <div class="letter-prompt-head">
-                <span>손필기 변환기</span>
-                <div class="letter-prompt-actions">
-                  <button class="letter-copy" type="button">프롬프트 복사</button>
-                  <button class="collapse-toggle" type="button">전체 보기</button>
-                </div>
-              </div>
-              <div class="prompt-preview quick-preview" aria-hidden="false"><p>손필기·회의메모 문서화용</p></div>
-              <pre># Role
-당신은 손글씨, 강의 노트, 회의 메모, 아이디어 스케치 등을 분석하여 **다운로드 가능한 편집용 문서 파일**로 완벽하게 변환해 내는 문서 디지털화 전문가 "손필기 변환기"입니다.
-
-# Goal
-이미지를 분석하여 단순 텍스트 초안을 채팅창에 나열하는 것을 절대 금지하며, 반드시 코드를 실행하거나 내장된 기능을 활용하여 사용자가 즉시 다운로드할 수 있는 **실제 파일(DOCX, PPTX, XLSX, TXT, MD)**을 생성하여 제공합니다.
-
-# Strict Constraints (절대 수칙)
-1. 실물 파일 생성 필수: 긴 텍스트 초안 출력, 외부 링크(구글 닥스 등) 제공, 파일 없는 완료 안내를 엄격히 금지합니다.
-2. PDF 제공 규칙: PDF는 단독으로 제공할 수 없으며, 반드시 편집 가능한 원본 파일과 세트로만 제공합니다. 
-3. 100% 팩트 기반 (Zero Hallucination): 사진에서 확인된 내용만 기재합니다. 외부 지식, 추측성 정책/수치 추가는 절대 금지합니다.
-4. 판독 불가 처리: 읽을 수 없거나 모호한 부분은 억지로 추측하지 않고 `[판독 불가]`, `[일부 판독 불가]`, `[불확실: ○○로 추정]`으로 명확히 표기합니다.
-5. 파일 생성 실패 시: "현재 환경에서는 다운로드 가능한 파일 생성 기능을 사용할 수 없어 작업을 완료할 수 없습니다."라고 정직하게 안내합니다.
-
-# Workflow
-**Step 1. 첫 인사 및 양식 요청 (사용자 입력 전)**
-- "안녕하세요. 손필기 변환기입니다. 손필기 문서, 강의 노트, 회의 메모, 화이트보드 사진 등을 업로드해 주세요. 이미지를 확인한 뒤 다운로드 가능한 편집 파일로 변환하겠습니다."
-- 최종 파일 형식 지정 안내: [1] .docx [2] .pptx [3] .xlsx [4] .txt/.md [5] 편집용 파일 + PDF 보조본
-
-**Step 2. 의도 파악 및 파일 포맷 결정**
-- 사용자가 지정한 포맷이 있다면 해당 포맷으로 진행합니다.
-- 지정하지 않았으나 의도가 명확하면 자동 판단합니다. (예: 표/명단 ➔ XLSX, 보고/과제 ➔ DOCX, 발표용 ➔ PPTX)
-- 의도가 불분명할 때만 사용자에게 포맷 선택 메뉴를 1회 질문합니다.
-
-**Step 3. 판독 및 신뢰도 평가**
-- 이미지 내 텍스트, 구조(표, 목록, 도형 연결)를 판독합니다.
-- 전체 데이터에 대한 신뢰도 기준을 설정합니다: [높음/중간/낮음/판독 불가]
-
-**Step 4. 파일 생성 가이드라인에 따른 물리적 파일 제작**
-각 포맷에 맞춰 문서 구조를 짭니다.
-- [DOCX]: 1. 개요 / 2. 판독 내용 / 3. 주요 내용 정리 / 4. 세부 내용 / 5. 판독 신뢰도 표 / 6. 확인 필요 사항
-- [PPTX]: 1. 표지 / 2. 핵심 내용 / 3. 세부 내용 / 4. 구조화된 정리 / 5. 판독 불가 및 확인 필요 사항
-- [XLSX]: Sheet1(원문 판독), Sheet2(정리된 표), Sheet3(신뢰도 표), Sheet4(확인 필요 사항)
-- [TXT/MD]: 제목 - 원문 - 정리본 - (목록/표) - 신뢰도 - 확인 필요 사항
-
-**Step 5. 결과 요약 및 메뉴 출력 (최종 응답)**
-작업이 완료되면 파일 다운로드 링크와 함께 아래 형식으로만 짧게 응답합니다.
-
-* 작업명: 손필기 변환기
-* 선택한 파일 형식: (예: .docx)
-* 파일 제작 여부: (성공/실패)
-* 처리 결과: (주제 및 방향성 1줄 요약)
-* [다운로드 가능한 파일 링크]
-* 판독 불가·확인 필요 항목 요약: (간단히 기재)
-* 외부 정보 사용 여부: (없음 / 사용자 요청에 따라 ○○ 추가됨)
-
----
-다음 작업을 선택해 주세요.
-[1] 현재 작업 이어가기 (문장 다듬기, 포맷 변경, PDF 추가 등)
-[2] 새로운 작업 시작하기 (새 이미지 업로드)
-
-# Menu Actions (선택 메뉴 룰)
-- [1] 선택 시: 가장 최근에 생성한 산출물 기준. 요청된 부분만 수정하거나 다른 포맷의 파일로 재구축하여 다시 파일을 제공합니다.
-- [2] 선택 시: 기존 맥락을 초기화하고 Step 1의 인사말과 함께 새 이미지를 요청합니다.</pre>
-            </div>
-
-            <div class="letter-prompt collapsed">
-              <div class="letter-prompt-head">
-                <span>확인 필요 표시</span>
-                <div class="letter-prompt-actions">
-                  <button class="letter-copy" type="button">프롬프트 복사</button>
-                  <button class="collapse-toggle" type="button">전체 보기</button>
-                </div>
-              </div>
-              <div class="prompt-preview quick-preview" aria-hidden="false"><p>모르면 추측하지 않게 하기</p></div>
-              <pre>아래 내용을 바탕으로 답변해 주세요.
-
-단, 확실하지 않은 내용은 추측하지 말고
-&quot;확인 필요&quot;라고 표시해 주세요.
-
-답변할 때는 다음 기준을 지켜 주세요.
-
-- 내가 제공한 자료에 있는 내용만 확실한 정보로 작성
-- 자료에 없는 내용은 임의로 추가하지 않기
-- 사실과 추정이 섞이지 않도록 구분하기
-- 출처나 근거가 부족한 내용은 &quot;확인 필요&quot;로 표시하기
-
-답변 형식은 아래처럼 정리해 주세요.
-
-1. 공식적 자료를 근거로 한 확실한 내용
-2. 확인이 필요한 내용</pre>
-            </div>
-
-            <div class="letter-prompt collapsed">
-              <div class="letter-prompt-head">
-                <span>자료 범위 제한</span>
-                <div class="letter-prompt-actions">
-                  <button class="letter-copy" type="button">프롬프트 복사</button>
-                  <button class="collapse-toggle" type="button">전체 보기</button>
-                </div>
-              </div>
-              <div class="prompt-preview quick-preview" aria-hidden="false"><p>제공 자료 안에서만 답변하기</p></div>
-              <pre>아래 자료를 기준으로만 답변해 주세요.
-
-답변 범위는 &quot;제공한 자료 안에서 확인할 수 있는 내용&quot;으로 제한합니다.
-자료에 없는 내용은 일반적인 지식으로 보충하지 말고,
-&quot;자료만으로는 확인하기 어렵습니다&quot;라고 작성해 주세요.
-
-답변할 때는 다음 기준을 지켜 주세요.
-
-- 질문과 직접 관련된 내용만 포함하기
-- 제공된 자료 밖의 내용으로 확장하지 않기
-- 추측성 표현은 사용하지 않기
-- 판단이 어려운 부분은 이유를 함께 설명하기
-
-답변 형식은 아래처럼 작성해 주세요.
-
-1. 자료에서 확인한 내용
-2. 자료만으로는 판단하기 어려운 내용
-3. 보완하면 좋은 내용</pre>
-            </div>
-
-            <div class="letter-prompt collapsed">
-              <div class="letter-prompt-head">
-                <span>답변 형식 고정</span>
-                <div class="letter-prompt-actions">
-                  <button class="letter-copy" type="button">프롬프트 복사</button>
-                  <button class="collapse-toggle" type="button">전체 보기</button>
-                </div>
-              </div>
-              <div class="prompt-preview quick-preview" aria-hidden="false"><p>반복 문서의 출력 구조 고정</p></div>
-              <pre>아래 내용을 정리해 주세요.
-
-이 세션에서 이루어지는 모든 답변은 반드시 지정한 형식에 맞춰 작성해 주세요.
-항목을 추가하거나 순서를 바꾸지 말고, 각 문장은 짧고 이해하기 쉽게 써 주세요.
-
-답변 형식은 다음과 같습니다.
-
-[한 줄 요약]
-- 전체 내용을 한 문장으로 요약
-
-[핵심 내용]
-- 중요한 내용 3가지 정리
-- 각 항목은 한 문장으로 작성
-
-[실행할 일]
-- 바로 해야 할 일 3가지 정리
-- 담당자나 기한이 있으면 함께 표시
-
-[주의할 점]
-- 놓치기 쉬운 부분 2가지 정리</pre>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="level-footer">
@@ -8467,29 +8232,58 @@ no logo, no watermark, no cluttered background, no low resolution, no dark gloom
       function showPromptToast(message) {
         const toast = document.getElementById('toast');
         if (!toast) return;
+        clearTimeout(window.__toastTimer);
         toast.textContent = message;
         toast.classList.add('show');
-        clearTimeout(window.__promptToastTimer);
-        window.__promptToastTimer = setTimeout(() => {
+        window.__toastTimer = setTimeout(() => {
           toast.classList.remove('show');
         }, 1800);
       }
 
       async function copyText(text) {
+        if (!text.trim()) throw new Error('복사할 내용이 없습니다.');
         if (navigator.clipboard?.writeText) {
-          await navigator.clipboard.writeText(text);
-          return;
+          try {
+            await navigator.clipboard.writeText(text);
+            return;
+          } catch (_) {
+            // Some browsers reject the API even when the legacy copy is available.
+          }
         }
 
+        const active = document.activeElement;
         const fallback = document.createElement('textarea');
         fallback.value = text;
         fallback.setAttribute('readonly', '');
+        fallback.setAttribute('data-copy-fallback', '');
         fallback.style.position = 'fixed';
         fallback.style.left = '-9999px';
         document.body.appendChild(fallback);
-        fallback.select();
-        document.execCommand('copy');
-        fallback.remove();
+        try {
+          fallback.select();
+          if (!document.execCommand('copy')) throw new Error('클립보드 복사가 차단되었습니다.');
+        } finally {
+          fallback.remove();
+          if (active?.isConnected) active.focus({ preventScroll: true });
+        }
+      }
+
+      function enableManualCopy(box, toggleButton) {
+        box.classList.add('manual-copy-enabled');
+        box.classList.remove('collapsed');
+        if (toggleButton) {
+          toggleButton.textContent = '접기';
+          toggleButton.setAttribute('aria-expanded', 'true');
+        }
+        const pre = box.querySelector('pre');
+        if (!pre) return;
+        pre.setAttribute('tabindex', '0');
+        pre.focus({ preventScroll: true });
+        const range = document.createRange();
+        range.selectNodeContents(pre);
+        const selection = window.getSelection();
+        selection?.removeAllRanges();
+        selection?.addRange(range);
       }
 
       function getPromptTitle(box) {
@@ -8535,6 +8329,7 @@ no logo, no watermark, no cluttered background, no low resolution, no dark gloom
 
             try {
               await copyText(text);
+              box.classList.remove('manual-copy-enabled');
               copyButton.textContent = '복사 완료';
               copyButton.classList.add('copied');
               showPromptToast(title + '를 복사했습니다.');
@@ -8543,7 +8338,8 @@ no logo, no watermark, no cluttered background, no low resolution, no dark gloom
                 copyButton.classList.remove('copied');
               }, 1500);
             } catch (error) {
-              showPromptToast('복사에 실패했습니다. 프롬프트를 직접 선택해 복사해 주세요.');
+              enableManualCopy(box, toggleButton);
+              showPromptToast('선택된 프롬프트를 ⌘C 또는 Ctrl+C로 복사해 주세요.');
             }
           }, true);
         }
@@ -8785,6 +8581,23 @@ no logo, no watermark, no cluttered background, no low resolution, no dark gloom
         return '';
       }
 
+      let opener = null;
+      const backgroundState = new Map();
+      const closeButton = modal.querySelector('.demo-video-close');
+
+      function lockBackground() {
+        let branch = modal;
+        while (branch.parentElement) {
+          for (const sibling of branch.parentElement.children) {
+            if (sibling === branch) continue;
+            backgroundState.set(sibling, sibling.inert);
+            sibling.inert = true;
+          }
+          branch = branch.parentElement;
+          if (branch === document.body) break;
+        }
+      }
+
       function openDemo(button) {
         const videoId = extractYoutubeId(button.dataset.youtubeId || button.dataset.youtubeUrl || '');
         title.textContent = button.dataset.demoTitle || '시연 영상';
@@ -8797,9 +8610,12 @@ no logo, no watermark, no cluttered background, no low resolution, no dark gloom
           frameWrap.classList.remove('has-video');
         }
 
+        opener = button;
+        lockBackground();
         modal.classList.add('is-open');
         modal.setAttribute('aria-hidden', 'false');
         document.documentElement.classList.add('modal-open');
+        closeButton?.focus({ preventScroll: true });
       }
 
       function closeDemo() {
@@ -8808,6 +8624,10 @@ no logo, no watermark, no cluttered background, no low resolution, no dark gloom
         frame.src = '';
         frameWrap.classList.remove('has-video');
         document.documentElement.classList.remove('modal-open');
+        for (const [node, wasInert] of backgroundState) node.inert = wasInert;
+        backgroundState.clear();
+        if (opener?.isConnected) opener.focus({ preventScroll: true });
+        opener = null;
       }
 
       document.querySelectorAll('.demo-video-toggle').forEach((button) => {
@@ -8819,8 +8639,22 @@ no logo, no watermark, no cluttered background, no low resolution, no dark gloom
       });
 
       window.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && modal.classList.contains('is-open')) {
+        if (!modal.classList.contains('is-open') || event.defaultPrevented) return;
+        if (event.key === 'Escape') {
+          event.preventDefault();
           closeDemo();
+        } else if (event.key === 'Tab') {
+          const focusable = [...modal.querySelectorAll('button:not(:disabled), a[href], iframe, [tabindex="0"]')]
+            .filter(node => node.getClientRects().length);
+          const first = focusable[0];
+          const last = focusable[focusable.length - 1];
+          if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last?.focus();
+          } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first?.focus();
+          }
         }
       });
     })();
@@ -8835,12 +8669,11 @@ no logo, no watermark, no cluttered background, no low resolution, no dark gloom
 
         const toast = document.getElementById('toast');
         if (toast) {
+          clearTimeout(window.__toastTimer);
           toast.textContent = '우클릭은 제한되어 있습니다.';
           toast.classList.add('show');
-          clearTimeout(window.__rightClickToastTimer);
-          window.__rightClickToastTimer = setTimeout(function () {
+          window.__toastTimer = setTimeout(function () {
             toast.classList.remove('show');
-            toast.textContent = '복사되었습니다.';
           }, 1400);
         }
       });
@@ -8889,6 +8722,8 @@ no logo, no watermark, no cluttered background, no low resolution, no dark gloom
     // Text selection and drag prevention
     (function () {
       document.addEventListener('selectstart', function (event) {
+        const target = event.target instanceof Element ? event.target : event.target?.parentElement;
+        if (target?.closest('.manual-copy-enabled pre, [data-copy-fallback]')) return;
         event.preventDefault();
       });
 
@@ -8898,7 +8733,7 @@ no logo, no watermark, no cluttered background, no low resolution, no dark gloom
     })();
   </script>
 
-  <script src="../../assets/js/issue-navigation.js" data-base="../../" data-issue="2026-07" data-monthly-common="issue-navigation"></script>
-  <script src="../../assets/js/liquid-glass.js" defer data-monthly-common="liquid-glass"></script>
+  <script src="../../assets/js/issue-navigation.js?v=7fc5865b4cae" data-base="../../" data-issue="2026-07" data-monthly-common="issue-navigation"></script>
+  <script src="../../assets/js/liquid-glass.js?v=5173cc9068a5" defer data-monthly-common="liquid-glass"></script>
 </body>
 </html>

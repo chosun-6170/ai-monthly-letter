@@ -7275,6 +7275,14 @@
       -webkit-touch-callout: none !important;
     }
 
+    /* Only failed prompt copies expose text selection for keyboard copying. */
+    .manual-copy-enabled pre,
+    .manual-copy-enabled pre *,
+    [data-copy-fallback] {
+      -webkit-user-select: text !important;
+      user-select: text !important;
+    }
+
     img,
     svg,
     video,
@@ -9487,9 +9495,29 @@
       }
     }
 
+      /* 9월호 모델 카드: 번호·모델명·신규 배지를 한 행에 정렬합니다. */
+    #models .september-model-card .model-slot-no {
+      margin-top: 0;
+      align-self: start;
+    }
+
+    #models .september-model-card .model-overview-top {
+      min-height: 36px;
+      margin-bottom: 8px;
+      align-items: center;
+    }
+
+    #models .september-model-card .model-overview-top h3 {
+      flex: 1;
+      margin: 0;
+      overflow-wrap: normal;
+      word-break: keep-all;
+    }
+
   </style>
-  <link rel="stylesheet" href="assets/css/issue-navigation.css" data-monthly-common="issue-navigation" />
-  <link rel="stylesheet" href="assets/css/liquid-glass.css" data-monthly-common="liquid-glass" />
+  <link rel="stylesheet" href="assets/css/issue-navigation.css?v=e368a3d2b4f4" data-monthly-common="issue-navigation" />
+  <link rel="stylesheet" href="assets/css/liquid-glass.css?v=9f880c2757e7" data-monthly-common="liquid-glass" />
+  <link rel="stylesheet" href="assets/css/responsive-layout.css?v=fad7dd8eaa8d" data-monthly-common="responsive-layout" />
 </head>
 
 <body>
@@ -9531,7 +9559,7 @@
         </div>
         <div class="thumb-grid">
           <a class="hero-thumb" href="#thumbnail">
-            <img src="assets/2026-09/thumb-01.jpg" alt="레벨 1 교수용 AI 수업 조교 대표 이미지" />
+            <img src="assets/2026-09/thumb-01.jpg" alt="레벨 1 교수용 AI 수업 조교 대표 이미지" srcset="assets/2026-09/web/thumb-01.webp?v=bc12c85b4ebb 1728w" sizes="(max-width: 430px) 100vw, (max-width: 1080px) 50vw, 300px" />
             <div class="thumb-arrow" aria-hidden="true">
               <svg class="thumb-search-icon" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5L21 21"></path></svg>
             </div>
@@ -9543,7 +9571,7 @@
           </a>
 
           <a class="hero-thumb" href="#handwriting">
-            <img src="assets/2026-09/thumb-02.jpg" alt="레벨 2 학생용 AI 문서 편집기 대표 이미지" />
+            <img src="assets/2026-09/thumb-02.jpg" alt="레벨 2 학생용 AI 문서 편집기 대표 이미지" srcset="assets/2026-09/web/thumb-02.webp?v=99adff6e1457 1728w" sizes="(max-width: 430px) 100vw, (max-width: 1080px) 50vw, 300px" />
             <div class="thumb-arrow" aria-hidden="true">
               <svg class="thumb-search-icon" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5L21 21"></path></svg>
             </div>
@@ -9555,7 +9583,7 @@
           </a>
 
           <a class="hero-thumb" href="#llm-skill">
-            <img src="assets/2026-09/thumb-03.jpg" alt="레벨 3 플랫폼 신기능 대표 이미지" />
+            <img src="assets/2026-09/thumb-03.jpg" alt="레벨 3 플랫폼 신기능 대표 이미지" srcset="assets/2026-09/web/thumb-03.webp?v=30024538a831 1728w" sizes="(max-width: 430px) 100vw, (max-width: 1080px) 50vw, 300px" />
             <div class="thumb-arrow" aria-hidden="true">
               <svg class="thumb-search-icon" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5L21 21"></path></svg>
             </div>
@@ -9567,7 +9595,7 @@
           </a>
 
           <a class="hero-thumb" href="#models">
-            <img src="assets/2026-09/thumb-04.jpg" alt="레벨 4 신규 AI 모델 대표 이미지" />
+            <img src="assets/2026-09/thumb-04.jpg" alt="레벨 4 신규 AI 모델 대표 이미지" srcset="assets/2026-09/web/thumb-04.webp?v=960da1ece206 1728w" sizes="(max-width: 430px) 100vw, (max-width: 1080px) 50vw, 300px" />
             <div class="thumb-arrow" aria-hidden="true">
               <svg class="thumb-search-icon" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5L21 21"></path></svg>
             </div>
@@ -10241,8 +10269,7 @@
             <article class="model-overview-card september-model-card">
               <div class="model-slot-no">01</div>
               <div>
-                <div class="model-overview-top"><span class="update-category">범용·코딩</span><span class="update-status">NEW</span></div>
-                <h3>Gemini 3.7 Flash</h3>
+                <div class="model-overview-top"><h3>Gemini 3.7 Flash</h3><span class="update-status">NEW</span></div>
                 <p class="model-summary">Google의 최신 범용 모델로, 복잡한 코딩과 에이전트 워크플로우, 안정적인 멀티스텝 실행에 적합한 모델</p>
                 <div class="model-capability-list" aria-label="지원 정보"><span>채팅</span><span>웹검색</span><span>심층 사고</span></div>
                 <div class="model-meta-grid"><div><span>추천 용도</span><strong>복합 코딩·에이전트</strong></div><div><span>크레딧 기준</span><strong>8 크레딧</strong></div><div><span>제공사</span><strong>Google</strong></div></div>
@@ -10251,8 +10278,7 @@
             <article class="model-overview-card september-model-card">
               <div class="model-slot-no">02</div>
               <div>
-                <div class="model-overview-top"><span class="update-category">에이전트·코딩</span><span class="update-status">NEW</span></div>
-                <h3>Grok 4.6</h3>
+                <div class="model-overview-top"><h3>Grok 4.6</h3><span class="update-status">NEW</span></div>
                 <p class="model-summary">xAI의 최신 모델로, 에이전트형 작업과 코딩, 긴 문맥 처리에 강점이 있는 모델</p>
                 <div class="model-capability-list" aria-label="지원 정보"><span>채팅</span><span>웹검색</span></div>
                 <div class="model-meta-grid"><div><span>추천 용도</span><strong>장기 에이전트·코딩</strong></div><div><span>크레딧 기준</span><strong>20 크레딧</strong></div><div><span>제공사</span><strong>xAI</strong></div></div>
@@ -10261,8 +10287,7 @@
             <article class="model-overview-card september-model-card">
               <div class="model-slot-no">03</div>
               <div>
-                <div class="model-overview-top"><span class="update-category">플래그십·추론</span><span class="update-status">NEW</span></div>
-                <h3>Qwen 3.8 Max</h3>
+                <div class="model-overview-top"><h3>Qwen 3.8 Max</h3><span class="update-status">NEW</span></div>
                 <p class="model-summary">Alibaba의 차세대 플래그십 모델로, 최고 수준의 추론·코딩 성능과 초장문 컨텍스트를 제공하는 모델</p>
                 <div class="model-capability-list" aria-label="지원 정보"><span>채팅</span><span>웹검색</span><span>심층 사고</span></div>
                 <div class="model-meta-grid"><div><span>추천 용도</span><strong>고난도 추론·초장문 분석</strong></div><div><span>크레딧 기준</span><strong>20 크레딧</strong></div><div><span>제공사</span><strong>Alibaba</strong></div></div>
@@ -10271,8 +10296,7 @@
             <article class="model-overview-card september-model-card">
               <div class="model-slot-no">04</div>
               <div>
-                <div class="model-overview-top"><span class="update-category">국산·문서</span><span class="update-status">NEW</span></div>
-                <h3>Solar Pro 4</h3>
+                <div class="model-overview-top"><h3>Solar Pro 4</h3><span class="update-status">NEW</span></div>
                 <p class="model-summary">Upstage의 국산 최신 AI 모델로, 도구 사용, 장문 문서 처리, 코딩에 최적화된 모델</p>
                 <div class="model-capability-list" aria-label="지원 정보"><span>채팅</span><span>웹검색</span><span>심층 사고</span></div>
                 <div class="model-meta-grid"><div><span>추천 용도</span><strong>전문 문서·도구 사용</strong></div><div><span>크레딧 기준</span><strong>3 크레딧</strong></div><div><span>제공사</span><strong>Upstage</strong></div></div>
@@ -10281,8 +10305,7 @@
             <article class="model-overview-card september-model-card">
               <div class="model-slot-no">05</div>
               <div>
-                <div class="model-overview-top"><span class="update-category">국산·추론</span><span class="update-status">NEW</span></div>
-                <h3>K-EXAONE 2.0</h3>
+                <div class="model-overview-top"><h3>K-EXAONE 2.0</h3><span class="update-status">NEW</span></div>
                 <p class="model-summary">LG AI Research의 최신 대형 추론 모델로, 한국어 장문 처리, 도구 사용, 복잡한 추론에 강점이 있는 모델</p>
                 <div class="model-capability-list" aria-label="지원 정보"><span>채팅</span><span>웹검색</span><span>심층 사고</span></div>
                 <div class="model-meta-grid"><div><span>추천 용도</span><strong>한국어 장문·복잡한 추론</strong></div><div><span>크레딧 기준</span><strong>12 크레딧</strong></div><div><span>제공사</span><strong>LG AI Research</strong></div></div>
@@ -10291,8 +10314,7 @@
             <article class="model-overview-card september-model-card">
               <div class="model-slot-no">06</div>
               <div>
-                <div class="model-overview-top"><span class="update-category">고속·경제형</span><span class="update-status">NEW</span></div>
-                <h3>DeepSeek V4 Flash</h3>
+                <div class="model-overview-top"><h3>DeepSeek V4 Flash</h3><span class="update-status">NEW</span></div>
                 <p class="model-summary">DeepSeek의 초고속 경량 모델(Alibaba Cloud 호스팅)로, 빠른 응답과 높은 비용 효율이 강점인 모델</p>
                 <div class="model-capability-list" aria-label="지원 정보"><span>채팅</span><span>웹검색</span><span>심층 사고</span></div>
                 <div class="model-meta-grid"><div><span>추천 용도</span><strong>빠른 응답·반복 업무</strong></div><div><span>크레딧 기준</span><strong>2 크레딧</strong></div><div><span>제공사</span><strong>DeepSeek · Alibaba Cloud</strong></div></div>
@@ -10301,8 +10323,7 @@
             <article class="model-overview-card september-model-card">
               <div class="model-slot-no">07</div>
               <div>
-                <div class="model-overview-top"><span class="update-category">추론·코딩</span><span class="update-status">NEW</span></div>
-                <h3>DeepSeek V4 Pro</h3>
+                <div class="model-overview-top"><h3>DeepSeek V4 Pro</h3><span class="update-status">NEW</span></div>
                 <p class="model-summary">DeepSeek의 플래그십 추론 모델(Alibaba Cloud 호스팅)로, 복잡한 추론과 코딩 작업에 적합한 모델</p>
                 <div class="model-capability-list" aria-label="지원 정보"><span>채팅</span><span>웹검색</span><span>심층 사고</span></div>
                 <div class="model-meta-grid"><div><span>추천 용도</span><strong>고난도 추론·코딩</strong></div><div><span>크레딧 기준</span><strong>24 크레딧</strong></div><div><span>제공사</span><strong>DeepSeek · Alibaba Cloud</strong></div></div>
@@ -10321,8 +10342,7 @@
             <article class="model-overview-card september-model-card">
               <div class="model-slot-no">08</div>
               <div>
-                <div class="model-overview-top"><span class="update-category">이미지 생성 AI</span><span class="update-status">NEW</span></div>
-                <h3>Seedream 5.0 Pro</h3>
+                <div class="model-overview-top"><h3>Seedream 5.0 Pro</h3><span class="update-status">NEW</span></div>
                 <p class="model-summary">고해상도 디테일과 텍스트 렌더링, 이미지 편집에 강점이 있는 이미지 생성 모델</p>
                 <div class="model-capability-list" aria-label="지원 정보"><span>이미지 생성</span><span>이미지 편집</span><span>텍스트 렌더링</span></div>
                 <div class="model-meta-grid"><div><span>추천 용도</span><strong>고해상도 이미지·편집</strong></div><div><span>크레딧 기준</span><strong>이미지당 90</strong></div><div><span>제공사</span><strong>ByteDance</strong></div></div>
@@ -10340,8 +10360,7 @@
             <article class="model-overview-card september-model-card">
               <div class="model-slot-no">09</div>
               <div>
-                <div class="model-overview-top"><span class="update-category">고품질 영상</span><span class="update-status">NEW</span></div>
-                <h3>LTX-2.5 Pro</h3>
+                <div class="model-overview-top"><h3>LTX-2.5 Pro</h3><span class="update-status">NEW</span></div>
                 <p class="model-summary">LTX-2.5의 고품질 티어로, 최종 완성본 제작에 적합한 영상 생성 모델</p>
                 <div class="model-capability-list" aria-label="지원 정보"><span>영상 생성</span><span>오디오 지원</span></div>
                 <div class="model-meta-grid"><div><span>추천 용도</span><strong>고품질 최종 영상</strong></div><div><span>크레딧 기준</span><strong>비디오당 720</strong></div><div><span>제공사</span><strong>Lighttricks</strong></div></div>
@@ -10350,8 +10369,7 @@
             <article class="model-overview-card september-model-card">
               <div class="model-slot-no">10</div>
               <div>
-                <div class="model-overview-top"><span class="update-category">고속 영상</span><span class="update-status">NEW</span></div>
-                <h3>LTX-2.5 Fast</h3>
+                <div class="model-overview-top"><h3>LTX-2.5 Fast</h3><span class="update-status">NEW</span></div>
                 <p class="model-summary">짧은 대기 시간과 오디오 동시 생성을 지원하는 고속 영상 생성 모델</p>
                 <div class="model-capability-list" aria-label="지원 정보"><span>영상 생성</span><span>오디오 지원</span></div>
                 <div class="model-meta-grid"><div><span>추천 용도</span><strong>빠른 영상 시안</strong></div><div><span>크레딧 기준</span><strong>비디오당 540</strong></div><div><span>제공사</span><strong>Lighttricks</strong></div></div>
@@ -10651,29 +10669,58 @@
       function showPromptToast(message) {
         const toast = document.getElementById('toast');
         if (!toast) return;
+        clearTimeout(window.__toastTimer);
         toast.textContent = message;
         toast.classList.add('show');
-        clearTimeout(window.__promptToastTimer);
-        window.__promptToastTimer = setTimeout(() => {
+        window.__toastTimer = setTimeout(() => {
           toast.classList.remove('show');
         }, 1800);
       }
 
       async function copyText(text) {
+        if (!text.trim()) throw new Error('복사할 내용이 없습니다.');
         if (navigator.clipboard?.writeText) {
-          await navigator.clipboard.writeText(text);
-          return;
+          try {
+            await navigator.clipboard.writeText(text);
+            return;
+          } catch (_) {
+            // Some browsers reject the API even when the legacy copy is available.
+          }
         }
 
+        const active = document.activeElement;
         const fallback = document.createElement('textarea');
         fallback.value = text;
         fallback.setAttribute('readonly', '');
+        fallback.setAttribute('data-copy-fallback', '');
         fallback.style.position = 'fixed';
         fallback.style.left = '-9999px';
         document.body.appendChild(fallback);
-        fallback.select();
-        document.execCommand('copy');
-        fallback.remove();
+        try {
+          fallback.select();
+          if (!document.execCommand('copy')) throw new Error('클립보드 복사가 차단되었습니다.');
+        } finally {
+          fallback.remove();
+          if (active?.isConnected) active.focus({ preventScroll: true });
+        }
+      }
+
+      function enableManualCopy(box, toggleButton) {
+        box.classList.add('manual-copy-enabled');
+        box.classList.remove('collapsed');
+        if (toggleButton) {
+          toggleButton.textContent = '접기';
+          toggleButton.setAttribute('aria-expanded', 'true');
+        }
+        const pre = box.querySelector('pre');
+        if (!pre) return;
+        pre.setAttribute('tabindex', '0');
+        pre.focus({ preventScroll: true });
+        const range = document.createRange();
+        range.selectNodeContents(pre);
+        const selection = window.getSelection();
+        selection?.removeAllRanges();
+        selection?.addRange(range);
       }
 
       function getPromptTitle(box) {
@@ -10719,6 +10766,7 @@
 
             try {
               await copyText(text);
+              box.classList.remove('manual-copy-enabled');
               copyButton.textContent = '복사 완료';
               copyButton.classList.add('copied');
               showPromptToast(title + '를 복사했습니다.');
@@ -10727,7 +10775,8 @@
                 copyButton.classList.remove('copied');
               }, 1500);
             } catch (error) {
-              showPromptToast('복사에 실패했습니다. 프롬프트를 직접 선택해 복사해 주세요.');
+              enableManualCopy(box, toggleButton);
+              showPromptToast('선택된 프롬프트를 ⌘C 또는 Ctrl+C로 복사해 주세요.');
             }
           }, true);
         }
@@ -10969,6 +11018,23 @@
         return '';
       }
 
+      let opener = null;
+      const backgroundState = new Map();
+      const closeButton = modal.querySelector('.demo-video-close');
+
+      function lockBackground() {
+        let branch = modal;
+        while (branch.parentElement) {
+          for (const sibling of branch.parentElement.children) {
+            if (sibling === branch) continue;
+            backgroundState.set(sibling, sibling.inert);
+            sibling.inert = true;
+          }
+          branch = branch.parentElement;
+          if (branch === document.body) break;
+        }
+      }
+
       function openDemo(button) {
         const videoId = extractYoutubeId(button.dataset.youtubeId || button.dataset.youtubeUrl || '');
         title.textContent = button.dataset.demoTitle || '시연 영상';
@@ -10981,9 +11047,12 @@
           frameWrap.classList.remove('has-video');
         }
 
+        opener = button;
+        lockBackground();
         modal.classList.add('is-open');
         modal.setAttribute('aria-hidden', 'false');
         document.documentElement.classList.add('modal-open');
+        closeButton?.focus({ preventScroll: true });
       }
 
       function closeDemo() {
@@ -10992,6 +11061,10 @@
         frame.src = '';
         frameWrap.classList.remove('has-video');
         document.documentElement.classList.remove('modal-open');
+        for (const [node, wasInert] of backgroundState) node.inert = wasInert;
+        backgroundState.clear();
+        if (opener?.isConnected) opener.focus({ preventScroll: true });
+        opener = null;
       }
 
       document.querySelectorAll('.demo-video-toggle').forEach((button) => {
@@ -11003,8 +11076,22 @@
       });
 
       window.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && modal.classList.contains('is-open')) {
+        if (!modal.classList.contains('is-open') || event.defaultPrevented) return;
+        if (event.key === 'Escape') {
+          event.preventDefault();
           closeDemo();
+        } else if (event.key === 'Tab') {
+          const focusable = [...modal.querySelectorAll('button:not(:disabled), a[href], iframe, [tabindex="0"]')]
+            .filter(node => node.getClientRects().length);
+          const first = focusable[0];
+          const last = focusable[focusable.length - 1];
+          if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last?.focus();
+          } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first?.focus();
+          }
         }
       });
     })();
@@ -11019,12 +11106,11 @@
 
         const toast = document.getElementById('toast');
         if (toast) {
+          clearTimeout(window.__toastTimer);
           toast.textContent = '우클릭은 제한되어 있습니다.';
           toast.classList.add('show');
-          clearTimeout(window.__rightClickToastTimer);
-          window.__rightClickToastTimer = setTimeout(function () {
+          window.__toastTimer = setTimeout(function () {
             toast.classList.remove('show');
-            toast.textContent = '복사되었습니다.';
           }, 1400);
         }
       });
@@ -11073,6 +11159,8 @@
     // Text selection and drag prevention
     (function () {
       document.addEventListener('selectstart', function (event) {
+        const target = event.target instanceof Element ? event.target : event.target?.parentElement;
+        if (target?.closest('.manual-copy-enabled pre, [data-copy-fallback]')) return;
         event.preventDefault();
       });
 
@@ -11082,7 +11170,7 @@
     })();
   </script>
 
-  <script src="assets/js/issue-navigation.js" data-base="./" data-issue="2026-09" data-monthly-common="issue-navigation"></script>
-  <script src="assets/js/liquid-glass.js" defer data-monthly-common="liquid-glass"></script>
+  <script src="assets/js/issue-navigation.js?v=7fc5865b4cae" data-base="./" data-issue="2026-09" data-monthly-common="issue-navigation"></script>
+  <script src="assets/js/liquid-glass.js?v=5173cc9068a5" defer data-monthly-common="liquid-glass"></script>
 </body>
 </html>

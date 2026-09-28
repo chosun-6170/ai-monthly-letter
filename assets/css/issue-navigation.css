@@ -35,7 +35,7 @@
 .issue-switcher__button {
   min-width: 82px;
   height: 44px;
-  padding: 0 14px;
+  padding: 0 10px;
   border: 1px solid rgba(37, 99, 235, 0.16);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.78);
@@ -43,11 +43,12 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 7px;
+  gap: 5px;
   font: inherit;
   font-size: 13px;
   font-weight: 850;
   line-height: 1;
+  white-space: nowrap;
   cursor: pointer;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
@@ -136,6 +137,10 @@ a.issue-switcher__item:focus-visible {
 }
 
 .issue-switcher__month {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   font-size: 14px;
   font-weight: 850;
   line-height: 1.25;
@@ -314,7 +319,7 @@ a.issue-pager__item:focus-visible {
   .issue-switcher__button {
     min-width: 58px;
     height: 40px;
-    padding: 0 10px;
+    padding: 0 8px;
     font-size: 12px;
   }
 

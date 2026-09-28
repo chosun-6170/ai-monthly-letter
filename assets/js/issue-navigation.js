@@ -272,7 +272,9 @@
       if (!switcher.contains(event.target)) setOpen(false);
     });
     document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") {
+      if (event.key === "Escape" && !event.defaultPrevented && switcher.classList.contains("is-open")
+          && !document.querySelector(".demo-video-modal.is-open")) {
+        event.preventDefault();
         setOpen(false);
         button.focus();
       }

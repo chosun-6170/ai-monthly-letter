@@ -1,0 +1,40 @@
+/* Shared web-only spacing fixes for the published letters and local previews. */
+@media screen and (max-width: 900px) and (min-width: 761px) {
+  /* The September small-update summary has 150 + 190 + 230px minimum
+     columns. Together with card padding and its action, this exceeds the
+     available width at the tablet breakpoint. */
+  html[data-liquid-glass="true"] .platform-small-grid .platform-feature-card.is-compact .platform-feature-summary {
+    display: block;
+  }
+
+  html[data-liquid-glass="true"] .platform-small-grid .platform-feature-card.is-compact .platform-feature-meta {
+    margin-bottom: 10px;
+  }
+
+  html[data-liquid-glass="true"] .platform-small-grid .platform-feature-card.is-compact .platform-feature-summary h3 {
+    margin: 5px 0 8px;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  /* Long meaning-group spans in August–October otherwise keep their entire
+     phrase on one line, even when a thumbnail is narrower than the phrase. */
+  html[data-liquid-glass="true"] .hero-thumb .thumb-description > span {
+    min-width: 0;
+    white-space: normal;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  /* A two-column card leaves less than 150px for headings on small phones. */
+  html[data-liquid-glass="true"] .hero .thumb-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  html[data-liquid-glass="true"] .hero .hero-thumb {
+    min-width: 0;
+    min-height: 280px;
+  }
+}
