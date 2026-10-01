@@ -1,4 +1,13 @@
 /* Shared web-only spacing fixes for the published letters and local previews. */
+@media screen {
+  /* The notice must fit its text at every width. Only expanded previews lose
+     the old fixed height cap; the collapsed state and print layout are intact. */
+  html[data-liquid-glass="true"] #promptNotice.is-readable .notice-preview,
+  html[data-liquid-glass="true"] #promptNotice[open] .notice-preview {
+    max-height: none;
+  }
+}
+
 @media screen and (max-width: 900px) and (min-width: 761px) {
   /* The September small-update summary has 150 + 190 + 230px minimum
      columns. Together with card padding and its action, this exceeds the
