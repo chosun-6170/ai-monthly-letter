@@ -1,5 +1,5 @@
 {
-  "currentIssue": "2026-09",
+  "currentIssue": "2026-10",
   "issues": [
     {
       "id": "2026-07",
@@ -60,7 +60,7 @@
       "year": 2026,
       "month": 10,
       "volume": "통권 제4호",
-      "status": "planned",
+      "status": "published",
       "label": "2026년 10월호",
       "title": "과제 설계부터 학습 진단까지, AI를 더 깊이 활용하는 방법 🔍",
       "path": "issues/2026-10/",
