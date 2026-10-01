@@ -1,5 +1,25 @@
-/* Shared web-only spacing fixes for the published letters and local previews. */
+/* Shared web-only text flow and spacing for every published letter and preview. */
 @media screen {
+  /* Korean prose wraps at spaces first. A word wider than the available
+     column may still break; do not lock entire sentences onto one line.
+     Scope this to reading content, leaving navigation and controls intact. */
+  html[data-liquid-glass="true"] #home :is(h1, h2, h3, h4, h5, h6, p, li, dt, dd),
+  html[data-liquid-glass="true"] #home :is(.workflow-capsule, .growth-step, .use-step, .update-use-guide) > span,
+  html[data-liquid-glass="true"] #models .model-overview-top h3,
+  html[data-liquid-glass="true"] #models .model-meta-grid strong,
+  html[data-liquid-glass="true"] #home .feature-route strong,
+  html[data-liquid-glass="true"] #home .platform-use-path strong {
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+
+  /* URLs and preformatted prompts need an emergency break at any character.
+     Existing prompt whitespace, font sizes and intentional line breaks stay. */
+  html[data-liquid-glass="true"] #home :is(p, li, dd) a[href],
+  html[data-liquid-glass="true"] #home :is(pre, code) {
+    overflow-wrap: anywhere;
+  }
+
   /* The notice must fit its text at every width. Only expanded previews lose
      the old fixed height cap; the collapsed state and print layout are intact. */
   html[data-liquid-glass="true"] #promptNotice.is-readable .notice-preview,
