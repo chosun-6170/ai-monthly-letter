@@ -9602,6 +9602,63 @@
       }
     }
   </style>
+<style data-monthly-retro-layout>
+
+    @media screen {
+      #models .model-overview-card {
+        --retro-number-size: 36px;
+        grid-template-columns: var(--retro-number-size) minmax(0, 1fr);
+        grid-template-areas: "number title" ". summary" ". capabilities" ". metadata";
+        row-gap: 0;
+      }
+      #models .model-overview-card > div:last-child { display: contents; }
+      #models .model-overview-card .model-slot-no {
+        grid-area: number; width: var(--retro-number-size); height: var(--retro-number-size);
+        margin: 0; align-self: center;
+      }
+      #models .september-model-card .model-overview-top { grid-area: title; align-self: center; margin: 0; min-height: var(--retro-number-size); align-items: center; }
+      #models .model-overview-card .model-summary { grid-area: summary; margin-top: 8px; }
+      #models .model-overview-card .model-meta-grid { grid-area: metadata; }
+      #models .model-overview-card .model-capability-list { grid-area: capabilities; }
+    }
+    @media screen and (min-width: 761px) and (max-width: 980px) {
+      #models .model-overview-card { --retro-number-size: 46px; }
+    }
+    @media screen and (max-width: 760px) {
+      #models .model-overview-card { --retro-number-size: 40px; }
+    }
+
+    /* Normal two-column disclosures only; the featured and compact September
+       cards retain their own layout. No fixed prose heights or truncation. */
+    @media screen {
+      #llm-skill .platform-feature-grid { align-items: stretch; }
+      #llm-skill .platform-feature-grid:has(> .platform-feature-card[open]) { align-items: start; }
+      #llm-skill .platform-feature-grid > .platform-feature-card > summary {
+        min-height: 0; align-items: start;
+      }
+      #llm-skill .platform-feature-grid .platform-feature-summary h3 { min-height: 2.48em; }
+      #llm-skill .platform-feature-grid .platform-detail-trigger { align-self: center; }
+    }
+    @media screen and (max-width: 1100px) {
+      #llm-skill .platform-feature-grid > .platform-feature-card > summary {
+        grid-template-columns: minmax(0, 1fr); gap: 15px;
+      }
+      #llm-skill .platform-feature-grid .platform-detail-trigger { justify-self: start; }
+    }
+
+    @media screen {
+      #llm-skill .platform-note-card .retro-note-content { min-width: 0; }
+      #llm-skill .platform-note-card .retro-note-label {
+        display: block; margin-bottom: 6px; color: var(--text);
+        font-size: 16px; line-height: 1.5; font-weight: 800;
+      }
+      #llm-skill .platform-note-card .retro-note-copy {
+        display: block; margin: 0; font-size: 16px; line-height: 1.7;
+        word-break: keep-all; overflow-wrap: break-word;
+      }
+    }
+
+</style>
   <link rel="stylesheet" href="../../assets/css/issue-navigation.css?v=e368a3d2b4f4" data-monthly-common="issue-navigation" />
   <link rel="stylesheet" href="../../assets/css/liquid-glass.css?v=9f880c2757e7" data-monthly-common="liquid-glass" />
   <link rel="stylesheet" href="../../assets/css/responsive-layout.css?v=6aa92ef47163" data-monthly-common="responsive-layout" />
@@ -10649,7 +10706,7 @@ PDF, PPT, 강의자료, 필기 등을 첨부해 주세요.
             <details class="platform-feature-card"><summary><div class="platform-feature-summary"><div class="platform-feature-meta"><b>07</b><span>FILE</span><em>UPDATE</em></div><span class="platform-feature-name">파일 처리 상태</span><h3>업로드한 문서의 준비 상태 확인</h3><p>분석이 진행되는 동안 파일 처리 상태가 화면에 표시됩니다.</p></div><span class="platform-detail-trigger"><i class="when-closed">자세히</i><i class="when-open">접기</i></span></summary><div class="platform-feature-body"><div class="platform-feature-copy"><h4>파일 처리 상태</h4><p>파일이 아직 처리 중인지, 대화에 사용할 준비가 되었는지를 보다 쉽게 확인할 수 있습니다.</p></div><div class="platform-use-path"><span>이용 위치</span><strong>파일 업로드·분석 화면</strong></div></div></details>
           </div>
         </section>
-        <div class="guidance-grid platform-guidance-grid"><div class="guidance-card platform-note-card"><h3>함께 개선된 부분</h3><ul class="guidance-list"><li><span>다른 AI 서비스에서 내보낸 대화 파일이 여러 개로 나뉘어 있어도 한 번에 가져올 수 있습니다.</span></li><li><span>자료실·FAQ에서 파일 처리 중 저장할 때 첨부가 누락되던 문제가 개선되었습니다.</span></li></ul></div><div class="guidance-card platform-note-card"><h3>사용 전 확인</h3><ul class="guidance-list"><li><span>음성 입력 문장은 전송 전에 오탈자와 고유명사를 확인해 주세요.</span></li><li><span>파일 처리가 완료된 뒤 질문해야 문서 내용이 대화에 안정적으로 반영됩니다.</span></li></ul></div></div>
+        <div class="guidance-grid platform-guidance-grid"><div class="guidance-card platform-note-card"><h3>함께 개선된 부분</h3><ul class="guidance-list"><li><div class="retro-note-content"><strong class="retro-note-label">여러 대화 파일 한 번에 가져오기</strong><p class="retro-note-copy">다른 AI 서비스에서 내보낸 대화 파일이 여러 개로 나뉘어 있어도 한 번에 가져올 수 있습니다.</p></div></li><li><div class="retro-note-content"><strong class="retro-note-label">첨부파일 저장 개선</strong><p class="retro-note-copy">자료실·FAQ에서 파일 처리 중 저장할 때 첨부가 누락되던 문제가 개선되었습니다.</p></div></li></ul></div><div class="guidance-card platform-note-card"><h3>사용 전 확인</h3><ul class="guidance-list"><li><div class="retro-note-content"><strong class="retro-note-label">음성 입력은 전송 전에 확인</strong><p class="retro-note-copy">음성 입력 문장은 전송 전에 오탈자와 고유명사를 확인해 주세요.</p></div></li><li><div class="retro-note-content"><strong class="retro-note-label">문서 처리 완료 후 질문</strong><p class="retro-note-copy">파일 처리가 완료된 뒤 질문해야 문서 내용이 대화에 안정적으로 반영됩니다.</p></div></li></ul></div></div>
         <div class="next-row"><a class="next-btn" href="#models">다음 LEVEL 보기 →</a></div>
       </div></div>
     </section>

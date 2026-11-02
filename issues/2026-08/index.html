@@ -8782,6 +8782,33 @@
     }
 
   </style>
+<style data-monthly-retro-layout>
+
+    @media screen {
+      #models .model-overview-card {
+        --retro-number-size: 36px;
+        grid-template-columns: var(--retro-number-size) minmax(0, 1fr);
+        grid-template-areas: "number title" ". summary" ". metadata";
+        row-gap: 0;
+      }
+      #models .model-overview-card > div:last-child { display: contents; }
+      #models .model-overview-card .model-slot-no {
+        grid-area: number; width: var(--retro-number-size); height: var(--retro-number-size);
+        margin: 0; align-self: center;
+      }
+      #models .model-overview-card .model-overview-body > h3 { grid-area: title; align-self: center; margin: 0;  }
+      #models .model-overview-card .model-summary { grid-area: summary; margin-top: 8px; }
+      #models .model-overview-card .model-meta-grid { grid-area: metadata; }
+      
+    }
+    @media screen and (min-width: 761px) and (max-width: 980px) {
+      #models .model-overview-card { --retro-number-size: 46px; }
+    }
+    @media screen and (max-width: 760px) {
+      #models .model-overview-card { --retro-number-size: 40px; }
+    }
+
+</style>
   <link rel="stylesheet" href="../../assets/css/issue-navigation.css?v=e368a3d2b4f4" data-monthly-common="issue-navigation" />
   <link rel="stylesheet" href="../../assets/css/liquid-glass.css?v=9f880c2757e7" data-monthly-common="liquid-glass" />
   <link rel="stylesheet" href="../../assets/css/responsive-layout.css?v=6aa92ef47163" data-monthly-common="responsive-layout" />

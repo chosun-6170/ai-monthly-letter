@@ -1,5 +1,5 @@
 {
-  "currentIssue": "2026-10",
+  "currentIssue": "2026-11",
   "issues": [
     {
       "id": "2026-07",
@@ -78,10 +78,18 @@
       "year": 2026,
       "month": 11,
       "volume": "통권 제5호",
-      "status": "planned",
+      "status": "published",
       "label": "2026년 11월호",
-      "title": "11월호 준비 중",
-      "path": "issues/2026-11/"
+      "title": "자료조사 다음 단계, AI와 함께 분석하고 지도하기 🧩",
+      "path": "issues/2026-11/",
+      "printGuides": {
+        "faculty": [
+          "thumbnail"
+        ],
+        "student": [
+          "handwriting"
+        ]
+      }
     },
     {
       "id": "2026-12",
